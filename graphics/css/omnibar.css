@@ -1,0 +1,142 @@
+@font-face {
+  font-family: retro;
+  src: url("../Fonts/Retro\ Gaming.ttf");
+}
+
+body {
+  margin: 0;
+  font-family: retro;
+}
+
+#omnibar {
+  width: 1920px;
+  height: 117px;
+  display: flex;
+  background: black;
+  overflow: hidden;
+}
+#omnibar_left {
+  width: 1234px;
+  height: 117px;
+  display: flex;
+  background: black;
+  overflow: hidden;
+}
+#omnibar_right {
+  width: 686px;
+  height: 117px;
+  display: flex;
+  background: black;
+  overflow: hidden;
+}
+
+#omni-logo-brat {
+  background-image: url("../Images/brat_logo.png");
+  width: 134px;
+  height: 117px;
+}
+
+#omni-logo-helped {
+  background-image: url("../Images/helped_logo.png");
+  width: 134px;
+  height: 117px;
+}
+
+#omni-value {
+  width: 543px;
+  height: 117px;
+  color: #4db44a;
+  font-size: 50px;
+  padding-top: 25px;
+  z-index: 120;
+}
+
+.donateval {
+  width: 543px;
+  text-align: right;
+  z-index: 120;
+}
+
+.separador {
+  background-image: url("../Images/separador.png");
+  margin-left: -40px;
+  width: 55px;
+  height: 117px;
+  z-index: 100;
+}
+
+#omni-content {
+  width: 1111px;
+  height: 117px;
+  display: flex;
+  color: black;
+  padding-right: 20px;
+}
+
+.omni-content-item {
+  display: flex;
+  color: black;
+}
+
+.content_block {
+  margin-left: -25px;
+  display: flex;
+  flex-direction: column;
+  min-width: 50px;
+  padding-left: 30px;
+  height: 90px;
+  margin-top: 13px;
+  background: #4db44a;
+}
+
+.separador2 {
+  background-image: url("../Images/separador2.png");
+  margin-left: -1px;
+  width: 49px;
+  height: 117px;
+  z-index: 100;
+}
+
+#spanAseguir {
+  margin-top: 5px;
+  font-size: 50px;
+}
+
+.nextRunName {
+  font-size: 20px;
+}
+.nextRunCat {
+  font-size: 12px;
+}
+
+.Incname {
+  font-size: 20px;
+}
+
+.IncGame {
+  font-size: 12px;
+}
+
+.Incval {
+  font-size: 15px;
+  bottom: 0px;
+}
+
+.valorA {
+  font-size: 15px;
+  bottom: 0px;
+}
+
+.valorSep {
+  font-size: 15px;
+  bottom: 0px;
+}
+
+.valorB {
+  font-size: 15px;
+  bottom: 0px;
+}
+
+#IncValues {
+  flex-direction: row;
+}

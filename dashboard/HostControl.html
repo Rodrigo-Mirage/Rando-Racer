@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <style>
+        body {
+            font-family: sans-serif;
+        }
+
+        .monospace {
+            font-family: monospace;
+        }
+    </style>
+    <link rel="stylesheet" href="css/brat-dashboard.css" />
+</head>
+
+<body style="margin:0">
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"
+        integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
+    Nome(s) do(s) Caster(s): <input type="text" id="hostName" name="hostName" onChange="newName(this)" /></br>
+
+    Runners:
+    <div id="runnersDiv"></div>
+
+    <script src="js/hostActions.js"></script>
+</body>
+
+</html>

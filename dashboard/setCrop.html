@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <style>
+      body {
+        font-family: sans-serif;
+      }
+
+      .monospace {
+        font-family: monospace;
+      }
+    </style>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/jquery-jcrop/0.9.15/css/jquery.Jcrop.min.css"
+    /><link rel="stylesheet" href="css/brat-dashboard.css" />
+  </head>
+
+  <body style="margin: 0">
+    <script src="https://player.twitch.tv/js/embed/v1.js"></script>
+
+    <div class="slidecontainer">
+      <input
+        type="range"
+        min="0"
+        max="100"
+        value="100"
+        class="slider"
+        id="myRange"
+      />
+      <input type="number" min="0" max="100" value="100" id="sliderAmount" />
+    </div>
+
+    <div id="crop">
+      <div id="Video"></div>
+    </div>
+
+    <script src="js/setCrop.js"></script>
+  </body>
+</html>

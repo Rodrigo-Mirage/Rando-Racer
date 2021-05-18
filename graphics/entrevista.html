@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+	<style>
+		body {
+			font-family: sans-serif;
+		}
+
+		.monospace {
+			font-family: monospace;
+		}
+	</style>
+<link rel="stylesheet" type="text/css" href="css/omnibar.css">
+</head>
+<body style="margin:0">
+<script src= "https://player.twitch.tv/js/embed/v1.js"></script>
+	
+<script src="anime.min.js"></script>
+<div id="canvas" style="border:0;width:1920px ; height:1080px;">
+
+	<div id="TPlayers"></div>
+	<div id="overlay"></div>
+	<div id="omnibar"></div>
+	
+</div>
+	
+	<script src="entre.js"></script>
+	<script src="omnibar.js"></script>
+	<script src="fitty.js"></script>
+	<style>
+		@font-face {
+		  font-family: principal;
+		  src: url('../graphics/Fonts/Seven.ttf');
+		}
+
+		body {
+		  font-family: principal;
+		  background-color:#171513;
+			overflow: hidden;
+		}
+		
+		#overlay{
+			position:absolute;
+			height:1080px;
+			width:1920px;
+			top:0;
+			left:0;
+			background-image:url('../graphics/Images/Entrevistas.png');
+			background-repeat: no-repeat; 
+		}
+		
+		
+		#canvas{
+			background-image:url('../graphics/Images/Entrevistas.png');
+			background-repeat: no-repeat; 
+			overflow: hidden;
+		}
+			
+		
+	</style>
+	
+</body>
+</html>

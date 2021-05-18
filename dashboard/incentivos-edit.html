@@ -1,0 +1,48 @@
+ <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+	<style>
+		body {
+			font-family: sans-serif;
+		}
+
+		.monospace {
+			font-family: monospace;
+		}
+	</style><link rel="stylesheet" href="css/brat-dashboard.css" />
+</head>
+<body style="margin:0">
+	<div id ="editForm" style= 'display: none'>
+		<input type= "hidden" id="incId" value ="0"/>
+		<input type= "hidden" id="incGame" value =""/>
+		<label>Nome</label>
+		<input type="text" id="incNome" name="incNome"/></br>
+		
+		<input onclick="tipo('Mod')" type="radio" id="incMod" name ="tipo"/><label>Modificação</label>
+		<input onclick="tipo('Arc')" type="radio" id="incArc" name ="tipo"/><label>Adição</label></br>
+		<label>Valido até</label>
+		<select id="valid" onChange="setGame(this)"></select></br>
+		
+		<div id="valor" style="display:none">
+			<label>Valor</label>
+			<input type="text" id="valorA" name="valor"/></br>
+			<label>Objetivo</label>
+			<input type="text" id="valorB" name="valor"/>
+		</div>
+		
+		<div id="valores" style="display:none">
+			<label>Opções</label>
+			<div id="itens"></div>
+			
+			<input type="checkbox" id="outros" name ="tipo"/><label>Outros</label>
+		</div>
+		
+		<button onclick="save()">Save</button>
+	    <button id="closeBtn" onclick="closeBtn()">Cancel</button>
+	</div>
+	<button id="newBtn" onclick="newBtn()">Novo</button>
+	
+	<script src="js/incentivos.js"></script>
+</body>
+</html>

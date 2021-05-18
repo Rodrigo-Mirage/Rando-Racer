@@ -1,0 +1,2504 @@
+body {
+  font-family: principal;
+  background-color: #171513;
+  overflow: hidden;
+}
+
+#overlay {
+  position: absolute;
+  height: 1080px;
+  width: 1920px;
+  top: 0;
+  left: 0;
+}
+
+@font-face {
+  font-family: retro;
+  src: url("../Fonts/Retro\ Gaming.ttf");
+}
+
+@font-face {
+  font-family: ZurichBT-Bold;
+  src: url("../Fonts/ZurichBT-Bold.otf");
+}
+
+@font-face {
+  font-family: ZurichBT-Roman;
+  src: url("../Fonts/ZurichBT-Roman.otf");
+}
+
+@font-face {
+  font-family: SHPinscher;
+  src: url("../Fonts/SHPinscher-Regular.otf");
+}
+
+.OverSingle {
+  background-image: url("../graphics/Images/Over.png");
+}
+#videoDiv {
+  position: absolute;
+  left: 1182px;
+  top: 300px;
+  width: 250px;
+}
+.intermission {
+  background-image: url("../Images/Fundo04.png");
+  background-size: cover;
+
+  .player {
+    display: flex;
+    flex-direction: column;
+    height: 100px;
+    width: 579px;
+    color: #4db44a;
+    font-family: sh;
+    font-size: 25pt;
+  }
+
+  #player1Div {
+    position: absolute;
+    left: 71px;
+    top: 364px;
+  }
+
+  #player1 {
+    border-top: 1px solid #4db44a;
+    text-align: left;
+    font-family: retro;
+  }
+
+  #player2Div {
+    display: none;
+  }
+  #player3Div {
+    display: none;
+  }
+  #player4Div {
+    display: none;
+  }
+
+  #gameTitleDiv {
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    height: 113px;
+    width: 579px;
+    color: #4db44a;
+    top: 20px;
+    left: 71px;
+    font-family: sh;
+    font-size: 25pt;
+  }
+
+  #gameTitle {
+    border-top: 1px solid #4db44a;
+    text-align: left;
+    font-family: retro;
+    font-size: 25pt;
+  }
+
+  #gameCategoryDiv {
+    display: flex;
+    flex-direction: column;
+    height: 113px;
+    width: 579px;
+    color: #4db44a;
+    position: absolute;
+    top: 144px;
+    left: 71px;
+    font-family: sh;
+    font-size: 25pt;
+  }
+
+  #gameCategory {
+    border-top: 1px solid #4db44a;
+    text-align: left;
+    font-family: retro;
+    font-size: 25pt;
+  }
+
+  #gameHostDiv {
+    display: flex;
+    height: 80px;
+    width: 639px;
+    border-radius: 10px;
+    background-color: #4db44a;
+    position: absolute;
+    top: 876px;
+    left: 36px;
+    font-size: 30pt;
+    font-family: ZurichBT-Bold;
+  }
+
+  .mic {
+    height: 55px;
+    width: 54px;
+    background: no-repeat;
+    background-image: url("../Images/MicPreto.png");
+    margin-top: 18px;
+    margin-left: 35px;
+  }
+
+  #interHost {
+    font-size: 30pt;
+    font-family: ZurichBT-Bold;
+    margin-top: 10px;
+  }
+
+  #gameHost {
+    margin-top: 10px;
+    margin-left: 10px;
+  }
+
+  #gameSystemDiv {
+    display: flex;
+    flex-direction: column;
+    height: 100px;
+    width: 579px;
+    color: #4db44a;
+    position: absolute;
+    left: 71px;
+    top: 264px;
+    font-family: ShPinscher;
+    font-size: 25pt;
+  }
+
+  #gameSystem {
+    border-top: 1px solid #4db44a;
+    text-align: left;
+    font-family: retro;
+    font-size: 25pt;
+  }
+
+  #runner {
+    border-top: 1px solid #4db44a;
+    text-align: left;
+    font-family: retro;
+  }
+
+  #gameEstimateDiv {
+    display: flex;
+    flex-direction: column;
+    height: 100px;
+    width: 579px;
+    color: #4db44a;
+    position: absolute;
+    left: 71px;
+    top: 464px;
+    font-family: ShPinscher;
+    font-size: 25pt;
+  }
+
+  #gameEstimate {
+    border-top: 1px solid #4db44a;
+    text-align: left;
+    font-family: retro;
+    font-size: 25pt;
+  }
+
+  #adsDiv {
+    height: 280px;
+    width: 578px;
+    border: 3px solid #4db44a;
+    border-radius: 5px;
+    position: absolute;
+    left: 62px;
+    top: 568px;
+  }
+
+  #sponsor {
+    height: 100%;
+    width: 100%;
+    object-fit: contain;
+    background-color: black;
+  }
+}
+
+.sixteenByNine-One-Cam {
+  #randoTracker1Div {
+    display: none;
+    position: absolute;
+    left: 1267px;
+    top: 416px;
+  }
+  .player {
+    display: flex;
+    flex-direction: column;
+    height: 100px;
+    width: 400px;
+    color: #4db44a;
+    font-family: ShPinscher;
+    font-size: 25pt;
+  }
+
+  #player1Div {
+    position: absolute;
+    left: 1500px;
+    top: 115px;
+  }
+
+  #player1 {
+    border-top: 1px solid #4db44a;
+    text-align: left;
+    font-family: retro;
+  }
+
+  #player2Div {
+    display: none;
+  }
+  #player3Div {
+    display: none;
+  }
+  #player4Div {
+    display: none;
+  }
+
+  #containerPlayer1Div {
+    position: absolute;
+    left: 20px;
+    top: 20px;
+    height: 817px;
+    width: 1453px;
+    border: #4db44a 2px solid;
+  }
+
+  #containerPlayer2Div {
+    display: none;
+  }
+  #containerPlayer3Div {
+    display: none;
+  }
+  #containerPlayer4Div {
+    display: none;
+  }
+
+  #gameTitleDiv {
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    height: 113px;
+    width: 579px;
+    color: #4db44a;
+    top: 850px;
+    left: 20px;
+    font-family: ShPinscher;
+    font-size: 35pt;
+  }
+
+  #gameTitle {
+    border-top: 1px solid #4db44a;
+    text-align: left;
+    font-family: retro;
+    font-size: 35pt;
+  }
+
+  #gameCategoryDiv {
+    display: flex;
+    flex-direction: column;
+    height: 113px;
+    width: 579px;
+    color: #4db44a;
+    position: absolute;
+    top: 850px;
+    left: 629px;
+    font-family: ShPinscher;
+    font-size: 35pt;
+  }
+
+  #gameCategory {
+    border-top: 1px solid #4db44a;
+    text-align: left;
+    font-family: retro;
+    font-size: 35pt;
+  }
+
+  #gameHostDiv {
+    display: flex;
+
+    height: 113px;
+    width: 579px;
+    color: #4db44a;
+    position: absolute;
+    top: 860px;
+    left: 1325px;
+  }
+
+  .mic {
+    height: 55px;
+    width: 54px;
+    background: no-repeat;
+    background-image: url("../Images/mic.png");
+    margin-top: 20px;
+  }
+
+  #gameHost {
+    margin-top: 20px;
+    font-size: 30pt;
+    font-family: ZurichBT-Bold;
+  }
+
+  #gameSystemDiv {
+    display: flex;
+    flex-direction: column;
+    height: 100px;
+    width: 400px;
+    color: #4db44a;
+    position: absolute;
+    left: 1500px;
+    top: 25px;
+    font-family: ShPinscher;
+    font-size: 25pt;
+  }
+
+  #gameSystem {
+    border-top: 1px solid #4db44a;
+    text-align: left;
+    font-family: retro;
+    font-size: 25pt;
+  }
+
+  #gameEstimateDiv {
+    display: flex;
+    flex-direction: column;
+    height: 100px;
+    width: 400px;
+    color: #4db44a;
+    position: absolute;
+    left: 1500px;
+    top: 195px;
+    font-family: ShPinscher;
+    font-size: 25pt;
+  }
+
+  #gameEstimate {
+    border-top: 1px solid #4db44a;
+    text-align: left;
+    font-family: retro;
+    font-size: 25pt;
+  }
+
+  #gameTimerDiv {
+    height: 100px;
+    width: 400px;
+    border-radius: 5px;
+    background-color: #4db44a;
+    position: absolute;
+    left: 1500px;
+    top: 280px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+
+  #runnerCam1Div {
+    border-radius: 5px;
+    background-color: #4db44a;
+    position: absolute;
+    left: 1500px;
+    top: 384px;
+  }
+
+  #gameTimer {
+    font-size: 45pt;
+    font-family: retro;
+    margin-left: 8px;
+  }
+
+  #adsDiv {
+    height: 224px;
+    width: 405px;
+    border: 3px solid #4db44a;
+    border-radius: 5px;
+    position: absolute;
+    left: 1500px;
+    top: 613px;
+  }
+
+  #sponsor {
+    height: 100%;
+    width: 100%;
+    object-fit: contain;
+    background-color: black;
+  }
+}
+
+.fourByThree-One {
+  #randoTracker1Div {
+    display: none;
+    position: absolute;
+    left: 1267px;
+    top: 416px;
+  }
+  .player {
+    display: flex;
+    flex-direction: column;
+    height: 100px;
+    width: 579px;
+    color: #4db44a;
+    font-family: ShPinscher;
+    font-size: 25pt;
+  }
+
+  #player1Div {
+    position: absolute;
+    left: 1290px;
+    top: 322px;
+  }
+
+  #player1 {
+    border-top: 1px solid #4db44a;
+    text-align: left;
+    font-family: retro;
+  }
+
+  #player2Div {
+    display: none;
+  }
+  #player3Div {
+    display: none;
+  }
+  #player4Div {
+    display: none;
+  }
+
+  #containerPlayer1Div {
+    position: absolute;
+    left: 20px;
+    top: 20px;
+    height: 928px;
+    width: 1233px;
+    border: #4db44a 2px solid;
+  }
+  #containerPlayer2Div {
+    display: none;
+  }
+  #containerPlayer3Div {
+    display: none;
+  }
+  #containerPlayer4Div {
+    display: none;
+  }
+
+  #gameTitleDiv {
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    height: 113px;
+    width: 579px;
+    color: #4db44a;
+    top: 1px;
+    left: 1290px;
+    font-family: ShPinscher;
+    font-size: 25pt;
+  }
+
+  #gameTitle {
+    border-top: 1px solid #4db44a;
+    text-align: left;
+    font-family: retro;
+    font-size: 25pt;
+  }
+
+  #gameCategoryDiv {
+    display: flex;
+    flex-direction: column;
+    height: 113px;
+    width: 579px;
+    color: #4db44a;
+    position: absolute;
+    top: 122px;
+    left: 1290px;
+    font-family: ShPinscher;
+    font-size: 25pt;
+  }
+
+  #gameCategory {
+    border-top: 1px solid #4db44a;
+    text-align: left;
+    font-family: retro;
+    font-size: 25pt;
+  }
+
+  #gameHostDiv {
+    display: flex;
+    height: 113px;
+    width: 579px;
+    color: #4db44a;
+    position: absolute;
+    top: 892px;
+    left: 1320px;
+  }
+
+  .mic {
+    height: 55px;
+    width: 54px;
+    background: no-repeat;
+    background-image: url("../Images/mic.png");
+    margin-top: 20px;
+  }
+
+  #gameHost {
+    margin-top: 20px;
+    font-size: 30pt;
+    font-family: ZurichBT-Bold;
+  }
+
+  #gameSystemDiv {
+    display: flex;
+    flex-direction: column;
+    height: 100px;
+    width: 579px;
+    color: #4db44a;
+    position: absolute;
+    left: 1290px;
+    top: 239px;
+    font-family: ShPinscher;
+    font-size: 25pt;
+  }
+
+  #gameSystem {
+    border-top: 1px solid #4db44a;
+    text-align: left;
+    font-family: retro;
+    font-size: 25pt;
+  }
+
+  #runner {
+    border-top: 1px solid #4db44a;
+    text-align: left;
+    font-family: retro;
+  }
+
+  #gameEstimateDiv {
+    display: flex;
+    flex-direction: column;
+    height: 100px;
+    width: 229px;
+    color: #4db44a;
+    position: absolute;
+    left: 1290px;
+    top: 422px;
+    font-family: ShPinscher;
+    font-size: 25pt;
+  }
+
+  #gameEstimate {
+    border-top: 1px solid #4db44a;
+    text-align: left;
+    font-family: retro;
+    font-size: 25pt;
+  }
+
+  #gameTimerDiv {
+    height: 86px;
+    width: 341px;
+    border-radius: 5px;
+    background-color: #4db44a;
+    position: absolute;
+    left: 1530px;
+    top: 420px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+
+  #gameTimer {
+    font-size: 38pt;
+    font-family: retro;
+    margin-left: 8px;
+  }
+
+  #adsDiv {
+    height: 313px;
+    width: 565px;
+    border: 3px solid #4db44a;
+    border-radius: 5px;
+    position: absolute;
+    left: 1307px;
+    top: 537px;
+  }
+
+  #sponsor {
+    height: 100%;
+    width: 100%;
+    object-fit: contain;
+  }
+}
+
+.sixteenByNine-One {
+  #randoTracker1Div {
+    display: none;
+    position: absolute;
+    left: 1267px;
+    top: 416px;
+  }
+  .player {
+    display: flex;
+    flex-direction: column;
+    height: 100px;
+    width: 400px;
+    color: #4db44a;
+    font-family: ShPinscher;
+    font-size: 25pt;
+  }
+
+  #player1Div {
+    position: absolute;
+    left: 1500px;
+    top: 145px;
+  }
+
+  #player1 {
+    border-top: 1px solid #4db44a;
+    text-align: left;
+    font-family: retro;
+  }
+  #player2Div {
+    display: none;
+  }
+  #player3Div {
+    display: none;
+  }
+  #player4Div {
+    display: none;
+  }
+
+  #containerPlayer1Div {
+    position: absolute;
+    left: 20px;
+    top: 20px;
+    height: 817px;
+    width: 1453px;
+    border: #4db44a 2px solid;
+  }
+  #containerPlayer2Div {
+    display: none;
+  }
+  #containerPlayer3Div {
+    display: none;
+  }
+  #containerPlayer4Div {
+    display: none;
+  }
+
+  #gameTitleDiv {
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    height: 113px;
+    width: 579px;
+    color: #4db44a;
+    top: 850px;
+    left: 20px;
+    font-family: ShPinscher;
+    font-size: 35pt;
+  }
+
+  #gameTitle {
+    border-top: 1px solid #4db44a;
+    text-align: left;
+    font-family: retro;
+    font-size: 35pt;
+  }
+
+  #gameCategoryDiv {
+    display: flex;
+    flex-direction: column;
+    height: 113px;
+    width: 579px;
+    color: #4db44a;
+    position: absolute;
+    top: 850px;
+    left: 629px;
+    font-family: ShPinscher;
+    font-size: 35pt;
+  }
+
+  #gameCategory {
+    border-top: 1px solid #4db44a;
+    text-align: left;
+    font-family: retro;
+    font-size: 35pt;
+  }
+
+  #gameHostDiv {
+    display: flex;
+
+    height: 113px;
+    width: 579px;
+    color: #4db44a;
+    position: absolute;
+    top: 860px;
+    left: 1325px;
+  }
+
+  .mic {
+    height: 55px;
+    width: 54px;
+    background: no-repeat;
+    background-image: url("../Images/mic.png");
+    margin-top: 20px;
+  }
+
+  #gameHost {
+    margin-top: 20px;
+    font-size: 30pt;
+    font-family: ZurichBT-Bold;
+  }
+
+  #gameSystemDiv {
+    display: flex;
+    flex-direction: column;
+    height: 100px;
+    width: 400px;
+    color: #4db44a;
+    position: absolute;
+    left: 1500px;
+    top: 45px;
+    font-family: ShPinscher;
+    font-size: 25pt;
+  }
+
+  #gameSystem {
+    border-top: 1px solid #4db44a;
+    text-align: left;
+    font-family: retro;
+    font-size: 25pt;
+  }
+
+  #gameEstimateDiv {
+    display: flex;
+    flex-direction: column;
+    height: 100px;
+    width: 400px;
+    color: #4db44a;
+    position: absolute;
+    left: 1500px;
+    top: 245px;
+    font-family: sh;
+    font-size: 25pt;
+  }
+
+  #gameEstimate {
+    border-top: 1px solid #4db44a;
+    text-align: left;
+    font-family: retro;
+    font-size: 25pt;
+  }
+
+  #gameTimerDiv {
+    height: 100px;
+    width: 400px;
+    border-radius: 5px;
+    background-color: #4db44a;
+    position: absolute;
+    left: 1500px;
+    top: 360px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+
+  #gameTimer {
+    font-size: 45pt;
+    font-family: retro;
+    margin-left: 8px;
+  }
+
+  #adsDiv {
+    height: 224px;
+    width: 405px;
+    border: 3px solid #4db44a;
+    border-radius: 5px;
+    position: absolute;
+    left: 1500px;
+    top: 613px;
+  }
+
+  #sponsor {
+    height: 100%;
+    width: 100%;
+    object-fit: contain;
+  }
+}
+
+.fourByThree-Two {
+  #randoTracker1Div {
+    display: none;
+    position: absolute;
+    left: 1267px;
+    top: 416px;
+  }
+  .player {
+    display: flex;
+    flex-direction: column;
+    height: 100px;
+    width: 401px;
+    color: #4db44a;
+    font-family: ShPinscher;
+    font-size: 25pt;
+  }
+
+  #player1Div {
+    position: absolute;
+    left: 20px;
+    top: 744px;
+  }
+
+  #player1 {
+    border-top: 1px solid #4db44a;
+    text-align: left;
+    font-family: retro;
+  }
+
+  #player2Div {
+    position: absolute;
+    left: 1500px;
+    top: 744px;
+    text-align: right;
+  }
+
+  #player2 {
+    border-top: 1px solid #4db44a;
+    text-align: left;
+    font-family: retro;
+    text-align: right;
+  }
+
+  #player3Div {
+    display: none;
+  }
+  #player4Div {
+    display: none;
+  }
+
+  #containerPlayer1Div {
+    position: absolute;
+    left: 15px;
+    top: 20px;
+    height: 713px;
+    width: 944px;
+    border: #4db44a 2px solid;
+  }
+
+  #containerPlayer2Div {
+    position: absolute;
+    left: 960px;
+    top: 20px;
+    height: 713px;
+    width: 944px;
+    border: #4db44a 2px solid;
+  }
+
+  #containerPlayer3Div {
+    display: none;
+  }
+  #containerPlayer4Div {
+    display: none;
+  }
+
+  #gameTitleDiv {
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    height: 113px;
+    width: 650px;
+    color: #4db44a;
+    top: 829px;
+    left: 20px;
+    font-family: ShPinscher;
+    font-size: 20pt;
+  }
+
+  #gameTitle {
+    border-top: 1px solid #4db44a;
+    text-align: left;
+    font-family: retro;
+    font-size: 17pt;
+  }
+
+  #gameCategoryDiv {
+    display: flex;
+    flex-direction: column;
+    height: 113px;
+    width: 332px;
+    color: #4db44a;
+    position: absolute;
+    top: 833px;
+    left: 1153px;
+    font-family: ShPinscher;
+    font-size: 19pt;
+  }
+
+  #gameCategory {
+    border-top: 1px solid #4db44a;
+    text-align: left;
+    font-family: retro;
+    font-size: 19pt;
+  }
+
+  #gameHostDiv {
+    display: flex;
+    height: 113px;
+    width: 579px;
+    color: #4db44a;
+    position: absolute;
+    top: 880px;
+    left: 1155px;
+  }
+
+  .mic {
+    height: 55px;
+    width: 54px;
+    background: no-repeat;
+    background-image: url("../Images/mic.png");
+    margin-top: 20px;
+  }
+
+  #gameHost {
+    margin-top: 20px;
+    font-size: 25pt;
+    font-family: ZurichBT-Bold;
+  }
+
+  #gameSystemDiv {
+    display: flex;
+    flex-direction: column;
+    height: 100px;
+    width: 650px;
+    color: #4db44a;
+    position: absolute;
+    left: 20px;
+    top: 890px;
+    font-family: ShPinscher;
+    font-size: 20pt;
+  }
+
+  #gameSystem {
+    border-top: 1px solid #4db44a;
+    text-align: left;
+    font-family: retro;
+    font-size: 19pt;
+  }
+
+  #gameEstimateDiv {
+    display: flex;
+    flex-direction: column;
+    height: 100px;
+    width: 401px;
+    color: #4db44a;
+    position: absolute;
+    left: 1501px;
+    top: 833px;
+    font-family: ShPinscher;
+    font-size: 19pt;
+  }
+
+  #gameEstimate {
+    border-top: 1px solid #4db44a;
+    text-align: left;
+    font-family: retro;
+    font-size: 22pt;
+  }
+
+  #timer1Div {
+    height: 86px;
+    width: 341px;
+    border-radius: 5px;
+    background-color: #4db44a;
+    position: absolute;
+    left: 427px;
+    top: 745px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+
+  #timer1 {
+    font-size: 45pt;
+    font-family: retro;
+    margin-left: 8px;
+  }
+
+  #timer2Div {
+    height: 86px;
+    width: 341px;
+    border-radius: 5px;
+    background-color: #4db44a;
+    position: absolute;
+    left: 1152px;
+    top: 745px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+
+  #timer2 {
+    font-size: 45pt;
+    font-family: retro;
+    margin-left: 8px;
+  }
+
+  #adsDiv {
+    height: 177px;
+    width: 365px;
+    border: 3px solid #4db44a;
+    border-radius: 5px;
+    position: absolute;
+    left: 777px;
+    top: 756px;
+  }
+
+  #sponsor {
+    height: 100%;
+    width: 100%;
+    object-fit: contain;
+  }
+}
+
+.sixteenByNine-Two {
+  #randoTracker1Div {
+    display: none;
+    position: absolute;
+    left: 1267px;
+    top: 416px;
+  }
+  .player {
+    display: flex;
+    flex-direction: column;
+    height: 100px;
+    width: 545px;
+    color: #4db44a;
+    font-family: ShPinscher;
+    font-size: 25pt;
+  }
+
+  #player1Div {
+    position: absolute;
+    left: 20px;
+    top: 566px;
+  }
+
+  #player1 {
+    border-top: 1px solid #4db44a;
+    text-align: left;
+    font-family: retro;
+  }
+
+  #player2Div {
+    position: absolute;
+    left: 1350px;
+    top: 566px;
+    text-align: right;
+  }
+
+  #player2 {
+    border-top: 1px solid #4db44a;
+    text-align: left;
+    font-family: retro;
+    text-align: right;
+  }
+
+  #player3Div {
+    display: none;
+  }
+  #player4Div {
+    display: none;
+  }
+
+  #containerPlayer1Div {
+    position: absolute;
+    left: 20px;
+    top: 20px;
+    height: 523px;
+    width: 929px;
+    border: #4db44a 2px solid;
+  }
+
+  #containerPlayer2Div {
+    position: absolute;
+    left: 970px;
+    top: 20px;
+    height: 523px;
+    width: 929px;
+    border: #4db44a 2px solid;
+  }
+
+  #containerPlayer3Div {
+    display: none;
+  }
+  #containerPlayer4Div {
+    display: none;
+  }
+
+  #gameTitleDiv {
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    height: 113px;
+    width: 650px;
+    color: #4db44a;
+    top: 660px;
+    left: 20px;
+    font-family: ShPinscher;
+    font-size: 35pt;
+  }
+
+  #gameTitle {
+    border-top: 1px solid #4db44a;
+    text-align: left;
+    font-family: retro;
+    font-size: 35pt;
+  }
+
+  #gameCategoryDiv {
+    display: flex;
+    flex-direction: column;
+    height: 113px;
+    width: 650px;
+    color: #4db44a;
+    position: absolute;
+    top: 660px;
+    left: 700px;
+    font-family: ShPinscher;
+    font-size: 35pt;
+  }
+
+  #gameCategory {
+    border-top: 1px solid #4db44a;
+    text-align: left;
+    font-family: retro;
+    font-size: 35pt;
+  }
+
+  #gameHostDiv {
+    display: flex;
+
+    height: 113px;
+    width: 579px;
+    color: #4db44a;
+    position: absolute;
+    top: 880px;
+    left: 1155px;
+  }
+
+  .mic {
+    height: 55px;
+    width: 54px;
+    background: no-repeat;
+    background-image: url("../Images/mic.png");
+    margin-top: 20px;
+  }
+
+  #gameHost {
+    margin-top: 20px;
+    font-size: 25pt;
+    font-family: ZurichBT-Bold;
+  }
+
+  #gameSystemDiv {
+    display: flex;
+    flex-direction: column;
+    height: 100px;
+    width: 650px;
+    color: #4db44a;
+    position: absolute;
+    left: 20px;
+    top: 800px;
+    font-family: ShPinscher;
+    font-size: 35pt;
+  }
+
+  #gameSystem {
+    border-top: 1px solid #4db44a;
+    text-align: left;
+    font-family: retro;
+    font-size: 35pt;
+  }
+
+  #gameEstimateDiv {
+    display: flex;
+    flex-direction: column;
+    height: 100px;
+    width: 650px;
+    color: #4db44a;
+    position: absolute;
+    left: 700px;
+    top: 800px;
+    font-family: ShPinscher;
+    font-size: 35pt;
+  }
+
+  #gameEstimate {
+    border-top: 1px solid #4db44a;
+    text-align: left;
+    font-family: retro;
+    font-size: 35pt;
+  }
+
+  #timer1Div {
+    height: 86px;
+    width: 341px;
+    border-radius: 5px;
+    background-color: #4db44a;
+    position: absolute;
+    left: 590px;
+    top: 566px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+
+  #timer1 {
+    font-size: 45pt;
+    font-family: retro;
+    margin-left: 8px;
+  }
+
+  #timer2Div {
+    height: 86px;
+    width: 341px;
+    border-radius: 5px;
+    background-color: #4db44a;
+    position: absolute;
+    left: 995px;
+    top: 566px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+
+  #timer2 {
+    font-size: 45pt;
+    font-family: retro;
+    margin-left: 8px;
+  }
+
+  #adsDiv {
+    height: 224px;
+    width: 405px;
+    border: 3px solid #4db44a;
+    border-radius: 5px;
+    position: absolute;
+    left: 1500px;
+    top: 710px;
+  }
+
+  #sponsor {
+    height: 100%;
+    width: 100%;
+    object-fit: contain;
+  }
+}
+
+.fourByThree-Four {
+  .player {
+    display: flex;
+    flex-direction: column;
+    height: 100px;
+    width: 401px;
+    color: #4db44a;
+    font-family: ShPinscher;
+    font-size: 25pt;
+  }
+
+  #player1Div {
+    position: absolute;
+    left: 635px;
+    top: 344px;
+  }
+
+  #player1 {
+    border-top: 1px solid #4db44a;
+    text-align: left;
+    font-family: retro;
+  }
+
+  #player2Div {
+    position: absolute;
+    right: 637px;
+    top: 344px;
+    text-align: right;
+  }
+
+  #player2 {
+    border-top: 1px solid #4db44a;
+    text-align: left;
+    font-family: retro;
+    text-align: right;
+  }
+
+  #player3Div {
+    position: absolute;
+    left: 635px;
+    top: 553px;
+  }
+
+  #player3 {
+    border-top: 1px solid #4db44a;
+    text-align: left;
+    font-family: retro;
+  }
+
+  #player4Div {
+    position: absolute;
+    right: 637px;
+    top: 553px;
+    text-align: right;
+  }
+
+  #player4 {
+    border-top: 1px solid #4db44a;
+    text-align: left;
+    font-family: retro;
+    text-align: right;
+  }
+
+  #containerPlayer1Div {
+    position: absolute;
+    left: 15px;
+    top: 20px;
+    width: 618px;
+    height: 464px;
+    border: #4db44a 2px solid;
+  }
+
+  #containerPlayer2Div {
+    position: absolute;
+    left: 15px;
+    top: 500px;
+    width: 618px;
+    height: 464px;
+    border: #4db44a 2px solid;
+  }
+
+  #containerPlayer3Div {
+    position: absolute;
+    left: 1285px;
+    top: 20px;
+    width: 618px;
+    height: 464px;
+    border: #4db44a 2px solid;
+  }
+
+  #containerPlayer4Div {
+    position: absolute;
+    left: 1285px;
+    top: 500px;
+    width: 618px;
+    height: 464px;
+    border: #4db44a 2px solid;
+  }
+
+  #gameTitleDiv {
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    height: 113px;
+    width: 650px;
+    color: #4db44a;
+    top: 25px;
+    left: 634px;
+    font-family: ShPinscher;
+    font-size: 20pt;
+  }
+
+  #gameTitle {
+    border-top: 1px solid #4db44a;
+    text-align: left;
+    font-family: retro;
+    font-size: 17pt;
+  }
+
+  #gameCategoryDiv {
+    display: flex;
+    flex-direction: column;
+    height: 113px;
+    width: 650px;
+    color: #4db44a;
+    position: absolute;
+    top: 94px;
+    left: 634px;
+    font-family: ShPinscher;
+    font-size: 19pt;
+  }
+
+  #gameCategory {
+    border-top: 1px solid #4db44a;
+    text-align: left;
+    font-family: retro;
+    font-size: 19pt;
+  }
+
+  #gameHostDiv {
+    display: flex;
+    height: 113px;
+    width: 579px;
+    color: #4db44a;
+    position: absolute;
+    top: 658px;
+    left: 660px;
+  }
+
+  .mic {
+    height: 55px;
+    width: 54px;
+    background: no-repeat;
+    background-image: url("../Images/mic.png");
+    margin-top: 20px;
+  }
+
+  #gameHost {
+    margin-top: 20px;
+    font-size: 25pt;
+    font-family: ZurichBT-Bold;
+  }
+
+  #gameSystemDiv {
+    display: flex;
+    flex-direction: column;
+    height: 100px;
+    width: 650px;
+    color: #4db44a;
+    position: absolute;
+    left: 634px;
+    top: 154px;
+    font-family: ShPinscher;
+    font-size: 20pt;
+  }
+
+  #gameSystem {
+    border-top: 1px solid #4db44a;
+    text-align: left;
+    font-family: retro;
+    font-size: 19pt;
+  }
+
+  #gameEstimateDiv {
+    display: flex;
+    flex-direction: column;
+    height: 100px;
+    width: 650px;
+    color: #4db44a;
+    position: absolute;
+    left: 634px;
+    top: 221px;
+    font-family: ShPinscher;
+    font-size: 19pt;
+  }
+
+  #gameEstimate {
+    border-top: 1px solid #4db44a;
+    text-align: left;
+    font-family: retro;
+    font-size: 22pt;
+  }
+
+  #timer1Div {
+    height: 53px;
+    width: 224px;
+    border-radius: 5px;
+    background-color: #4db44a;
+    position: absolute;
+    left: 635px;
+    top: 431px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+
+  #timer1 {
+    font-size: 29pt;
+    font-family: retro;
+    margin-left: 8px;
+  }
+
+  #timer2Div {
+    height: 53px;
+    width: 224px;
+    border-radius: 5px;
+    background-color: #4db44a;
+    position: absolute;
+    left: 1059px;
+    top: 431px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+
+  #timer2 {
+    font-size: 29pt;
+    font-family: retro;
+    margin-left: 8px;
+  }
+
+  #timer3Div {
+    height: 53px;
+    width: 224px;
+    border-radius: 5px;
+    background-color: #4db44a;
+    position: absolute;
+    left: 635px;
+    top: 500px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+
+  #timer3 {
+    font-size: 29pt;
+    font-family: retro;
+    margin-left: 8px;
+  }
+
+  #timer4Div {
+    height: 53px;
+    width: 224px;
+    border-radius: 5px;
+    background-color: #4db44a;
+    position: absolute;
+    left: 1059px;
+    top: 500px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+
+  #timer4 {
+    font-size: 29pt;
+    font-family: retro;
+    margin-left: 8px;
+  }
+
+  #adsDiv {
+    height: 177px;
+    width: 365px;
+    border: 3px solid #4db44a;
+    border-radius: 5px;
+    position: absolute;
+    left: 777px;
+    top: 756px;
+  }
+
+  #sponsor {
+    height: 100%;
+    width: 100%;
+    object-fit: contain;
+  }
+  #randoTracker1Div {
+    display: none;
+    position: absolute;
+    left: 1267px;
+    top: 416px;
+  }
+  #randoTracker2Div {
+    display: none;
+    position: absolute;
+    left: 1267px;
+    top: 416px;
+  }
+}
+
+.fourByThree-One-Rando-OOT {
+}
+
+.fourByThree-One-Cam-Rando-OOT {
+  .player {
+    display: flex;
+    flex-direction: column;
+    height: 100px;
+    width: 579px;
+    color: #4db44a;
+    font-family: ShPinscher;
+    font-size: 19pt;
+  }
+
+  #player1Div {
+    position: absolute;
+    left: 1290px;
+    top: 244px;
+  }
+
+  #player1 {
+    border-top: 1px solid #4db44a;
+    text-align: left;
+    font-family: retro;
+  }
+
+  #player2Div {
+    display: none;
+  }
+  #player3Div {
+    display: none;
+  }
+  #player4Div {
+    display: none;
+  }
+
+  #containerPlayer1Div {
+    position: absolute;
+    left: 20px;
+    top: 20px;
+    height: 817px;
+    width: 1453px;
+    border: #4db44a 2px solid;
+  }
+
+  #containerPlayer2Div {
+    display: none;
+  }
+  #containerPlayer3Div {
+    display: none;
+  }
+  #containerPlayer4Div {
+    display: none;
+  }
+
+  #gameTitleDiv {
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    height: 113px;
+    width: 579px;
+    color: #4db44a;
+    top: 1px;
+    left: 1290px;
+    font-family: ShPinscher;
+    font-size: 25pt;
+  }
+
+  #gameTitle {
+    border-top: 1px solid #4db44a;
+    text-align: left;
+    font-family: retro;
+    font-size: 17pt;
+  }
+
+  #gameCategoryDiv {
+    display: flex;
+    flex-direction: column;
+    height: 113px;
+    width: 579px;
+    color: #4db44a;
+    position: absolute;
+    top: 83px;
+    left: 1290px;
+    font-family: ShPinscher;
+    font-size: 25pt;
+  }
+
+  #gameCategory {
+    border-top: 1px solid #4db44a;
+    text-align: left;
+    font-family: retro;
+    font-size: 19pt;
+  }
+
+  #gameHostDiv {
+    display: none;
+    display: flex;
+    height: 113px;
+    width: 579px;
+    color: #4db44a;
+    position: absolute;
+    top: 832px;
+    left: 1297px;
+  }
+
+  .mic {
+    height: 55px;
+    width: 54px;
+    background: no-repeat;
+    background-image: url("../Images/mic.png");
+    margin-top: 20px;
+  }
+
+  #gameHost {
+    margin-top: 20px;
+    font-size: 30pt;
+    font-family: ZurichBT-Bold;
+  }
+
+  #gameSystemDiv {
+    display: flex;
+    flex-direction: column;
+    height: 100px;
+    width: 579px;
+    color: #4db44a;
+    position: absolute;
+    left: 1290px;
+    top: 164px;
+    font-family: ShPinscher;
+    font-size: 20pt;
+  }
+
+  #gameSystem {
+    border-top: 1px solid #4db44a;
+    text-align: left;
+    font-family: retro;
+    font-size: 19pt;
+  }
+
+  #runner {
+    border-top: 1px solid #4db44a;
+    text-align: left;
+    font-family: retro;
+  }
+
+  #gameEstimateDiv {
+    display: flex;
+    flex-direction: column;
+    height: 100px;
+    width: 229px;
+    color: #4db44a;
+    position: absolute;
+    left: 1290px;
+    top: 317px;
+    font-family: ShPinscher;
+    font-size: 25pt;
+  }
+
+  #gameEstimate {
+    border-top: 1px solid #4db44a;
+    text-align: left;
+    font-family: retro;
+    font-size: 25pt;
+  }
+
+  #gameTimerDiv {
+    height: 86px;
+    width: 341px;
+    border-radius: 5px;
+    background-color: #4db44a;
+    position: absolute;
+    left: 1530px;
+    top: 308px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+
+  #gameTimer {
+    font-size: 38pt;
+    font-family: retro;
+    margin-left: 8px;
+  }
+
+  #adsDiv {
+    height: 218px;
+    width: 282px;
+    border: 3px solid #4db44a;
+    border-radius: 5px;
+    position: absolute;
+    left: 1583px;
+    top: 608px;
+  }
+
+  #runnerCam1Div {
+    border-radius: 5px;
+    background-color: #4db44a;
+    position: absolute;
+    left: 1286px;
+    top: 608px;
+    height: 225px;
+    width: 290px;
+    overflow: hidden;
+  }
+
+  #sponsor {
+    height: 100%;
+    width: 100%;
+    object-fit: contain;
+  }
+
+  #randoTracker1Div {
+    position: absolute;
+    left: 1267px;
+    top: 416px;
+  }
+}
+
+.fourByThree-One-Rando-SMZ3 {
+  .player {
+    display: flex;
+    flex-direction: column;
+    height: 100px;
+    width: 579px;
+    color: #4db44a;
+    font-family: ShPinscher;
+    font-size: 19pt;
+  }
+
+  #player1Div {
+    position: absolute;
+    left: 1290px;
+    top: 244px;
+  }
+
+  #player1 {
+    border-top: 1px solid #4db44a;
+    text-align: left;
+    font-family: retro;
+  }
+
+  #player2Div {
+    display: none;
+  }
+  #player3Div {
+    display: none;
+  }
+  #player4Div {
+    display: none;
+  }
+
+  #containerPlayer1Div {
+    position: absolute;
+    left: 20px;
+    top: 20px;
+    height: 817px;
+    width: 1453px;
+    border: #4db44a 2px solid;
+  }
+
+  #containerPlayer2Div {
+    display: none;
+  }
+  #containerPlayer3Div {
+    display: none;
+  }
+  #containerPlayer4Div {
+    display: none;
+  }
+
+  #gameTitleDiv {
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    height: 113px;
+    width: 579px;
+    color: #4db44a;
+    top: 1px;
+    left: 1290px;
+    font-family: ShPinscher;
+    font-size: 25pt;
+  }
+
+  #gameTitle {
+    border-top: 1px solid #4db44a;
+    text-align: left;
+    font-family: retro;
+    font-size: 17pt;
+  }
+
+  #gameCategoryDiv {
+    display: flex;
+    flex-direction: column;
+    height: 113px;
+    width: 579px;
+    color: #4db44a;
+    position: absolute;
+    top: 83px;
+    left: 1290px;
+    font-family: ShPinscher;
+    font-size: 25pt;
+  }
+
+  #gameCategory {
+    border-top: 1px solid #4db44a;
+    text-align: left;
+    font-family: retro;
+    font-size: 19pt;
+  }
+
+  #gameHostDiv {
+    display: none;
+    display: flex;
+    height: 113px;
+    width: 579px;
+    color: #4db44a;
+    position: absolute;
+    top: 832px;
+    left: 1297px;
+  }
+
+  .mic {
+    height: 55px;
+    width: 54px;
+    background: no-repeat;
+    background-image: url("../Images/mic.png");
+    margin-top: 20px;
+  }
+
+  #gameHost {
+    margin-top: 20px;
+    font-size: 30pt;
+    font-family: ZurichBT-Bold;
+  }
+
+  #gameSystemDiv {
+    display: flex;
+    flex-direction: column;
+    height: 100px;
+    width: 579px;
+    color: #4db44a;
+    position: absolute;
+    left: 1290px;
+    top: 164px;
+    font-family: ShPinscher;
+    font-size: 20pt;
+  }
+
+  #gameSystem {
+    border-top: 1px solid #4db44a;
+    text-align: left;
+    font-family: retro;
+    font-size: 19pt;
+  }
+
+  #runner {
+    border-top: 1px solid #4db44a;
+    text-align: left;
+    font-family: retro;
+  }
+
+  #gameEstimateDiv {
+    display: flex;
+    flex-direction: column;
+    height: 100px;
+    width: 229px;
+    color: #4db44a;
+    position: absolute;
+    left: 1290px;
+    top: 317px;
+    font-family: ShPinscher;
+    font-size: 25pt;
+  }
+
+  #gameEstimate {
+    border-top: 1px solid #4db44a;
+    text-align: left;
+    font-family: retro;
+    font-size: 25pt;
+  }
+
+  #gameTimerDiv {
+    height: 86px;
+    width: 341px;
+    border-radius: 5px;
+    background-color: #4db44a;
+    position: absolute;
+    left: 1530px;
+    top: 308px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+
+  #gameTimer {
+    font-size: 38pt;
+    font-family: retro;
+    margin-left: 8px;
+  }
+
+  #adsDiv {
+    height: 218px;
+    width: 282px;
+    border: 3px solid #4db44a;
+    border-radius: 5px;
+    position: absolute;
+    left: 1583px;
+    top: 581px;
+  }
+
+  #runnerCam1Div {
+    display: none;
+  }
+
+  #sponsor {
+    height: 100%;
+    width: 100%;
+    object-fit: contain;
+  }
+
+  #randoTracker1Div {
+    position: absolute;
+    left: 1267px;
+    top: 416px;
+    font-weight: bolder;
+    text-shadow: 2px 4px black;
+  }
+}
+
+.fourByThree-Two-Rando-MMR {
+  .player {
+    display: flex;
+    flex-direction: column;
+    height: 100px;
+    width: 340px;
+    color: #4db44a;
+    font-family: ShPinscher;
+    font-size: 25pt;
+  }
+
+  #player1Div {
+    position: absolute;
+    left: 425px;
+    top: 700px;
+  }
+
+  #player1 {
+    border-top: 1px solid #4db44a;
+    text-align: left;
+    font-family: retro;
+  }
+
+  #player2Div {
+    position: absolute;
+    right: 425px;
+    top: 700px;
+    text-align: right;
+  }
+
+  #player2 {
+    border-top: 1px solid #4db44a;
+    text-align: left;
+    font-family: retro;
+    text-align: right;
+  }
+
+  #player3Div {
+    display: none;
+  }
+  #player4Div {
+    display: none;
+  }
+
+  #containerPlayer1Div {
+    position: absolute;
+    left: 15px;
+    top: 20px;
+    height: 713px;
+    width: 944px;
+    border: #4db44a 2px solid;
+  }
+
+  #containerPlayer2Div {
+    position: absolute;
+    right: 15px;
+    top: 20px;
+    height: 713px;
+    width: 944px;
+    border: #4db44a 2px solid;
+  }
+
+  #containerPlayer3Div {
+    display: none;
+  }
+  #containerPlayer4Div {
+    display: none;
+  }
+
+  #gameTitleDiv {
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    height: 113px;
+    width: 315px;
+    left: 803px;
+    color: #4db44a;
+    top: 15px;
+    font-family: ShPinscher;
+    font-size: 20pt;
+  }
+
+  #gameTitle {
+    border-top: 1px solid #4db44a;
+    text-align: left;
+    font-family: retro;
+    font-size: 17pt;
+  }
+
+  #gameCategoryDiv {
+    display: flex;
+    flex-direction: column;
+    height: 113px;
+    color: #4db44a;
+    position: absolute;
+    top: 320px;
+    width: 315px;
+    left: 803px;
+    font-family: ShPinscher;
+    font-size: 19pt;
+  }
+
+  #gameCategory {
+    border-top: 1px solid #4db44a;
+    text-align: left;
+    font-family: retro;
+    font-size: 19pt;
+  }
+
+  #gameHostDiv {
+    display: flex;
+    width: 315px;
+    width: 400px;
+    color: #4db44a;
+    position: absolute;
+    top: 571px;
+    left: 803px;
+  }
+
+  .mic {
+    height: 55px;
+    width: 54px;
+    background: no-repeat;
+    background-image: url("../Images/mic.png");
+    margin-top: 20px;
+  }
+
+  #gameHost {
+    margin-top: 20px;
+    font-size: 25pt;
+    font-family: ZurichBT-Bold;
+  }
+
+  #gameSystemDiv {
+    display: flex;
+    flex-direction: column;
+    height: 100px;
+    width: 315px;
+    color: #4db44a;
+    position: absolute;
+    left: 803px;
+    top: 200px;
+    font-family: ShPinscher;
+    font-size: 20pt;
+  }
+
+  #gameSystem {
+    border-top: 1px solid #4db44a;
+    text-align: left;
+    font-family: retro;
+    font-size: 19pt;
+  }
+
+  #gameEstimateDiv {
+    display: flex;
+    flex-direction: column;
+    height: 100px;
+    width: 315px;
+    color: #4db44a;
+    position: absolute;
+    left: 803px;
+    top: 460px;
+    font-family: ShPinscher;
+    font-size: 19pt;
+  }
+
+  #gameEstimate {
+    border-top: 1px solid #4db44a;
+    text-align: left;
+    font-family: retro;
+    font-size: 22pt;
+  }
+
+  #timer1Div {
+    height: 86px;
+    width: 341px;
+    border-radius: 5px;
+    background-color: #4db44a;
+    position: absolute;
+    left: 427px;
+    top: 841px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+
+  #timer1 {
+    font-size: 45pt;
+    font-family: retro;
+    margin-left: 8px;
+  }
+
+  #timer2Div {
+    height: 86px;
+    width: 341px;
+    border-radius: 5px;
+    background-color: #4db44a;
+    position: absolute;
+    right: 427px;
+    top: 841px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+
+  #timer2 {
+    font-size: 45pt;
+    font-family: retro;
+    margin-left: 8px;
+  }
+
+  #adsDiv {
+    height: 177px;
+    width: 365px;
+    border: 3px solid #4db44a;
+    border-radius: 5px;
+    position: absolute;
+    left: 775px;
+    top: 750px;
+  }
+
+  #sponsor {
+    height: 100%;
+    width: 100%;
+    object-fit: contain;
+  }
+
+  #randoTracker1Div {
+    position: absolute;
+    left: 5px;
+    top: 645px;
+  }
+
+  #randoTracker2Div {
+    position: absolute;
+    right: 15px;
+    top: 645px;
+  }
+}
+
+.fourByThree-One-Cam-Rando-Convidado {
+  .player {
+    display: flex;
+    flex-direction: column;
+    height: 100px;
+    width: 579px;
+    color: #4db44a;
+    font-family: ShPinscher;
+    font-size: 19pt;
+  }
+
+  #player1Div {
+    position: absolute;
+    left: 1290px;
+    top: 244px;
+  }
+
+  #player1 {
+    border-top: 1px solid #4db44a;
+    text-align: left;
+    font-family: retro;
+  }
+
+  #player2Div {
+    display: none;
+  }
+  #player3Div {
+    display: none;
+  }
+  #player4Div {
+    display: none;
+  }
+
+  #containerPlayer1Div {
+    position: absolute;
+    left: 20px;
+    top: 20px;
+    height: 817px;
+    width: 1453px;
+    border: #4db44a 2px solid;
+  }
+
+  #containerPlayer2Div {
+    display: none;
+  }
+  #containerPlayer3Div {
+    display: none;
+  }
+  #containerPlayer4Div {
+    display: none;
+  }
+
+  #gameTitleDiv {
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    height: 113px;
+    width: 579px;
+    color: #4db44a;
+    top: 1px;
+    left: 1290px;
+    font-family: ShPinscher;
+    font-size: 25pt;
+  }
+
+  #gameTitle {
+    border-top: 1px solid #4db44a;
+    text-align: left;
+    font-family: retro;
+    font-size: 17pt;
+  }
+
+  #gameCategoryDiv {
+    display: flex;
+    flex-direction: column;
+    height: 113px;
+    width: 579px;
+    color: #4db44a;
+    position: absolute;
+    top: 83px;
+    left: 1290px;
+    font-family: ShPinscher;
+    font-size: 25pt;
+  }
+
+  #gameCategory {
+    border-top: 1px solid #4db44a;
+    text-align: left;
+    font-family: retro;
+    font-size: 19pt;
+  }
+
+  #gameHostDiv {
+    display: none;
+    display: flex;
+    height: 113px;
+    width: 579px;
+    color: #4db44a;
+    position: absolute;
+    top: 630px;
+    left: 1291px;
+  }
+
+  .mic {
+    height: 55px;
+    width: 54px;
+    background: no-repeat;
+    background-image: url("../Images/mic.png");
+    margin-top: 20px;
+  }
+
+  #gameHost {
+    margin-top: 20px;
+    font-size: 23pt;
+    font-family: retro;
+  }
+
+  #gameSystemDiv {
+    display: flex;
+    flex-direction: column;
+    height: 100px;
+    width: 579px;
+    color: #4db44a;
+    position: absolute;
+    left: 1290px;
+    top: 164px;
+    font-family: ShPinscher;
+    font-size: 20pt;
+  }
+
+  #gameSystem {
+    border-top: 1px solid #4db44a;
+    text-align: left;
+    font-family: retro;
+    font-size: 19pt;
+  }
+
+  #runner {
+    border-top: 1px solid #4db44a;
+    text-align: left;
+    font-family: retro;
+  }
+
+  #gameEstimateDiv {
+    display: flex;
+    flex-direction: column;
+    height: 100px;
+    width: 229px;
+    color: #4db44a;
+    position: absolute;
+    left: 1290px;
+    top: 317px;
+    font-family: ShPinscher;
+    font-size: 25pt;
+  }
+
+  #gameEstimate {
+    border-top: 1px solid #4db44a;
+    text-align: left;
+    font-family: retro;
+    font-size: 25pt;
+  }
+
+  #gameTimerDiv {
+    height: 86px;
+    width: 341px;
+    border-radius: 5px;
+    background-color: #4db44a;
+    position: absolute;
+    left: 1530px;
+    top: 308px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+
+  #gameTimer {
+    font-size: 38pt;
+    font-family: retro;
+    margin-left: 8px;
+  }
+
+  #adsDiv {
+    height: 250px;
+    width: 582px;
+    border: 3px solid #4db44a;
+    border-radius: 5px;
+    position: absolute;
+    left: 1287px;
+    top: 697px;
+  }
+
+  #runnerCam1Div {
+    border-radius: 5px;
+    background-color: #4db44a;
+    position: absolute;
+    left: 1286px;
+    top: 416px;
+    height: 225px;
+    width: 290px;
+    overflow: hidden;
+  }
+
+  #runnerCam2Div {
+    border-radius: 5px;
+    background-color: #4db44a;
+    position: absolute;
+    left: 1583px;
+    top: 416px;
+    height: 225px;
+    width: 290px;
+    overflow: hidden;
+  }
+
+  #sponsor {
+    height: 100%;
+    width: 100%;
+    object-fit: contain;
+  }
+
+  #randoTracker1Div {
+    display: none;
+    position: absolute;
+    left: 1267px;
+    top: 416px;
+  }
+  #randoTracker2Div {
+    display: none;
+    position: absolute;
+    left: 1267px;
+    top: 416px;
+  }
+}

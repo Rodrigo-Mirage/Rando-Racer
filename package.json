@@ -1,0 +1,82 @@
+{
+  "name": "Rando-Racer",
+  "version": "0.0.0",
+  "description": "bundle de graficos do sistema de Race para randomizers",
+  "homepage": "",
+  "author": {
+    "name": "Mirage",
+    "email": "",
+    "url": ""
+  },
+  "files": [
+    "dashboard",
+    "graphics",
+    "extension.js",
+    "extension"
+  ],
+  "keywords": [
+    "",
+    "nodecg-bundle"
+  ],
+  "nodecg": {
+    "compatibleRange": "^1.1.1",
+    "dashboardPanels": [
+      {
+        "name": "obs",
+        "title": "OBS",
+        "width": 3,
+        "file": "obs.html",
+        "headerColor": "#0000FF",
+        "workspace": "Scene Editing"
+      },
+      {
+        "name": "obscontrol",
+        "title": "Controle de Cena",
+        "width": 3,
+        "file": "obscontrol.html",
+        "headerColor": "#0000FF"
+      },
+      {
+        "name": "host",
+        "title": "Infos",
+        "width": 3,
+        "file": "HostControl.html",
+        "headerColor": "#0000FF"
+      },
+      {
+        "name": "OOT",
+        "title": "OOT",
+        "width": 5,
+        "file": "randoTracker.html",
+        "headerColor": "#0000FF",
+        "workspace": "Tracker"
+      },
+      {
+        "name": "Timer",
+        "title": "Timer",
+        "width": 5,
+        "file": "timer.html",
+        "headerColor": "#0000FF"
+      }
+    ],
+    "graphics": [
+      {
+        "file": "index.html",
+        "width": 1920,
+        "height": 963
+      },
+      {
+        "file": "tracker.html",
+        "width": 1920,
+        "height": 1080
+      }
+    ]
+  },
+  "repository": "https://github.com/nodecg/nodecg.git",
+  "license": "MIT",
+  "dependencies": {
+    "bower-npm-resolver": "^0.10.0",
+    "livesplit-core": "^0.10.2",
+    "nodecg-utility-obs": "github:rodrigo-mirage/nodecg-utility-obs"
+  }
+}

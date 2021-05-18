@@ -1,0 +1,564 @@
+/* Principal */
+#TPlayers {
+  z-index: -50;
+}
+#overlay {
+  z-index: -40;
+}
+/* Layout 1 */
+.timer1_layout1 {
+  position: absolute;
+  top: 845px;
+  left: 1522px;
+  font-style: italic;
+  font-size: 39px;
+  color: red;
+}
+
+.timer2_layout1 {
+  display: none;
+}
+
+.timer3_layout1 {
+  display: none;
+}
+
+.timer4_layout1 {
+  display: none;
+}
+
+.player1_layout1 {
+  position: absolute;
+  top: 920px;
+  left: 1310px;
+  width: 400px;
+  color: #ff8c00;
+  font-style: italic;
+  font-size: 30px;
+  text-align: left;
+}
+
+.player2_layout2 {
+  display: none;
+}
+
+.player3_layout2 {
+  display: none;
+}
+
+.player4_layout2 {
+  display: none;
+}
+
+.premios_layout1 {
+  position: absolute;
+  top: -22px;
+  left: 10px;
+  width: 468px;
+  height: 468px;
+}
+
+.sponsor_layout1 {
+  position: absolute;
+  top: 558px;
+  left: 10px;
+  width: 468px;
+  height: 468px;
+}
+
+.estimate_layout1 {
+  position: absolute;
+  top: 845px;
+  left: 1298px;
+  font-style: italic;
+  font-size: 39px;
+  color: #ff8c00;
+}
+
+.system_layout1 {
+  position: absolute;
+  top: 820px;
+  left: 1740px;
+  width: 165px;
+  height: 165px;
+}
+
+.jogo_layout1 {
+  position: absolute;
+  top: 840px;
+  left: 535px;
+  color: #ff8c00;
+  font-style: italic;
+  font-size: 38px;
+  width: 700px;
+}
+
+.categoria_layout1 {
+  position: absolute;
+  top: 930px;
+  left: 530px;
+  width: 700px;
+  color: #ff8c00;
+  font-style: italic;
+  font-size: 30px;
+  text-align: right;
+}
+
+/* Layout 2 */
+
+.timer1_layout2 {
+  position: absolute;
+  top: 570px;
+  left: 682px;
+  font-style: italic;
+  font-size: 39px;
+  color: red;
+}
+
+.timer2_layout2 {
+  position: absolute;
+  top: 570px;
+  left: 1065px;
+  font-style: italic;
+  font-size: 39px;
+  color: red;
+}
+
+.timer3_layout2 {
+  display: none;
+}
+
+.timer4_layout2 {
+  display: none;
+}
+
+.premios_layout2 {
+  position: absolute;
+  top: 534px;
+  left: 1440px;
+  width: 468px;
+  height: 468px;
+}
+
+.sponsor_layout2 {
+  position: absolute;
+  top: 534px;
+  left: 10px;
+  width: 468px;
+  height: 468px;
+}
+
+.estimate_layout2 {
+  position: absolute;
+  top: 570px;
+  left: 890px;
+  font-style: italic;
+  font-size: 39px;
+  color: #ff8c00;
+}
+
+.system_layout2 {
+  position: absolute;
+  top: 680px;
+  left: 1263px;
+  width: 165px;
+  height: 165px;
+}
+
+.player1_layout2 {
+  position: absolute;
+  top: 625px;
+  left: 490px;
+  width: 330px;
+  color: #ff8c00;
+  font-style: italic;
+  font-size: 30px;
+  text-align: right;
+}
+
+.player2_layout2 {
+  position: absolute;
+  top: 625px;
+  left: 1110px;
+  width: 330px;
+  color: #ff8c00;
+  font-style: italic;
+  font-size: 30px;
+  text-align: left;
+}
+
+.player3_layout2 {
+  display: none;
+}
+
+.player4_layout2 {
+  display: none;
+}
+
+.jogo_layout2 {
+  position: absolute;
+  top: 855px;
+  left: 535px;
+  color: #ff8c00;
+  font-style: italic;
+  font-size: 38px;
+}
+
+.categoria_layout2 {
+  position: absolute;
+  top: 930px;
+  left: 678px;
+  width: 700px;
+  color: #ff8c00;
+  font-style: italic;
+  font-size: 30px;
+  text-align: right;
+}
+
+/* Layout 3/4 */
+
+.timer1_layout4,
+.timer1_layout3 {
+  position: absolute;
+  top: 420px;
+  left: 542px;
+  font-style: italic;
+  font-size: 39px;
+  color: red;
+}
+
+.timer2_layout4,
+.timer2_layout3 {
+  position: absolute;
+  top: 420px;
+  left: 1212px;
+  font-style: italic;
+  font-size: 39px;
+  color: red;
+}
+
+.timer3_layout4,
+.timer3_layout3 {
+  position: absolute;
+  top: 542px;
+  left: 542px;
+  font-style: italic;
+  font-size: 39px;
+  color: red;
+}
+
+.timer4_layout4,
+.timer4_layout3 {
+  position: absolute;
+  top: 542px;
+  left: 1212px;
+  font-style: italic;
+  font-size: 39px;
+  color: red;
+}
+
+.premios_layout4,
+.premios_layout3 {
+  position: absolute;
+  top: 749px;
+  left: 832px;
+  width: 257px;
+  height: 257px;
+}
+
+.sponsor_layout4,
+.sponsor_layout3 {
+  position: absolute;
+  top: -18px;
+  left: 743px;
+  width: 429px;
+  height: 429px;
+}
+
+.estimate_layout4,
+.estimate_layout3 {
+  position: absolute;
+  top: 480px;
+  left: 735px;
+  font-style: italic;
+  font-size: 39px;
+  color: #ff8c00;
+}
+
+.system_layout4,
+.system_layout3 {
+  position: absolute;
+  top: 418px;
+  left: 1025px;
+  width: 165px;
+  height: 165px;
+}
+
+.player1_layout4,
+.player1_layout3 {
+  position: absolute;
+  top: 415px;
+  left: 5px;
+  width: 400px;
+  color: #ff8c00;
+  font-style: italic;
+  font-size: 30px;
+  text-align: right;
+}
+
+.player2_layout4,
+.player2_layout3 {
+  position: absolute;
+  top: 415px;
+  left: 1510px;
+  width: 400px;
+  color: #ff8c00;
+  font-style: italic;
+  font-size: 30px;
+  text-align: left;
+}
+
+.player3_layout4,
+.player3_layout3 {
+  position: absolute;
+  top: 555px;
+  left: 5px;
+  width: 400px;
+  color: #ff8c00;
+  font-style: italic;
+  font-size: 30px;
+  text-align: right;
+}
+
+.player4_layout4,
+.player4_layout3 {
+  position: absolute;
+  top: 555px;
+  left: 1510px;
+  width: 400px;
+  color: #ff8c00;
+  font-style: italic;
+  font-size: 30px;
+  text-align: left;
+}
+
+.jogo_layout4,
+.jogo_layout3 {
+  position: absolute;
+  top: 465px;
+  left: 65px;
+  color: #ff8c00;
+  font-style: italic;
+  font-size: 38px;
+}
+
+.categoria_layout4,
+.categoria_layout3 {
+  position: absolute;
+  top: 495px;
+  left: 1170px;
+  width: 700px;
+  color: #ff8c00;
+  font-style: italic;
+  font-size: 30px;
+  text-align: right;
+}
+
+/* OMNIBAR */
+
+#omnibar {
+  position: absolute;
+  height: 90px;
+  width: 1920px;
+  top: 990px;
+  background-image: url("../Images/Bar.png");
+}
+
+#omniLogos {
+  width: 320px;
+  height: 90px;
+  background-image: url("../Images/BrAT_MSF.png");
+  display: inline-block;
+  background-repeat: no-repeat;
+  background-position: 5px 5px;
+}
+
+#nextRuns {
+  position: absolute;
+  left: 320px;
+  top: 0px;
+  height: 90px;
+  width: 1230px;
+  padding-right: 60px;
+  vertical-align: top;
+  overflow: hidden;
+}
+
+#runsaseguir {
+  position: absolute;
+  left: 320px;
+  top: 0px;
+  height: 90px;
+  width: 1230px;
+  padding-right: 60px;
+  vertical-align: top;
+  overflow: hidden;
+}
+
+#donate {
+  color: red;
+  position: absolute;
+  right: 0px;
+  top: 0px;
+  height: 90px;
+  width: 358px;
+  background-image: url("../Images/migs.png");
+  background-repeat: no-repeat;
+  background-size: 358px 75px;
+  background-position: bottom right;
+}
+
+.donateRS {
+  position: absolute;
+  left: 60px;
+  top: 30px;
+  font-size: 45px;
+  font-weight: bold;
+  font-style: italic;
+}
+.donateVal {
+  position: absolute;
+  right: 20px;
+  top: 30px;
+  font-size: 45px;
+  font-weight: bold;
+  font-style: italic;
+}
+
+.nextRun {
+  display: inline-block;
+  vertical-align: top;
+  max-width: 280px;
+}
+
+.IncOptions {
+  display: inline-block;
+  vertical-align: top;
+  width: 800px;
+  font-weight: bold;
+  font-style: italic;
+}
+
+.IncOpt {
+  display: inline-block;
+  vertical-align: top;
+  font-weight: bold;
+  font-style: italic;
+  background-image: url("../Images/Separator.png");
+  background-repeat: no-repeat;
+  background-position: center right;
+  background-size: 50px;
+}
+
+.nextRunName {
+  margin-top: 25px;
+  font-size: 30px;
+  font-weight: bold;
+  font-style: italic;
+}
+.nextRunCat {
+  margin-left: 25px;
+  font-weight: bold;
+  font-style: italic;
+}
+
+.nextRunSpacer {
+  top: 25px;
+  display: inline-block;
+  height: 70px;
+  margin-right: -15px;
+  margin-left: -15px;
+  width: 74px;
+  background-image: url("../Images/Separator.png");
+  background-repeat: no-repeat;
+  background-position: 0px 10px;
+}
+
+.IncSpacer {
+  top: 25px;
+  display: inline-block;
+  height: 70px;
+  margin-right: -15px;
+  margin-left: -15px;
+  width: 74px;
+  background-image: url("../Images/Separator.png");
+  background-repeat: no-repeat;
+  background-position: 0px 10px;
+}
+
+#nextIncs {
+  position: absolute;
+  left: 320px;
+  top: 0px;
+  height: 90px;
+  width: 1290px;
+  vertical-align: top;
+  overflow: hidden;
+}
+
+.nextInc {
+  display: inline-block;
+  vertical-align: top;
+  position: absolute;
+  margin-right: 90px;
+  top: 0px;
+  width: 100%;
+}
+
+.IncData {
+  display: inline-block;
+}
+
+.IncValues {
+  position: absolute;
+  right: 60px;
+  top: 0px;
+}
+
+.Incname {
+  margin-top: 25px;
+  font-size: 30px;
+  font-weight: bold;
+  font-style: italic;
+}
+.IncGame {
+  margin-left: 25px;
+  font-weight: bold;
+  font-style: italic;
+}
+
+.valorA {
+  display: inline-block;
+  margin-top: 25px;
+  font-size: 40px;
+  font-weight: bold;
+  font-style: italic;
+}
+.valorSep {
+  display: inline-block;
+  margin-top: 25px;
+  font-size: 45px;
+  font-weight: bold;
+  font-style: italic;
+}
+.valorB {
+  display: inline-block;
+  margin-top: 25px;
+  font-size: 40px;
+  font-weight: bold;
+  font-style: italic;
+}
+
+.slide {
+  display: none;
+}

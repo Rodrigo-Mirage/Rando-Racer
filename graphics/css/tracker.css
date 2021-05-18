@@ -1,0 +1,14 @@
+#randoTracker span {
+  width: 50px;
+  height: 50px;
+}
+
+/* template
+#Tracker- .TrackerItemOn{
+  background-image: url("../Images/TrackerOOT/.png");
+}
+*/
+
+#Tracker-ZL .TrackerItemOn {
+  background-image: url("../Images/Tracker/OOT/ZL.png");
+}

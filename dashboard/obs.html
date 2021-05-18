@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="css/obs.css">
+	<style>
+		body {
+			margin: 0;
+		}
+	</style>
+	<link rel="stylesheet" href="css/brat-dashboard.css" />
+</head>
+<body>
+
+	<div id="form">
+		Ip: <input type="text" id="ipElement" name="ipElement"/></br>
+		port: <input type="text" id="portElement" name="portElement"/></br>
+		password: <input type="password" id="passwordElement" name="passwordElement"/></br>
+		<button id="conn" onclick="connect()">Connect</button>
+		<button id="disconn" onclick="disconnect()">Disconnect</button>
+	</div>
+
+	<script src="js/obs.js"></script>
+</body>
+</html>
