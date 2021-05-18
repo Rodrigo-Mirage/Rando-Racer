@@ -124,8 +124,12 @@ function updateTracker(newVal) {
 
         randoTrackerDiv.style.height = "auto";
         randoTrackerDiv.innerHTML = "";
-        var i = player;
-    
+        var i = 0;
+        for (j = 0; j < newVal.runnerInfo.length; j++) {
+            if(newVal.runnerInfo[j].id == pl){
+                i = j;
+            }
+        }
         var newcontent = document.createElement('div');
 
         var tracker = "<span>Player " +(i+1) + " - "+ newVal.runnerInfo[i].name+"<span></br>";
