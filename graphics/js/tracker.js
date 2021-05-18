@@ -124,7 +124,7 @@ function updateTracker(newVal) {
 
         randoTrackerDiv.style.height = "auto";
         randoTrackerDiv.innerHTML = "";
-        var i = pl;
+        var i = player;
     
         var newcontent = document.createElement('div');
 
