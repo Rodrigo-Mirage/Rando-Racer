@@ -25,6 +25,7 @@ function setFocus(i){
 videoPositions.on("change", (newVal, oldVal) => {
     if(newVal){
         videoPos = newVal;
+        selectores();
     }else{
         videoPos = [3,4];
         videoPositions.value = videoPos;
@@ -41,25 +42,7 @@ setTimeout(
         if(newVal){
             videosConfig = newVal.videosConfig;
             videosList = newVal.videosList;
-
-            const playersSelect = document.getElementById("playersSelect");
-            var html = "";
-            var options = "";
-            for(var i = 0; i < playerList.length ; i++){
-                options += "<option value='"+i+"'>"+playerList[i].name+"</option>";
-            }
-            for(var i = 0; i < videosList.length ; i++){
-                html += "<div><label>Video Posição "+(i+1)+"</label><select id='videoPos"+i+"'>"+options+"</select><button onclick='setFocus(("+i+"))'>Focus </button></div>"
-            }
-            playersSelect.innerHTML = html;
-            
-            for(var i = 0; i < videosList.length ; i++){
-                const videoSelect = document.getElementById("videoPos"+i);
-                console.log(videoPos)
-                if(videoPos[i]){
-                    videoSelect.value = (videoPos[i]-1);
-                }
-            }
+            selectores();
         }else{
             var obj = {
                 videosConfig : {
@@ -81,6 +64,28 @@ setTimeout(
         }
     });
 },2000);
+
+function selectores(){
+    const playersSelect = document.getElementById("playersSelect");
+    var html = "";
+    var options = "";
+    for(var i = 0; i < playerList.length ; i++){
+        options += "<option value='"+i+"'>"+playerList[i].name+"</option>";
+    }
+    for(var i = 0; i < videosList.length ; i++){
+        html += "<div><label>Video Posição "+(i+1)+"</label><select id='videoPos"+i+"'>"+options+"</select>"+(soundF!=i?"<button onclick='setFocus(("+i+"))'>Focus </button>":"")+"</div>"
+    }
+    playersSelect.innerHTML = html;
+    
+    for(var i = 0; i < videosList.length ; i++){
+        const videoSelect = document.getElementById("videoPos"+i);
+        console.log(videoPos)
+        if(videoPos[i]){
+            videoSelect.value = (videoPos[i]-1);
+        }
+    }
+
+}
 
 function SetVideos(){
     nodecg.sendMessage('obs:sendMessage', { 'messageName':"GetSceneList" }, (data)=>{

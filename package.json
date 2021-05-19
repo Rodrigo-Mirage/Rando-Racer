@@ -103,6 +103,11 @@
         "file": "tracker.html",
         "width": 1920,
         "height": 1080
+      },
+      {
+        "file": "hosts.html",
+        "width": 1920,
+        "height": 1080
       }
     ]
   },
