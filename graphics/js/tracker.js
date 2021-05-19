@@ -37,7 +37,6 @@ raceInfo.on("change", (newVal, oldVal) => {
     optionsData = newVal.runners;
     for(var i=0; i < newVal.runners.length;i++){
         if(newVal.runners[i].id == pl){
-            console.log(newVal.runners[i])
             player = i;
             ready = newVal.runners[i].status == "ready";
             const rdControl = document.getElementById("rdControl");
@@ -124,54 +123,58 @@ function updateTracker(newVal) {
 
         randoTrackerDiv.style.height = "auto";
         randoTrackerDiv.innerHTML = "";
-        for (i = 0; i < newVal.runnerInfo.length; i++) {
-    
-            var newcontent = document.createElement('div');
-    
-            var tracker = "<span>Player " +(i+1) + " - "+ newVal.runnerInfo[i].name+"<span></br>";
-            if(newVal.runnerInfo[i].itens){
-                newVal.runnerInfo[i].itens.forEach(element => {
-                    var imgName = element.name;
-                    if (element.have == 0) {
-                        imgName += "_fade";
-                    } else {
-                        if (element.have != element.max || (element.have == element.max && element.max != 1) ) {
-                            imgName += "_" + element.have;
-                        }
-                    }
-                    
-                    if (element.type == "break") {
-                        tracker += "</div><div style = 'margin-left:5px;'>";
-    
-                    } else { 
-                        switch (element.type) {
-                            //OOT
-                            case "jewel":
-                                tracker += "<div style='display:inline-block; text-align: center;vertical-align: bottom;background-repeat: no-repeat;background-size: contain; background-image: url(\"Images//Tracker//"+newVal.layout+"//" + imgName + ".png\"); width:" + medalwidth + ";height :" + medalheight + "' onclick=\"addItem('" + element.name + "','"+layout+"',"+i+")\"><div class='location' style='margin-top:45px' onclick=\"rotateLocation('" + element.name + "','" + element.location + "','"+newVal.layout+"',"+i+")\">" + element.location + "</div></div>";
-                            break;
-                            case "medal":
-                                tracker += "<div style='display:inline-block; text-align: center;vertical-align: bottom;background-repeat: no-repeat;background-size: contain; background-image: url(\"Images//Tracker//"+newVal.layout+"//" + imgName + ".png\"); width:" + itemwidth + ";height :" + itemheight + "' onclick=\"addItem('" + element.name + "','"+layout+"',"+i+")\"><div class='location' style='margin-top:35px' onclick=\"rotateLocation('" + element.name + "','" + element.location + "','"+newVal.layout+"',"+i+")\">" + element.location + "</div></div>";
-                            break;
-                            case "location":
-                                tracker += "<div style='display:inline-block; text-align: center;vertical-align: bottom;background-repeat: no-repeat;background-size: contain;background-position: center; background-image: url(\"Images//Tracker//"+newVal.layout+"//" + imgName + ".png\"); width:" + itemwidth + ";height :" + itemheight + "' onclick=\"addItem('" + element.name + "','"+layout+"',"+i+")\"><div class='location' onclick=\"rotatePrize('" + element.name + "','" + element.prize + "','"+newVal.layout+"',"+i+")\" style='display:inline-block; text-align: center;vertical-align: bottom;background-repeat: no-repeat;background-size: contain;margin-top:"+prizemarginT+";margin-left:"+prizemargin+"; background-image: url(\"Images//Tracker//"+newVal.layout+"//" + element.prize + ".png\"); width:" + prizewidth + ";height :" + prizeheight + "'></div></div>";
-                            break;
-                            case "item":
-                            case "music":
-                            case "transf_mask":
-                            case "boss_mask":
-                                tracker += "<div style='display:inline-block;background-repeat: no-repeat;background-size: contain; background-image: url(\"Images//Tracker//"+newVal.layout+"//" + imgName + ".png\"); width:" + itemwidth + ";height :" + itemheight + "' onclick=\"addItem('" + element.name + "','"+layout+"',"+i+")\"></div>";
-                                break;
-                            case "space":
-                                tracker += "<div style='display:inline-block;background-repeat: no-repeat;background-size: contain; width:" + itemwidth + ";height :" + itemheight + "' ></div>";
-                                break;
-                        }
-                    }
-                });
-                tracker += `<button onclick="resetTracker(${i})">Reset</button>`;    
+        var i = 0;
+        for (j = 0; j < newVal.runnerInfo.length; j++) {
+            if(newVal.runnerInfo[j].id == pl){
+                i = j;
             }
-            newcontent.innerHTML = tracker;
-            randoTrackerDiv.appendChild(newcontent);
         }
+        var newcontent = document.createElement('div');
+
+        var tracker = "<span>Player " +(i+1) + " - "+ newVal.runnerInfo[i].name+"<span></br>";
+        if(newVal.runnerInfo[i].itens){
+            newVal.runnerInfo[i].itens.forEach(element => {
+                var imgName = element.name;
+                if (element.have == 0) {
+                    imgName += "_fade";
+                } else {
+                    if (element.have != element.max || (element.have == element.max && element.max != 1) ) {
+                        imgName += "_" + element.have;
+                    }
+                }
+                
+                if (element.type == "break") {
+                    tracker += "</div><div style = 'margin-left:5px;'>";
+
+                } else { 
+                    switch (element.type) {
+                        //OOT
+                        case "jewel":
+                            tracker += "<div style='display:inline-block; text-align: center;vertical-align: bottom;background-repeat: no-repeat;background-size: contain; background-image: url(\"Images//Tracker//"+newVal.layout+"//" + imgName + ".png\"); width:" + medalwidth + ";height :" + medalheight + "' onclick=\"addItem('" + element.name + "','"+layout+"',"+i+")\"><div class='location' style='margin-top:45px' onclick=\"rotateLocation('" + element.name + "','" + element.location + "','"+newVal.layout+"',"+i+")\">" + element.location + "</div></div>";
+                        break;
+                        case "medal":
+                            tracker += "<div style='display:inline-block; text-align: center;vertical-align: bottom;background-repeat: no-repeat;background-size: contain; background-image: url(\"Images//Tracker//"+newVal.layout+"//" + imgName + ".png\"); width:" + itemwidth + ";height :" + itemheight + "' onclick=\"addItem('" + element.name + "','"+layout+"',"+i+")\"><div class='location' style='margin-top:35px' onclick=\"rotateLocation('" + element.name + "','" + element.location + "','"+newVal.layout+"',"+i+")\">" + element.location + "</div></div>";
+                        break;
+                        case "location":
+                            tracker += "<div style='display:inline-block; text-align: center;vertical-align: bottom;background-repeat: no-repeat;background-size: contain;background-position: center; background-image: url(\"Images//Tracker//"+newVal.layout+"//" + imgName + ".png\"); width:" + itemwidth + ";height :" + itemheight + "' onclick=\"addItem('" + element.name + "','"+layout+"',"+i+")\"><div class='location' onclick=\"rotatePrize('" + element.name + "','" + element.prize + "','"+newVal.layout+"',"+i+")\" style='display:inline-block; text-align: center;vertical-align: bottom;background-repeat: no-repeat;background-size: contain;margin-top:"+prizemarginT+";margin-left:"+prizemargin+"; background-image: url(\"Images//Tracker//"+newVal.layout+"//" + element.prize + ".png\"); width:" + prizewidth + ";height :" + prizeheight + "'></div></div>";
+                        break;
+                        case "item":
+                        case "music":
+                        case "transf_mask":
+                        case "boss_mask":
+                            tracker += "<div style='display:inline-block;background-repeat: no-repeat;background-size: contain; background-image: url(\"Images//Tracker//"+newVal.layout+"//" + imgName + ".png\"); width:" + itemwidth + ";height :" + itemheight + "' onclick=\"addItem('" + element.name + "','"+layout+"',"+i+")\"></div>";
+                            break;
+                        case "space":
+                            tracker += "<div style='display:inline-block;background-repeat: no-repeat;background-size: contain; width:" + itemwidth + ";height :" + itemheight + "' ></div>";
+                            break;
+                    }
+                }
+            });
+            tracker += `<button onclick="resetTracker(${i})">Reset</button>`;    
+        }
+        newcontent.innerHTML = tracker;
+        randoTrackerDiv.appendChild(newcontent);
+        
     }
 
 }

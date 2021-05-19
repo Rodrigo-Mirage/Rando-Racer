@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <style>
+      body {
+        font-family: sans-serif;
+      }
+
+      .monospace {
+        font-family: monospace;
+      }
+    </style>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/jquery-jcrop/0.9.15/css/jquery.Jcrop.min.css"
+    /><link rel="stylesheet" href="css/dashboard.css" />
+  </head>
+
+  <body style="margin: 0">
+    <fieldset>
+    Tamanho dos videos:
+    Altura: <input id="videoHeight">
+    Largura: <input id="videoWidth">
+  </fieldset>
+  <fieldset>
+    Numero de Videos na tela: <input id="videoNumber" type="number" step="1" min="1">
+    <div id="videoPositions"></div>
+  </fieldset>
+    <script src="js/setLayout.js"></script>
+  </body>
+</html>

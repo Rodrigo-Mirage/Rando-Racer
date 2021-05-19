@@ -6,12 +6,16 @@
 		body {
 			margin: 0;
 		}
-	</style><link rel="stylesheet" href="css/brat-dashboard.css" />
+	</style><link rel="stylesheet" href="css/dashboard.css" />
 </head>
 <body>
+    <button nodecg-dialog="setLayout">Configurar Layout</button>
+    <button onclick="SetVideos()">Criar Fontes de Video</button>
 
-    <button onclick="test()">TESTE</button>
-
+	<fieldset>
+		<div id="playersSelect"> </div>
+		<button onclick="setPositions()">Posicionar Video</button>
+	</fieldset>
     <script src="js/obsControl.js"></script>
 
 </body>

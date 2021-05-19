@@ -57,6 +57,40 @@
         "width": 5,
         "file": "timer.html",
         "headerColor": "#0000FF"
+      },
+      {
+        "name": "setLayout",
+        "title": "Layout",
+        "file": "setLayout.html",
+        "width": 6,
+        "dialog": true,
+        "dialogButtons": [
+          {
+            "name": "save",
+            "type": "confirm"
+          },
+          {
+            "name": "cancel",
+            "type": "dismiss"
+          }
+        ]
+      },
+      {
+        "name": "setCrop",
+        "title": "Crop",
+        "file": "setCrop.html",
+        "width": 6,
+        "dialog": true,
+        "dialogButtons": [
+          {
+            "name": "save",
+            "type": "confirm"
+          },
+          {
+            "name": "cancel",
+            "type": "dismiss"
+          }
+        ]
       }
     ],
     "graphics": [

@@ -32,25 +32,38 @@ function setup(newVal){
     if(runners){
       for(var i =0;i<runners.length;i++){
 
-        html += `<div>
+        html += `
+        <fieldset>
         <input type='text' id='RunnerName`+i+`' placeholder='Nome' value="`+runners[i].name+`" />
-        <input type='text' id='RunnerStream`+i+`' placeholder='Twitch' value="`+runners[i].stream+`" />
-        <input type='text' id='RunnerAlt`+i+`' placeholder='TwitchAtl' value="`+runners[i].alt+`" />
+        <input type='text' id='RunnerStream`+i+`' placeholder='Twitch' value="`+runners[i].stream+`" /><br>
+        <input type='text' id='RunnerAlt`+i+`' placeholder='TwitchAtl' value="`+runners[i].alt+`" /><br>
+        <button onclick="changeRunner(`+i+`)" >Save</button>
         <button onclick="trackRunner('`+runners[i].id+`')" >Tracker</button>
         <button onclick="remRunner(`+i+`)" >Remover</button>
-        </div>`;
+        </fieldset>`;
       }
     }
-    html += `<div>
+    html += `<fieldset>
       <input type='text' id='addRunnerName' placeholder='Nome' />
-      <input type='text' id='addRunnerStream' placeholder='Twitch' />
-      <input type='text' id='addRunnerAlt' placeholder='TwitchAtl' />
+      <input type='text' id='addRunnerStream' placeholder='Twitch' /><br>
+      <input type='text' id='addRunnerAlt' placeholder='TwitchAtl' /><br>
       <button onclick="addRunner()" >Adicionar</button>
-    </div>`;
+      </fieldset>`;
     runnersDiv.innerHTML = html;
   }else{
     raceInfo.value = baseData;
   }
+}
+
+function changeRunner(i){
+
+  const Name = document.getElementById("RunnerName"+i);
+  const Stream = document.getElementById("RunnerStream"+i);
+  const AltStream = document.getElementById("RunnerAlt"+i);
+  raceInfo.value.runners[i].name = Name.value;
+  raceInfo.value.runners[i].stream = Stream.value;
+  raceInfo.value.runners[i].alt = AltStream.value;
+
 }
 
 function addRunner() {
