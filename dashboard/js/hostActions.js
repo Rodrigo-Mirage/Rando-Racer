@@ -112,12 +112,12 @@ function addRunner() {
     status:"waiting"
   };
   runners.push(runnerobj);
-  raceInfo.value = {runners : runners};
+  raceInfo.value = {runners : runners , type: raceInfo.value.type};
 }
 function remRunner(i) {
   if(confirm("Deseja remover o Runner?")){
     runners.splice(i, 1);
-    raceInfo.value = {runners : runners};
+    raceInfo.value = {runners : runners, type: raceInfo.value.type};
   }
 }
 function trackRunner(id){

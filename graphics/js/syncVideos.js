@@ -61,7 +61,9 @@ timerVal.on("change", (newVal, oldVal) => {
 
 
 function setup(newVal){
+    console.log(newVal)
     if(newVal.type == "async"){
+        console.log(ready)
         if(ready){
             var count = 0;
             newVal.runners.forEach(runner => {
