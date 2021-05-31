@@ -21,13 +21,6 @@ function onYouTubeIframeAPIReady() {
     
     for (var i = 0; i < playersInfo.length; i++) {
         var curplayer = createPlayer(playersInfo[i]);
-        if(ready){
-            if(players[i]){
-                updateplayer(players[i], curplayer)
-            }else{
-                setupnew(i,curplayer)
-            }
-        }
         players[i] = curplayer;
     }
 }
@@ -68,48 +61,90 @@ timerVal.on("change", (newVal, oldVal) => {
 
 
 function setup(newVal){
-    if(newVal.type == "async" && !ready){
-        var html = "";
-        var count = 0;
-        newVal.runners.forEach(runner => {
-            var newUrl = "";
-            var start = 0;
-
-            if(runner.url.indexOf("v=")>-1){
-                newUrl = runner.url.substring((runner.url.lastIndexOf("v=")+2));
-            }
-            else{
-                if(runner.url.indexOf("/")){
-                    newUrl = runner.url.substring(runner.url.lastIndexOf("/"));
+    if(newVal.type == "async"){
+        if(ready){
+            var count = 0;
+            newVal.runners.forEach(runner => {
+                var newUrl = "";
+                var start = 0;
+                if(runner.url.indexOf("v=")>-1){
+                    newUrl = runner.url.substring((runner.url.lastIndexOf("v=")+2));
                 }
-            }
-//ytp-show-cards-title
-//ytp-watermark
-            if(runner.start){
-                start = parseInt(runner.start);
-            }
-
-            start = start + (startTime>0?startTime:0);
-
-            console.log(start);
-
-            if(runner.url){
-                videos.innerHTML = videos.innerHTML+ `<div id ='player${count}'></div>`;
-                starting['player'+ count] = start ;
-                var info =
-                {
-                    id: 'player'+count,
-                    height: '360',
-                    width: '640',
-                    videoId: newUrl,
-                    start : start
+                else{
+                    if(runner.url.indexOf("/")){
+                        newUrl = runner.url.substring(runner.url.lastIndexOf("/"));
+                    }
                 }
-                playersInfo[count] = info;
-            }
+                if(runner.start){
+                    start = parseInt(runner.start);
+                }
+    
+                start = start + (startTime>0?startTime:0);
+                if(runner.url){
+                    var info =
+                    {
+                        id: 'player'+count,
+                        height: '360',
+                        width: '640',
+                        videoId: newUrl,
+                        start : start
+                    }
+                    if(playersInfo[count]){
 
-            count++;
-        });
-        ready = true;
+                    }
+                    else{
+                        videos.innerHTML = videos.innerHTML + `<div id ='player${count}'></div>`;
+                        starting['player'+ count] = start ;
+                        playersInfo[count] = info;
+                    }
+                }
+    
+                count++;
+            });
+            ready = true;
+        }
+        else{
+            var count = 0;
+            newVal.runners.forEach(runner => {
+                var newUrl = "";
+                var start = 0;
+    
+                if(runner.url.indexOf("v=")>-1){
+                    newUrl = runner.url.substring((runner.url.lastIndexOf("v=")+2));
+                }
+                else{
+                    if(runner.url.indexOf("/")){
+                        newUrl = runner.url.substring(runner.url.lastIndexOf("/"));
+                    }
+                }
+                //ytp-show-cards-title
+                //ytp-watermark
+                if(runner.start){
+                    start = parseInt(runner.start);
+                }
+    
+                start = start + (startTime>0?startTime:0);
+    
+                console.log(start);
+    
+                if(runner.url){
+                    videos.innerHTML = videos.innerHTML+ `<div id ='player${count}'></div>`;
+                    starting['player'+ count] = start ;
+                    var info =
+                    {
+                        id: 'player'+count,
+                        height: '360',
+                        width: '640',
+                        videoId: newUrl,
+                        start : start
+                    }
+                    playersInfo[count] = info;
+                }
+    
+                count++;
+            });
+            ready = true;
+        }
     }
 }
 
