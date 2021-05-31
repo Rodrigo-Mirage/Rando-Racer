@@ -108,6 +108,11 @@
         "file": "hosts.html",
         "width": 1920,
         "height": 1080
+      },
+      {
+        "file": "syncVideos.html",
+        "width": 1920,
+        "height": 1080
       }
     ]
   },

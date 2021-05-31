@@ -9,7 +9,6 @@ var runnersInfoDiv = document.getElementById("runnersInfo");
 
 
 
-
 hostName.on("change", (newVal, oldVal) => {
     hostNameDiv.value = newVal;
 });

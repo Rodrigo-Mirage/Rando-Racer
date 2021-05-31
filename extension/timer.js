@@ -25,19 +25,23 @@ class timerObj {
             var old = RunStatus.value;
             old.general = "started";
             RunStatus.value = old;
+            run()
         });
         nodecg.listenFor('timerPause', function (data, ack) {
             var old = RunStatus.value;
             old.general = "paused";
             RunStatus.value = old;
+            run()
         });
         nodecg.listenFor('timerReset', function (force, ack) {
             var old = RunStatus.value;
             old.general = "reset";
             old.runners = "waiting";
             RunStatus.value = old;
+            run()
         });
         nodecg.listenFor('timerStop', function (data, ack) {
+          
         });
         nodecg.listenFor('setTimer', function (data, ack) {
             var old = RunStatus.value;
@@ -108,6 +112,8 @@ class timerObj {
                 alt:runners[i].alt,
                 crop:runners[i].crop,
                 status:runners[i].status,
+                url:runners[i].url,
+                start:runners[i].start,
                 finishTime:""
               }
               if(runners[i].id == id){
@@ -120,7 +126,7 @@ class timerObj {
               race.push(raceitem);
               count++;
           }
-          raceInfo.value = {runners: race};
+          raceInfo.value = {runners: race, type : raceInfo.value.type};
           if(count == ready){
             var old = RunStatus.value;
             old.runners = "ready";
@@ -130,6 +136,7 @@ class timerObj {
             old.runners = "waiting";
             RunStatus.value = old;
           }
+          run();
         });
 
 
@@ -145,6 +152,8 @@ class timerObj {
                 alt:runners[i].alt,
                 crop:runners[i].crop,
                 status:runners[i].status,
+                url:runners[i].url,
+                start:runners[i].start,
                 finishTime:""
               } 
               if(runners[i].id == id){
@@ -152,7 +161,8 @@ class timerObj {
               }
               race.push(raceitem);
           }
-          raceInfo.value = {runners: race};
+          raceInfo.value = {runners: race, type : raceInfo.value.type};
+          run()
         });
 
         nodecg.listenFor('doneRacer', function (data, ack) {
@@ -169,6 +179,8 @@ class timerObj {
                 alt:runners[i].alt,
                 crop:runners[i].crop,
                 status:runners[i].status,
+                url:runners[i].url,
+                start:runners[i].start,
                 finishTime:runners[i].finishTime
               }
               if(runners[i].id == id){
@@ -182,7 +194,7 @@ class timerObj {
               race.push(raceitem);
               count++;
           }
-          raceInfo.value = {runners: race};
+          raceInfo.value = {runners: race, type : raceInfo.value.type};
           if(count == done){
             var old = RunStatus.value;
             old.general = "done";
@@ -205,6 +217,8 @@ class timerObj {
                 alt:runners[i].alt,
                 crop:runners[i].crop,
                 status:runners[i].status,
+                url:runners[i].url,
+                start:runners[i].start,
                 finishTime:runners[i].finishTime
               }
               if(runners[i].id == id){
@@ -218,7 +232,7 @@ class timerObj {
               race.push(raceitem);
               count++;
           }
-          raceInfo.value = {runners: race};
+          raceInfo.value = {runners: race, type : raceInfo.value.type};
           if(count == done){
             var old = RunStatus.value;
             old.general = "done";
