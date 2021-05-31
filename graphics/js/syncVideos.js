@@ -17,6 +17,7 @@ var firstScriptTag = document.getElementsByTagName('script')[0];
 firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
 
 function onYouTubeIframeAPIReady() {
+    console.log("started")
     if (typeof playersInfo === 'undefined') return;
     
     for (var i = 0; i < playersInfo.length; i++) {
@@ -95,6 +96,8 @@ function setup(newVal){
                         if(editplayer(playersInfo[count],info,count)){
                             playersInfo[count] = info;
                         }
+                        starting['player'+ count] = start ;
+                        console.log('player'+ count,start)
                     }
                     else{
                         videos.innerHTML = videos.innerHTML + `<div id ='player${count}'></div>`;
@@ -160,7 +163,6 @@ function editplayer(oldData,newData,index){
             'suggestedQuality': 'large'});
             return true;
         }
-        starting['player'+ count] = newData.start ;
     }
     return false;
 }
