@@ -92,7 +92,9 @@ function setup(newVal){
                         start : start
                     }
                     if(playersInfo[count]){
-
+                        if(editplayer(playersInfo[count],info,count)){
+                            playersInfo[count] = info;
+                        }
                     }
                     else{
                         videos.innerHTML = videos.innerHTML + `<div id ='player${count}'></div>`;
@@ -150,6 +152,18 @@ function setup(newVal){
     }
 }
 
+function editplayer(oldData,newData,index){
+    if(newData != oldData){
+        if(newData.videoId != oldData.videoId){
+            players[index].loadVideoById({'videoId': newData.videoId,
+            'startSeconds': newData.start,
+            'suggestedQuality': 'large'});
+            return true;
+        }
+        starting['player'+ count] = newData.start ;
+    }
+    return false;
+}
 
 function playStatus(rep){
     console.log(rep)
