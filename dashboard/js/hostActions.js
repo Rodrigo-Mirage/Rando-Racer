@@ -49,6 +49,7 @@ function setup(newVal){
         
         html += `<button onclick="changeRunner(`+i+`)" >Save</button>
         <button onclick="trackRunner('`+runners[i].id+`')" >Tracker</button>
+        <button onclick="cropRunner('`+runners[i].id+`')" >Crop</button>
         <button onclick="remRunner(`+i+`)" >Remover</button>
         </fieldset>`;
       }
@@ -120,8 +121,13 @@ function remRunner(i) {
     raceInfo.value = {runners : runners, type: raceInfo.value.type};
   }
 }
+
 function trackRunner(id){
   window.open("/bundles/Rando-Racer/graphics/tracker.html?pl="+id, '_blank');
+}
+
+function cropRunner(id){
+  window.open("/bundles/Rando-Racer/graphics/crop.html?pl="+id, '_blank');
 }
 
 function uuidv4() {

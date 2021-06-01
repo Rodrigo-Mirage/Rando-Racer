@@ -40,10 +40,6 @@ function createPlayer(playerInfo) {
         }
     });
 }
-function updateplayer(playerInfo){
-
-}
-
 
 raceInfo.on("change", (newVal, oldVal) => {
     setup(newVal);
@@ -81,8 +77,6 @@ function setup(newVal){
                 if(runner.start){
                     start = parseInt(runner.start);
                 }
-    
-                start = start + (startTime>0?startTime:0);
                 if(runner.url){
                     var info =
                     {
@@ -97,7 +91,6 @@ function setup(newVal){
                             playersInfo[count] = info;
                         }
                         starting['player'+ count] = start ;
-                        console.log('player'+ count,start)
                     }
                     else{
                         videos.innerHTML = videos.innerHTML + `<div id ='player${count}'></div>`;

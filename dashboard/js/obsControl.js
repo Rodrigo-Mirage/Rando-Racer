@@ -8,6 +8,7 @@ var videosList = [];
 var playerList = [];
 var videoPos = [];
 var soundF = 0;
+var type = "";
 
 soundFocus.on("change", (newVal, oldVal) => {
     if(newVal!=null && oldVal!=null && newVal != oldVal ){
@@ -34,6 +35,7 @@ videoPositions.on("change", (newVal, oldVal) => {
 
 raceInfo.on("change", (newVal, oldVal) => {
     playerList = newVal.runners;
+    type = newVal.type;
 });
 
 setTimeout(
@@ -112,8 +114,15 @@ function SetVideos(){
 }
 
 function setUrl(list, scene, source, x, y, playerData) {
+    console.log(playerData.id)
+
     var url = 'https://player.twitch.tv/?channel=' + (playerData.alt || playerData.stream) + '&enableExtensions=true&muted=false&parent=twitch.tv&player=popout&volume='+playerData.volume
+    if(type == "async"){
+        url = window.location.origin+"/bundles/Rando-Racer/graphics/player.html?pl="+ playerData.id;
+    }
+    console.log(playerData.crop)
     if (list.filter(e => e.sourceName == source).length > 0) {
+        
         nodecg.sendMessage('obs:sendMessage', { 'messageName':'SetSceneItemProperties', 'data': {
             'sceneName': scene,
             'item': source,

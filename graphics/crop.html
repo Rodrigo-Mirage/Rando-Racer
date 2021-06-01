@@ -1,0 +1,66 @@
+<html>
+    <head>
+        <link rel="stylesheet" type="text/css" href="css/omnibar.css">
+    </head>
+    <body>
+        <div id="canvas">
+
+            <iframe height="600" width="800" id="crop"></iframe>
+
+
+            <div id="dragTop" class="drag up" ></div>
+            <div id="dragBottom" class="drag down" ></div>
+            <div id="dragLeft" class="drag left" ></div>
+            <div id="dragRight" class="drag right" ></div>
+
+            <style>
+                .drag{
+                    position:absolute
+                }
+                .up{
+                    top: 0;
+                    left: 2;
+                    width: 800px;
+                    height: 2px;
+                    background: greenyellow ;
+                }
+
+
+                .down{
+                    top: 602px;
+                    left: 2;
+                    width: 800px;
+                    height: 2px;
+                    background: greenyellow ;
+                }
+                
+                .left{
+                    top: 2;
+                    left: 0;
+                    width: 2px;
+                    height: 600px;
+                    background: greenyellow ;
+                }
+                
+                .right{
+                    top: 2PX;
+                    left: 802PX;
+                    width: 2px;
+                    height: 600px;
+                    background: greenyellow ;
+                }
+
+
+            </style>
+        </div>
+        <section>
+            Up Crop: <input type="number" id="up">
+            Down Crop: <input type="number" id="down">
+            Left Crop: <input type="number" id="left">
+            Right Crop: <input type="number" id="right">
+            <button onclick="Save()">Save</button>
+        </section>
+        <script src="js/crop.js"></script>
+
+    </body>
+</html>
