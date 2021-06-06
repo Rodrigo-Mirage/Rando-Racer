@@ -86,14 +86,10 @@ function setup(newVal){
             left.value = l;
             right.value = r;
 
-
-            
             Dup.style.top = u +"px";
             Ddown.style.top = (height - d) +"px";
             Dleft.style.left = (l) +"px";
             Dright.style.left = (width - r) +"px";
-
-
 
         }
         count++;

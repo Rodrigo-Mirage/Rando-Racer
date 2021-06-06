@@ -1,17 +1,18 @@
 
+var LayoutConfigs = nodecg.Replicant('layoutConfigs');
 var raceInfo = nodecg.Replicant("raceInfo"); 
 var RunStatus = nodecg.Replicant("RunStatus"); 
 const videos = document.getElementById("videos");
 const timerVal = nodecg.Replicant("timeVal");
 
-var LayoutConfigs = nodecg.Replicant('layoutConfigs');
 
 var height = 0;
 var width = 0;
 
 LayoutConfigs.on("change", (newVal, oldVal) => {
-    height = parseInt(newVal.videosConfig.height);
+    console.log(newVal)
     width = parseInt(newVal.videosConfig.width);
+    height = (width * 9)/16;
 });
 
 var player;
@@ -101,6 +102,7 @@ function setup(newVal){
                         start = parseInt(runner.start);
                     }
                     if(runner.url){
+                        console.log(height)
                         var info =
                         {
                             id: 'player',
@@ -149,6 +151,7 @@ function setup(newVal){
         
                     if(runner.url){
                         starting = start ;
+                        console.log(height)
                         var info =
                         {
                             id: 'player',
