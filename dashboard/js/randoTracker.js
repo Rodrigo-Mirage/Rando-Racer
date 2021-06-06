@@ -52,6 +52,27 @@ var baseData = [
         //jewels
         {
             type: "item",
+            name: "forca",
+            have: 0,
+            max: 3,
+            location: ""
+        },
+        {
+            type: "item",
+            name: "bow",
+            have: 0,
+            max: 1,
+            location: ""
+        },
+        {
+            type: "item",
+            name: "hookshot",
+            have: 0,
+            max: 2,
+            location: ""
+        },
+        {
+            type: "item",
             name: "bomb",
             have: 0,
             max: 1,
@@ -66,49 +87,38 @@ var baseData = [
         },
         {
             type: "item",
-            name: "boomerang",
+            name: "lens",
             have: 0,
             max: 1,
             location: ""
         },
         {
             type: "item",
-            name: "bow",
+            name: "goron_tunic",
             have: 0,
             max: 1,
             location: ""
         },
         {
             type: "item",
-            name: "dins_fire",
+            name: "zora_tunic",
             have: 0,
             max: 1,
             location: ""
         },
         {
-            type: "item",
-            name: "hammer",
-            have: 0,
-            max: 1,
-            location: ""
+            type: "break"
         },
         {
             type: "item",
-            name: "hookshot",
+            name: "scale",
             have: 0,
             max: 2,
             location: ""
         },
         {
             type: "item",
-            name: "forca",
-            have: 0,
-            max: 3,
-            location: ""
-        },
-        {
-            type: "item",
-            name: "hover_boots",
+            name: "light_arrows",
             have: 0,
             max: 1,
             location: ""
@@ -122,39 +132,28 @@ var baseData = [
         },
         {
             type: "item",
-            name: "mirror_shield",
+            name: "hammer",
             have: 0,
             max: 1,
             location: ""
         },
         {
             type: "item",
-            name: "light_arrows",
+            name: "boomerang",
             have: 0,
             max: 1,
             location: ""
         },
-        
         {
-            type: "break",
+            type: "item",
+            name: "dins_fire",
+            have: 0,
+            max: 1,
+            location: ""
         },
         {
             type: "music",
             name: "ZL",
-            have: 0,
-            max: 1,
-            location: ""
-        },
-        {
-            type: "music",
-            name: "epona",
-            have: 0,
-            max: 1,
-            location: ""
-        },
-        {
-            type: "music",
-            name: "sarias",
             have: 0,
             max: 1,
             location: ""
@@ -166,9 +165,56 @@ var baseData = [
             max: 1,
             location: ""
         },
+        
+        {
+            type: "break",
+        },
+        
+        {
+            type: "item",
+            name: "claim_check",
+            have: 0,
+            max: 1,
+            location: ""
+        },
+        {
+            type: "item",
+            name: "fire_arrows",
+            have: 0,
+            max: 1,
+            location: ""
+        },
+        {
+            type: "item",
+            name: "hover_boots",
+            have: 0,
+            max: 1,
+            location: ""
+        },
+        {
+            type: "item",
+            name: "mirror_shield",
+            have: 0,
+            max: 1,
+            location: ""
+        },
+        {
+            type: "item",
+            name: "rutos",
+            have: 0,
+            max: 1,
+            location: ""
+        },
+        {
+            type: "item",
+            name: "farore_wind",
+            have: 0,
+            max: 1,
+            location: ""
+        },
         {
             type: "music",
-            name: "storms",
+            name: "Epona",
             have: 0,
             max: 1,
             location: ""
@@ -180,8 +226,11 @@ var baseData = [
             max: 1,
             location: ""
         },
-
-
+        
+        {
+            type: "break",
+        },
+        
         {
             type: "music",
             name: "minuet",
@@ -224,10 +273,44 @@ var baseData = [
             max: 1,
             location: ""
         },
-        
+        {
+            type: "music",
+            name: "sarias",
+            have: 0,
+            max: 1,
+            location: ""
+        },
+        {
+            type: "music",
+            name: "storms",
+            have: 0,
+            max: 1,
+            location: ""
+        },
         
         {
             type: "break",
+        },
+        {
+            type: "jewel",
+            name: "Kokiri",
+            have: 0,
+            max: 1,
+            location: "???"
+        },
+        {
+            type: "jewel",
+            name: "ruby",
+            have: 0,
+            max: 1,
+            location: "???"
+        },
+        {
+            type: "jewel",
+            name: "zora",
+            have: 0,
+            max: 1,
+            location: "???"
         },
         {
             type: "jewel",
@@ -267,27 +350,6 @@ var baseData = [
         {
             type: "jewel",
             name: "lightmed",
-            have: 0,
-            max: 1,
-            location: "???"
-        },
-        {
-            type: "jewel",
-            name: "Kokiri",
-            have: 0,
-            max: 1,
-            location: "???"
-        },
-        {
-            type: "jewel",
-            name: "ruby",
-            have: 0,
-            max: 1,
-            location: "???"
-        },
-        {
-            type: "jewel",
-            name: "zora",
             have: 0,
             max: 1,
             location: "???"

@@ -4,6 +4,16 @@ var RunStatus = nodecg.Replicant("RunStatus");
 const videos = document.getElementById("videos");
 const timerVal = nodecg.Replicant("timeVal");
 
+var LayoutConfigs = nodecg.Replicant('layoutConfigs');
+
+var height = 0;
+var width = 0;
+
+LayoutConfigs.on("change", (newVal, oldVal) => {
+    height = parseInt(newVal.videosConfig.height);
+    width = parseInt(newVal.videosConfig.width);
+});
+
 var player;
 var playersInfo;
 var ready = false;
@@ -94,8 +104,8 @@ function setup(newVal){
                         var info =
                         {
                             id: 'player',
-                            height: '450',
-                            width: '800',
+                            height: height,
+                            width: width,
                             videoId: newUrl,
                             start : start
                         }
@@ -142,8 +152,8 @@ function setup(newVal){
                         var info =
                         {
                             id: 'player',
-                            height: '450',
-                            width: '800',
+                            height: height,
+                            width: width,
                             videoId: newUrl,
                             start : start
                         }

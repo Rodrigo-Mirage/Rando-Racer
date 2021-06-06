@@ -31,6 +31,16 @@ const Ddown = document.getElementById("dragBottom");
 const Dleft = document.getElementById("dragLeft");
 const Dright = document.getElementById("dragRight");
 
+var LayoutConfigs = nodecg.Replicant('layoutConfigs');
+
+var height = 0;
+var width = 0;
+
+
+LayoutConfigs.on("change", (newVal, oldVal) => {
+    height = parseInt(newVal.videosConfig.height);
+    width = parseInt(newVal.videosConfig.width);
+});
 
 var linkVar = (varName,value) => {
 switch(varName){
@@ -40,7 +50,7 @@ switch(varName){
     break;
     case "d":
         d = value;
-        Ddown.style.top = (600 - value) +"px";
+        Ddown.style.top = (height - value) +"px";
     break;
     case "l":
         l = value;
@@ -48,7 +58,7 @@ switch(varName){
     break;
     case "r":
         r = value;
-        Dright.style.left = (800 - value) +"px";
+        Dright.style.left = (width - value) +"px";
     break;
 }
 };
@@ -79,9 +89,9 @@ function setup(newVal){
 
             
             Dup.style.top = u +"px";
-            Ddown.style.top = (600 - d) +"px";
+            Ddown.style.top = (height - d) +"px";
             Dleft.style.left = (l) +"px";
-            Dright.style.left = (800 - r) +"px";
+            Dright.style.left = (width - r) +"px";
 
 
 
