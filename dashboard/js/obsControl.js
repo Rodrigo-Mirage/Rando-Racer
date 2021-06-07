@@ -34,8 +34,10 @@ videoPositions.on("change", (newVal, oldVal) => {
 });
 
 raceInfo.on("change", (newVal, oldVal) => {
-    playerList = newVal.runners;
-    type = newVal.type;
+    if(newVal){
+        playerList = newVal.runners;
+        type = newVal.type;
+    }
 });
 
 setTimeout(

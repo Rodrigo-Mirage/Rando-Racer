@@ -1563,12 +1563,13 @@ randoBase.value = {
 };
 
 randoTracker.on("change", (newVal, oldVal) => {
-    updateTracker(newVal)
+    if(newVal){
+        updateTracker(newVal);
+    }
 });
 
 
 function setPlayers(){
-
     nodecg.readReplicant("randoTracker", "Rando-Racer", (newVal) => {
     var newData =
         {
@@ -1653,15 +1654,52 @@ raceInfo.on("change", (newVal, oldVal) => {
             randoTracker.value = newData;
             setPlayers();
         }
+    }else{
+        var newData =
+            {
+                layout: layout,
+                runnerInfo:[]
+            };
+            for (i = 0; i < players; i++) {
+                if (layout == "OOT") {
+                    newData.runnerInfo[i] = {
+                        name:newVal.runners[i].name,
+                        id:newVal.runners[i].id,
+                        itens: baseData[0]
+                    }
+                }
+                if (layout == "MMR") {
+                    newData.runnerInfo[i] = {
+                        name:newVal.runners[i].name,
+                        id:newVal.runners[i].id,
+                        itens: baseData[1]
+                    }
+                }
+                if (layout == "ALTTP") {
+                    newData.runnerInfo[i] = {
+                        name:newVal.runners[i].name,
+                        id:newVal.runners[i].id,
+                        itens: baseData[2]
+                    }
+                }
+                if (layout == "SMZ3") {
+                    newData.runnerInfo[i] = {
+                        name:newVal.runners[i].name,
+                        id:newVal.runners[i].id,
+                        itens: baseData[3]
+                    }
+                }
+            }
+            randoTracker.value = newData;
+            setPlayers();
+
     }
 });
 
 randoLayout.on("change", (newVal, oldVal) => {
-    if (newVal != oldVal && oldVal) {
+    if (newVal) {
         layout = newVal;
         setPlayers();
-    }else{
-        layout = newVal;
     }
 });
 

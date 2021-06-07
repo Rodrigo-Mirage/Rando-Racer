@@ -137,12 +137,14 @@ function uuidv4() {
 }
 
 function switchRaceType(){
-  var type = raceInfo.value.type;
+  if(raceInfo.value){
+    var type = raceInfo.value.type;
 
-  if(!type || type == "sync"){
-    type = "async"
-  }else{
-    type = "sync"
+    if(!type || type == "sync"){
+      type = "async"
+    }else{
+      type = "sync"
+    }
+    raceInfo.value.type = type;
   }
-  raceInfo.value.type = type;
 }
