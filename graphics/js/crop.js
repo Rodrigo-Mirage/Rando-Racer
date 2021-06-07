@@ -40,6 +40,8 @@ var width = 0;
 LayoutConfigs.on("change", (newVal, oldVal) => {
     height = parseInt(newVal.videosConfig.height);
     width = parseInt(newVal.videosConfig.width);
+    crop.height = height;
+    crop.width = width;
 });
 
 var linkVar = (varName,value) => {
