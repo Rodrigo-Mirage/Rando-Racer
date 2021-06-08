@@ -3,10 +3,15 @@
 class timerObj {
     constructor(nodecg){
         var timerReplicant = nodecg.Replicant('timer');
+        var raceInfo = nodecg.Replicant("raceInfo");
         var timerReplicant2 = nodecg.Replicant('timeVal');
         var RunStatus = nodecg.Replicant('RunStatus');
         var timer = timerReplicant2.value || -30;
         var status = "waiting";
+
+        var hr = 0;
+        var min = 0;
+        var sec = 0;
 
         RunStatus.on("change",(newval,oldval)=>{     
           if(!newval){
@@ -17,53 +22,38 @@ class timerObj {
           }else{
             status = newval.general;
           }
-          console.log(newval)
-          run()
+          verify()
         });
 
         nodecg.listenFor('timerStart', function (data, ack) {
             var old = RunStatus.value;
             old.general = "started";
             RunStatus.value = old;
-            run()
         });
         nodecg.listenFor('timerPause', function (data, ack) {
             var old = RunStatus.value;
             old.general = "paused";
             RunStatus.value = old;
-            run()
         });
         nodecg.listenFor('timerReset', function (force, ack) {
             var old = RunStatus.value;
             old.general = "reset";
-            old.runners = "waiting";
             RunStatus.value = old;
-            run()
         });
         nodecg.listenFor('timerStop', function (data, ack) {
           
         });
         nodecg.listenFor('setTimer', function (data, ack) {
             var old = RunStatus.value;
-            old.general = "waiting";
+            old.general = "reset";
             old.runners = "waiting";
             RunStatus.value = old;
             timer = data.timer;
         });
 
-        var hr = 0;
-        var min = 0;
-        var sec = 0;
-
         function loop(){
             if(status == "running"){
                 timer++;
-            }
-            if(status == "reset"){
-                timer = 0;
-                hr = 0;
-                min = 0;
-                sec = 0;
             }
             var modTimer = timer >= 0 ? timer : -timer;
 
@@ -95,158 +85,101 @@ class timerObj {
         setInterval(()=>{loop()},1000);
 
 
+        raceInfo.on("change",(newval,oldval)=>{  
+          verify();
+        });
 
-        var raceInfo = nodecg.Replicant("raceInfo");
+
 
         nodecg.listenFor('readyRacer', function (data, ack) {
           var id = data.id;
           var runners = raceInfo.value.runners;
-          var race = [];
-          var count = 0;
-          var ready = 0;
           for ( var i = 0; i < runners.length; i++) {
-              var raceitem = {
-                name:runners[i].name,
-                id:runners[i].id,
-                stream:runners[i].stream,
-                alt:runners[i].alt,
-                crop:runners[i].crop,
-                status:runners[i].status,
-                url:runners[i].url,
-                start:runners[i].start,
-                finishTime:""
-              }
               if(runners[i].id == id){
-                raceitem.status = "ready";
-                ready++;
+                raceInfo.value.runners[i].status = "ready";
               }
-              if(runners[i].status == "ready"){
-                ready++;
-              }
-              race.push(raceitem);
-              count++;
           }
-          raceInfo.value = {runners: race, type : raceInfo.value.type};
-          if(count == ready){
-            var old = RunStatus.value;
-            old.runners = "ready";
-            RunStatus.value = old;
-          }else{
-            var old = RunStatus.value;
-            old.runners = "waiting";
-            RunStatus.value = old;
-          }
-          run();
         });
-
 
         nodecg.listenFor('unreadyRacer', function (data, ack) {
           var id = data.id;
-            var runners = raceInfo.value.runners;
-          var race = [];
+          var runners = raceInfo.value.runners;
           for ( var i = 0; i < runners.length; i++) {
-              var raceitem = {
-                name:runners[i].name,
-                id:runners[i].id,
-                stream:runners[i].stream,
-                alt:runners[i].alt,
-                crop:runners[i].crop,
-                status:runners[i].status,
-                url:runners[i].url,
-                start:runners[i].start,
-                finishTime:""
-              } 
               if(runners[i].id == id){
-                raceitem.status = "waiting";
+                raceInfo.value.runners[i].status = "waiting";
               }
-              race.push(raceitem);
           }
-          raceInfo.value = {runners: race, type : raceInfo.value.type};
-          run()
         });
 
         nodecg.listenFor('doneRacer', function (data, ack) {
           var id = data.id;
           var runners = raceInfo.value.runners;
-          var race = [];
-          var count = 0;
-          var done = 0;
           for ( var i = 0; i < runners.length; i++) {
-              var raceitem = {
-                name:runners[i].name,
-                id:runners[i].id,
-                stream:runners[i].stream,
-                alt:runners[i].alt,
-                crop:runners[i].crop,
-                status:runners[i].status,
-                url:runners[i].url,
-                start:runners[i].start,
-                finishTime:runners[i].finishTime
-              }
               if(runners[i].id == id){
-                raceitem.status = "done";
-                raceitem.finishTime = timerReplicant.value;
-                done++;
+                raceInfo.value.runners[i].status = "done";
               }
-              if(runners[i].status == "done" || runners[i].status == "forfeit"){
-                done++;
-              }
-              race.push(raceitem);
-              count++;
-          }
-          raceInfo.value = {runners: race, type : raceInfo.value.type};
-          if(count == done){
-            var old = RunStatus.value;
-            old.general = "done";
-            old.runners = "done";
-            RunStatus.value = old;
           }
         });
 
         nodecg.listenFor('ffRacer', function (data, ack) {
           var id = data.id;
           var runners = raceInfo.value.runners;
-          var race = [];
-          var count = 0;
-          var done = 0;
           for ( var i = 0; i < runners.length; i++) {
-              var raceitem = {
-                name:runners[i].name,
-                id:runners[i].id,
-                stream:runners[i].stream,
-                alt:runners[i].alt,
-                crop:runners[i].crop,
-                status:runners[i].status,
-                url:runners[i].url,
-                start:runners[i].start,
-                finishTime:runners[i].finishTime
-              }
               if(runners[i].id == id){
-                raceitem.status = "forfeit";
-                raceitem.finishTime = timerReplicant.value;
-                done++;
+                raceInfo.value.runners[i].status = "forfeit";
               }
-              if(runners[i].status == "done" || runners[i].status == "forfeit"){
-                done++;
-              }
-              race.push(raceitem);
-              count++;
-          }
-          raceInfo.value = {runners: race, type : raceInfo.value.type};
-          if(count == done){
-            var old = RunStatus.value;
-            old.general = "done";
-            old.runners = "done";
-            RunStatus.value = old;
           }
         });
 
+        function verify(){
+          var runners = raceInfo.value.runners;
+          var race = [];
+          var count = 0;
+          var ready = 0;
+          var done = 0;
 
-        function run(){
-          if(RunStatus.value.general == "started" && RunStatus.value.runners == "ready"){
-            console.log("Race starting")
-            var old = RunStatus.value;
+          var old = RunStatus.value;
+          if(old.general == "waiting" || old.general == "started"){
+              for ( var i = 0; i < runners.length; i++) {
+                if(runners[i].status == "ready"){
+                  ready++;
+                }
+                count++;
+            }
+            if(count == ready){
+              old.runners = "ready";
+              RunStatus.value = old;
+            }else{
+              old.runners = "waiting";
+              RunStatus.value = old;
+            }
+
+          }
+          else{
+            if(old.general == "running"){
+              for ( var i = 0; i < runners.length; i++) {
+                if(runners[i].status == "done" || runners[i].status == "forfeit"){
+                  done++;
+                }
+                count++;
+              }
+              if(count == done){
+                old.general = "done";
+                old.runners = "done";
+                RunStatus.value = old;
+              }
+            }
+          }
+
+          if(old.general == "started" && old.runners == "ready"){
             old.general = "running";
+            RunStatus.value = old;
+          }
+          if(old.general == "reset"){
+            for ( var i = 0; i < runners.length; i++) {
+              raceInfo.value.runners[i].status = "waiting";
+            }
+            old.general = "waiting";
             RunStatus.value = old;
           }
         }

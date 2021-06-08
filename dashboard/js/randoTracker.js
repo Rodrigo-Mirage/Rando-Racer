@@ -1,4 +1,8 @@
 
+var streamLayout = nodecg.Replicant("streamLayout");
+var layoutItens = nodecg.Replicant("layoutItens");
+var layoutLocations = nodecg.Replicant("layoutLocations");
+
 var randoTracker = nodecg.Replicant("randoTracker");
 var raceInfo = nodecg.Replicant("raceInfo");
 var randoLayout = nodecg.Replicant("randoLayout");
@@ -6,9 +10,9 @@ var randoLayout = nodecg.Replicant("randoLayout");
 
 const PlayerCount = document.getElementById("PlayerCount");
 const TypeSelect = document.getElementById("TypeSelect");
+const form = document.getElementById("form");
 
 var randoBase = nodecg.Replicant("randoBase");
-
 
 var locationListOOT = ["???", "FREE", "DKT", "DDC", "JJB", "FOR", "WAT", "FIR", "SPR", "SHD"];
 
@@ -20,24 +24,53 @@ var players = 2;
 var layout = "OOT";
 var randoList = ["OOT", "MMR","ALTTP","SMZ3"];
 
+
+var layName = "";
+var layItens = [];
+var laylocations = [];
+
+streamLayout.on("change", (newVal, oldVal) => {
+    if(newVal){
+        layName = newVal;
+    }
+});
+layoutItens.on("change", (newVal, oldVal) => {
+    if(newVal){
+        layItens = newVal;
+    }
+});
+layoutLocations.on("change", (newVal, oldVal) => {
+    if(newVal){
+        laylocations = newVal;
+    }
+});
+
 var setup = () => {
-    nodecg.readReplicant("randoCount", "Rando-Racer", (optionsCount) => {
-        players = optionsCount;
-        nodecg.readReplicant("randoLayout", "Rando-Racer", (optionsLayout) => {
-        
-            players = optionsCount || 2;
-            layout = optionsLayout || "OOT";
-            TypeSelect.innerHTML = "";
-            randoList.forEach(element => {
-                var x = document.createElement("OPTION");
-                x.setAttribute("value", element);
-                var t = document.createTextNode(element);
-                x.appendChild(t);
-                TypeSelect.appendChild(x);
+    
+    nodecg.readReplicant("streamLayout", "Rando-Racer", (Lay) => {
+        console.log(Lay)
+        if(!Lay){
+            nodecg.readReplicant("randoCount", "Rando-Racer", (optionsCount) => {
+                players = optionsCount;
+                nodecg.readReplicant("randoLayout", "Rando-Racer", (optionsLayout) => {
+                
+                    players = optionsCount || 2;
+                    layout = optionsLayout || "OOT";
+                    TypeSelect.innerHTML = "";
+                    randoList.forEach(element => {
+                        var x = document.createElement("OPTION");
+                        x.setAttribute("value", element);
+                        var t = document.createTextNode(element);
+                        x.appendChild(t);
+                        TypeSelect.appendChild(x);
+                    });
+                    TypeSelect.value = layout;
+                    PlayerCount.value = players;
+                });
             });
-            TypeSelect.value = layout;
-            PlayerCount.value = players;
-        });
+        }else{
+            form.innerHTML = "";
+        }
     });
 }
 
@@ -214,7 +247,7 @@ var baseData = [
         },
         {
             type: "music",
-            name: "Epona",
+            name: "epona",
             have: 0,
             max: 1,
             location: ""
@@ -1577,32 +1610,40 @@ function setPlayers(){
             runnerInfo:[]
         };
         for (i = 0; i < newVal.runnerInfo.length; i++) {
-            if (layout == "OOT") {
+            if(layName){
                 newData.runnerInfo[i] = {
                     name:newVal.runnerInfo[i].name,
                     id:newVal.runnerInfo[i].id,
-                    itens: baseData[0]
+                    itens: layItens
                 }
-            }
-            if (layout == "MMR") {
-                newData.runnerInfo[i] = {
-                    name:newVal.runnerInfo[i].name,
-                    id:newVal.runnerInfo[i].id,
-                    itens: baseData[1]
+            }else{
+                if (layout == "OOT") {
+                    newData.runnerInfo[i] = {
+                        name:newVal.runnerInfo[i].name,
+                        id:newVal.runnerInfo[i].id,
+                        itens: baseData[0]
+                    }
                 }
-            }
-            if (layout == "ALTTP") {
-                newData.runnerInfo[i] = {
-                    name:newVal.runnerInfo[i].name,
-                    id:newVal.runnerInfo[i].id,
-                    itens: baseData[2]
+                if (layout == "MMR") {
+                    newData.runnerInfo[i] = {
+                        name:newVal.runnerInfo[i].name,
+                        id:newVal.runnerInfo[i].id,
+                        itens: baseData[1]
+                    }
                 }
-            }
-            if (layout == "SMZ3") {
-                newData.runnerInfo[i] = {
-                    name:newVal.runnerInfo[i].name,
-                    id:newVal.runnerInfo[i].id,
-                    itens: baseData[3]
+                if (layout == "ALTTP") {
+                    newData.runnerInfo[i] = {
+                        name:newVal.runnerInfo[i].name,
+                        id:newVal.runnerInfo[i].id,
+                        itens: baseData[2]
+                    }
+                }
+                if (layout == "SMZ3") {
+                    newData.runnerInfo[i] = {
+                        name:newVal.runnerInfo[i].name,
+                        id:newVal.runnerInfo[i].id,
+                        itens: baseData[3]
+                    }
                 }
             }
         }
@@ -1622,34 +1663,44 @@ raceInfo.on("change", (newVal, oldVal) => {
                 runnerInfo:[]
             };
             for (i = 0; i < players; i++) {
-                if (layout == "OOT") {
+                if(layName){
                     newData.runnerInfo[i] = {
                         name:newVal.runners[i].name,
                         id:newVal.runners[i].id,
-                        itens: baseData[0]
+                        itens: layItens
+                    }
+                }else{
+
+                    if (layout == "OOT") {
+                        newData.runnerInfo[i] = {
+                            name:newVal.runners[i].name,
+                            id:newVal.runners[i].id,
+                            itens: baseData[0]
+                        }
+                    }
+                    if (layout == "MMR") {
+                        newData.runnerInfo[i] = {
+                            name:newVal.runners[i].name,
+                            id:newVal.runners[i].id,
+                            itens: baseData[1]
+                        }
+                    }
+                    if (layout == "ALTTP") {
+                        newData.runnerInfo[i] = {
+                            name:newVal.runners[i].name,
+                            id:newVal.runners[i].id,
+                            itens: baseData[2]
+                        }
+                    }
+                    if (layout == "SMZ3") {
+                        newData.runnerInfo[i] = {
+                            name:newVal.runners[i].name,
+                            id:newVal.runners[i].id,
+                            itens: baseData[3]
+                        }
                     }
                 }
-                if (layout == "MMR") {
-                    newData.runnerInfo[i] = {
-                        name:newVal.runners[i].name,
-                        id:newVal.runners[i].id,
-                        itens: baseData[1]
-                    }
-                }
-                if (layout == "ALTTP") {
-                    newData.runnerInfo[i] = {
-                        name:newVal.runners[i].name,
-                        id:newVal.runners[i].id,
-                        itens: baseData[2]
-                    }
-                }
-                if (layout == "SMZ3") {
-                    newData.runnerInfo[i] = {
-                        name:newVal.runners[i].name,
-                        id:newVal.runners[i].id,
-                        itens: baseData[3]
-                    }
-                }
+
             }
             randoTracker.value = newData;
             setPlayers();
@@ -1661,32 +1712,40 @@ raceInfo.on("change", (newVal, oldVal) => {
                 runnerInfo:[]
             };
             for (i = 0; i < players; i++) {
-                if (layout == "OOT") {
+                if(layName){
                     newData.runnerInfo[i] = {
                         name:newVal.runners[i].name,
                         id:newVal.runners[i].id,
-                        itens: baseData[0]
+                        itens: layItens
                     }
-                }
-                if (layout == "MMR") {
-                    newData.runnerInfo[i] = {
-                        name:newVal.runners[i].name,
-                        id:newVal.runners[i].id,
-                        itens: baseData[1]
+                }else{
+                    if (layout == "OOT") {
+                        newData.runnerInfo[i] = {
+                            name:newVal.runners[i].name,
+                            id:newVal.runners[i].id,
+                            itens: baseData[0]
+                        }
                     }
-                }
-                if (layout == "ALTTP") {
-                    newData.runnerInfo[i] = {
-                        name:newVal.runners[i].name,
-                        id:newVal.runners[i].id,
-                        itens: baseData[2]
+                    if (layout == "MMR") {
+                        newData.runnerInfo[i] = {
+                            name:newVal.runners[i].name,
+                            id:newVal.runners[i].id,
+                            itens: baseData[1]
+                        }
                     }
-                }
-                if (layout == "SMZ3") {
-                    newData.runnerInfo[i] = {
-                        name:newVal.runners[i].name,
-                        id:newVal.runners[i].id,
-                        itens: baseData[3]
+                    if (layout == "ALTTP") {
+                        newData.runnerInfo[i] = {
+                            name:newVal.runners[i].name,
+                            id:newVal.runners[i].id,
+                            itens: baseData[2]
+                        }
+                    }
+                    if (layout == "SMZ3") {
+                        newData.runnerInfo[i] = {
+                            name:newVal.runners[i].name,
+                            id:newVal.runners[i].id,
+                            itens: baseData[3]
+                        }
                     }
                 }
             }
@@ -1711,17 +1770,22 @@ function resetTracker(player) {
             layout: optionsOld.layout,
             runnerInfo:optionsOld.runnerInfo
         }
-        if (optionsOld.layout == "OOT") {
-            newData.runnerInfo[player].itens = baseData[0];
-        }
-        if (optionsOld.layout == "MMR") {
-            newData.runnerInfo[player].itens = baseData[1];
-        }
-        if (layout == "ALTTP") {
-            newData.runnerInfo[player].itens = baseData[2];
-        }
-        if (layout == "SMZ3") {
-            newData.runnerInfo[player].itens = baseData[3];
+
+        if(streamLayout){
+            newData.runnerInfo[player].itens = layItens;
+        }else{
+            if (optionsOld.layout == "OOT") {
+                newData.runnerInfo[player].itens = baseData[0];
+            }
+            if (optionsOld.layout == "MMR") {
+                newData.runnerInfo[player].itens = baseData[1];
+            }
+            if (optionsOld.layout == "ALTTP") {
+                newData.runnerInfo[player].itens = baseData[2];
+            }
+            if (optionsOld.layout == "SMZ3") {
+                newData.runnerInfo[player].itens = baseData[3];
+            }
         }
         randoTracker.value = newData;
     });
@@ -1759,6 +1823,12 @@ function updateTracker(newVal) {
                             imgName += "_" + element.have;
                         }
                     }
+
+                    var urlBase = "Images//Tracker//"+newVal.layout+"//";
+
+                    if(layName){
+                        urlBase = "pacotes/"+layName+"/tracker/" ;
+                    }
                     
                     if (element.type == "break") {
                         tracker += "</div><div style = 'margin-left:5px;'>";
@@ -1767,19 +1837,19 @@ function updateTracker(newVal) {
                         switch (element.type) {
                             //OOT
                             case "jewel":
-                                tracker += "<div style='display:inline-block; text-align: center;vertical-align: bottom;background-repeat: no-repeat;background-size: contain; background-image: url(\"Images//Tracker//"+newVal.layout+"//" + imgName + ".png\"); width:" + medalwidth + ";height :" + medalheight + "' onclick=\"addItem('" + element.name + "','"+layout+"',"+i+")\"><div class='location' style='margin-top:45px' onclick=\"rotateLocation('" + element.name + "','" + element.location + "','"+newVal.layout+"',"+i+")\">" + element.location + "</div></div>";
+                                tracker += "<div style='display:inline-block; text-align: center;vertical-align: bottom;background-repeat: no-repeat;background-size: contain; background-image: url(\"" + urlBase + imgName + ".png\"); width:" + medalwidth + ";height :" + medalheight + "' onclick=\"addItem('" + element.name + "','"+layout+"',"+i+")\"><div class='location' style='margin-top:45px' onclick=\"rotateLocation('" + element.name + "','" + element.location + "','"+newVal.layout+"',"+i+")\">" + element.location + "</div></div>";
                             break;
                             case "medal":
-                                tracker += "<div style='display:inline-block; text-align: center;vertical-align: bottom;background-repeat: no-repeat;background-size: contain; background-image: url(\"Images//Tracker//"+newVal.layout+"//" + imgName + ".png\"); width:" + itemwidth + ";height :" + itemheight + "' onclick=\"addItem('" + element.name + "','"+layout+"',"+i+")\"><div class='location' style='margin-top:35px' onclick=\"rotateLocation('" + element.name + "','" + element.location + "','"+newVal.layout+"',"+i+")\">" + element.location + "</div></div>";
+                                tracker += "<div style='display:inline-block; text-align: center;vertical-align: bottom;background-repeat: no-repeat;background-size: contain; background-image: url(\"" + urlBase + imgName + ".png\"); width:" + itemwidth + ";height :" + itemheight + "' onclick=\"addItem('" + element.name + "','"+layout+"',"+i+")\"><div class='location' style='margin-top:35px' onclick=\"rotateLocation('" + element.name + "','" + element.location + "','"+newVal.layout+"',"+i+")\">" + element.location + "</div></div>";
                             break;
                             case "location":
-                                tracker += "<div style='display:inline-block; text-align: center;vertical-align: bottom;background-repeat: no-repeat;background-size: contain;background-position: center; background-image: url(\"Images//Tracker//"+newVal.layout+"//" + imgName + ".png\"); width:" + itemwidth + ";height :" + itemheight + "' onclick=\"addItem('" + element.name + "','"+layout+"',"+i+")\"><div class='location' onclick=\"rotatePrize('" + element.name + "','" + element.prize + "','"+newVal.layout+"',"+i+")\" style='display:inline-block; text-align: center;vertical-align: bottom;background-repeat: no-repeat;background-size: contain;margin-top:"+prizemarginT+";margin-left:"+prizemargin+"; background-image: url(\"Images//Tracker//"+newVal.layout+"//" + element.prize + ".png\"); width:" + prizewidth + ";height :" + prizeheight + "'></div></div>";
+                                tracker += "<div style='display:inline-block; text-align: center;vertical-align: bottom;background-repeat: no-repeat;background-size: contain;background-position: center; background-image: url(\"" + urlBase +imgName + ".png\"); width:" + itemwidth + ";height :" + itemheight + "' onclick=\"addItem('" + element.name + "','"+layout+"',"+i+")\"><div class='location' onclick=\"rotatePrize('" + element.name + "','" + element.prize + "','"+newVal.layout+"',"+i+")\" style='display:inline-block; text-align: center;vertical-align: bottom;background-repeat: no-repeat;background-size: contain;margin-top:"+prizemarginT+";margin-left:"+prizemargin+"; background-image: url(\"" + urlBase + element.prize + ".png\"); width:" + prizewidth + ";height :" + prizeheight + "'></div></div>";
                             break;
                             case "item":
                             case "music":
                             case "transf_mask":
                             case "boss_mask":
-                                tracker += "<div style='display:inline-block;background-repeat: no-repeat;background-size: contain; background-image: url(\"Images//Tracker//"+newVal.layout+"//" + imgName + ".png\"); width:" + itemwidth + ";height :" + itemheight + "' onclick=\"addItem('" + element.name + "','"+layout+"',"+i+")\"></div>";
+                                tracker += "<div style='display:inline-block;background-repeat: no-repeat;background-size: contain; background-image: url(\"" + urlBase + imgName + ".png\"); width:" + itemwidth + ";height :" + itemheight + "' onclick=\"addItem('" + element.name + "','"+layout+"',"+i+")\"></div>";
                                 break;
                             case "space":
                                 tracker += "<div style='display:inline-block;background-repeat: no-repeat;background-size: contain; width:" + itemwidth + ";height :" + itemheight + "' ></div>";
@@ -1800,11 +1870,16 @@ var prior = false;
 function rotateLocation(name, location, type, player) {
     prior = true;
     var list = [];
-    if (type == "OOT") {
-        list = locationListOOT;
-    }
-    if (type == "ALTTP" || type == "SMZ3") {
-        list = magicListALTTP;
+
+    if(layName){
+        list = laylocations;
+    }else{
+        if (type == "OOT") {
+            list = locationListOOT;
+        }
+        if (type == "ALTTP" || type == "SMZ3") {
+            list = magicListALTTP;
+        }
     }
     
     var nextLoc = "";
@@ -1911,8 +1986,6 @@ function addItem(name, layout, player) {
             var newList = [];
             nodecg.readReplicant("randoTracker", "Rando-Racer", (optionsOld) => {
                 if (optionsOld) {
-
-            
                     var infos = [];
                     for (i = 0; i < optionsOld.runnerInfo.length; i++) {
                         infos[i] = optionsOld.runnerInfo[i]

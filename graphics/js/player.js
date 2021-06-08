@@ -75,8 +75,8 @@ RunStatus.on("change", (newVal, oldVal) => {
 
 timerVal.on("change", (newVal, oldVal) => {
     //console.log(newVal);
-    startTime = newVal>0?newVal:0;
-    sync()
+    startTime = newVal;
+    sync();
 });
 
 
@@ -199,8 +199,10 @@ function sync(){
     if (typeof player.getCurrentTime === 'undefined') return;
     if(player.getCurrentTime()){
         var actual = player.getCurrentTime()
-        if((startTime + starting )% 10 == 0 && (actual - (startTime + starting)< -1 || actual - (startTime + starting) >1  )){
-            player.seekTo(startTime + starting);
+        var shud = (startTime + starting);
+        console.log(shud)
+        if((startTime + starting )% 10 == 0 && (actual - shud < -1 || actual - shud > 1  )){
+            player.seekTo(shud>0?shud:0);
         }
     }
 }

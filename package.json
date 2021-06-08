@@ -44,12 +44,20 @@
         "headerColor": "#0000FF"
       },
       {
-        "name": "OOT",
-        "title": "OOT",
+        "name": "Tracker",
+        "title": "Tracker",
         "width": 5,
         "file": "randoTracker.html",
         "headerColor": "#0000FF",
         "workspace": "Tracker"
+      },
+      {
+        "name": "layout",
+        "title": "Stream Layout",
+        "width": 5,
+        "file": "streamLayout.html",
+        "headerColor": "#0000FF",
+        "workspace": "Scene Editing"
       },
       {
         "name": "Timer",
@@ -130,6 +138,7 @@
   "license": "MIT",
   "dependencies": {
     "bower-npm-resolver": "^0.10.0",
+    "fs": "0.0.1-security",
     "livesplit-core": "^0.10.2",
     "nodecg-utility-obs": "github:rodrigo-mirage/nodecg-utility-obs"
   }

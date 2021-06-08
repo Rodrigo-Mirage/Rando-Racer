@@ -1,3 +1,31 @@
+var streamLayout = nodecg.Replicant("streamLayout");
+var layoutItens = nodecg.Replicant("layoutItens");
+var layoutLocations = nodecg.Replicant("layoutLocations");
+
+var layName = "";
+var layItens = [];
+var laylocations = [];
+
+var css = document.getElementById('css');
+
+streamLayout.on("change", (newVal, oldVal) => {
+    if(newVal){
+        layName = newVal;
+        css.href = "pacotes/"+layName+"/"+layName+".css";
+    }
+});
+layoutItens.on("change", (newVal, oldVal) => {
+    if(newVal){
+        layItens = newVal;
+    }
+});
+layoutLocations.on("change", (newVal, oldVal) => {
+    if(newVal){
+        laylocations = newVal;
+    }
+});
+
+
 var hostName = nodecg.Replicant("hostName");
 var raceInfo = nodecg.Replicant("raceInfo"); 
 var randoTracker = nodecg.Replicant("randoTracker"); 
@@ -54,9 +82,6 @@ function setData(){
             var pPosition = parseInt(runner)+1;
             var position = videoPos.indexOf(pPosition);
             if(position > -1){
-                console.log(data);
-                console.log(position);
-                console.log(pPosition);
 
                 var Name = document.getElementById(`Runner${position}Name`);
                 var Social = document.getElementById(`Runner${position}Social`);
@@ -99,17 +124,6 @@ function updateTracker() {
     if(trackerData){
         var newVal = trackerData;
         if(videoPos){
-            var medalwidth = "65px";
-            var medalheight = "70px";
-    
-            var prizemarginT = "30px";
-            var prizemargin = "5px";
-            var prizewidth = "50px";
-            var prizeheight = "20px";
-    
-            var itemwidth = "60px";
-            var itemheight = "60px";
-            var layout = newVal.layout;
             if(newVal.runnerInfo){
                 for (i = 0; i < newVal.runnerInfo.length; i++) {
     
@@ -121,6 +135,12 @@ function updateTracker() {
                         randoTrackerDiv.innerHTML = "";
     
                         var newcontent = document.createElement('div');
+
+                        var urlBase = "Images//Tracker//"+newVal.layout+"//";
+
+                        if(layName){
+                            urlBase = "pacotes/"+layName+"/tracker/" ;
+                        }
     
                         var tracker = "<div class='trackLine'>";
                         if(newVal.runnerInfo[i].itens){
@@ -153,7 +173,7 @@ function updateTracker() {
                                         case "music":
                                         case "transf_mask":
                                         case "boss_mask":
-                                            tracker += "<div class='trackItem' style='background-repeat: no-repeat;background-size: contain; background-image: url(\"Images//Tracker//"+newVal.layout+"//" + imgName + ".png\");' \"></div>";
+                                            tracker += "<div class='trackItem' style='background-repeat: no-repeat;background-size: contain; background-image: url(\"" + urlBase +  imgName + ".png\");' \"></div>";
                                             break;
                                         case "space":
                                             tracker += "<div class='trackItem' style='background-repeat: no-repeat;background-size: contain;' ></div>";
@@ -182,13 +202,13 @@ function updateTracker() {
                                     switch (element.type) {
                                         //OOT
                                         case "jewel":
-                                            prizes += "<div class='prize' style='display:inline-block; text-align: center;vertical-align: bottom;background-repeat: no-repeat;background-size: contain; background-image: url(\"Images//Tracker//"+newVal.layout+"//" + imgName + ".png\");' \"><div class='location'   \">" + element.location + "</div></div>";
+                                            prizes += "<div class='prize' style='display:inline-block; text-align: center;vertical-align: bottom;background-repeat: no-repeat;background-size: contain; background-image: url(\"" + urlBase +  imgName + ".png\");' \"><div class='location'   \">" + element.location + "</div></div>";
                                         break;
                                         case "medal":
-                                            prizes += "<div  class='prize' style='display:inline-block; text-align: center;vertical-align: bottom;background-repeat: no-repeat;background-size: contain; background-image: url(\"Images//Tracker//"+newVal.layout+"//" + imgName + ".png\");' \"><div class='location'   \">" + element.location + "</div></div>";
+                                            prizes += "<div  class='prize' style='display:inline-block; text-align: center;vertical-align: bottom;background-repeat: no-repeat;background-size: contain; background-image: url(\"" + urlBase +  imgName + ".png\");' \"><div class='location'   \">" + element.location + "</div></div>";
                                         break;
                                         case "location":
-                                            prizes += "<div  class='prize' style='display:inline-block; text-align: center;vertical-align: bottom;background-repeat: no-repeat;background-size: contain;background-position: center; background-image: url(\"Images//Tracker//"+newVal.layout+"//" + imgName + ".png\");'  \"><div class='location'  \" style='display:inline-block; text-align: center;vertical-align: bottom;background-repeat: no-repeat;background-size: contain; background-image: url(\"Images//Tracker//"+newVal.layout+"//" + element.prize + ".png\"); '></div></div>";
+                                            prizes += "<div  class='prize' style='display:inline-block; text-align: center;vertical-align: bottom;background-repeat: no-repeat;background-size: contain;background-position: center; background-image: url(\"" + urlBase +  imgName + ".png\");'  \"><div class='location'  \" style='display:inline-block; text-align: center;vertical-align: bottom;background-repeat: no-repeat;background-size: contain; background-image: url(\"Images//Tracker//"+newVal.layout+"//" + element.prize + ".png\"); '></div></div>";
                                         break;
                                         case "item":
                                         case "music":
@@ -210,7 +230,6 @@ function updateTracker() {
                         randoTrackerDiv.appendChild(newcontent);
     
                     }
-    
                 }
             }
         }

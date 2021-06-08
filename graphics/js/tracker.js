@@ -1,3 +1,34 @@
+
+var streamLayout = nodecg.Replicant("streamLayout");
+var layoutItens = nodecg.Replicant("layoutItens");
+var layoutLocations = nodecg.Replicant("layoutLocations");
+
+
+
+var layName = "";
+var layItens = [];
+var laylocations = [];
+
+streamLayout.on("change", (newVal, oldVal) => {
+    if(newVal){
+        layName = newVal;
+    }
+});
+layoutItens.on("change", (newVal, oldVal) => {
+    if(newVal){
+        layItens = newVal;
+    }
+});
+layoutLocations.on("change", (newVal, oldVal) => {
+    if(newVal){
+        laylocations = newVal;
+    }
+});
+
+
+
+
+
 var LayoutConfigs = nodecg.Replicant('layoutConfigs');
 var videoCrops = nodecg.Replicant('videocrops');
 
@@ -89,17 +120,22 @@ function resetTracker(player) {
             layout: optionsOld.layout,
             runnerInfo:optionsOld.runnerInfo
         }
-        if (optionsOld.layout == "OOT") {
-            newData.runnerInfo[player].itens = baseData[0];
-        }
-        if (optionsOld.layout == "MMR") {
-            newData.runnerInfo[player].itens = baseData[1];
-        }
-        if (layout == "ALTTP") {
-            newData.runnerInfo[player].itens = baseData[2];
-        }
-        if (layout == "SMZ3") {
-            newData.runnerInfo[player].itens = baseData[3];
+
+        if(streamLayout){
+            newData.runnerInfo[player].itens = layItens;
+        }else{
+            if (optionsOld.layout == "OOT") {
+                newData.runnerInfo[player].itens = baseData[0];
+            }
+            if (optionsOld.layout == "MMR") {
+                newData.runnerInfo[player].itens = baseData[1];
+            }
+            if (optionsOld.layout == "ALTTP") {
+                newData.runnerInfo[player].itens = baseData[2];
+            }
+            if (optionsOld.layout == "SMZ3") {
+                newData.runnerInfo[player].itens = baseData[3];
+            }
         }
         randoTracker.value = newData;
     });
@@ -142,6 +178,14 @@ function updateTracker(newVal) {
                         imgName += "_" + element.have;
                     }
                 }
+
+                
+                var urlBase = "Images//Tracker//"+newVal.layout+"//";
+
+                if(layName){
+                    urlBase = "pacotes/"+layName+"/tracker/" ;
+                }
+                
                 
                 if (element.type == "break") {
                     tracker += "</div><div style = 'margin-left:5px;'>";
@@ -150,19 +194,19 @@ function updateTracker(newVal) {
                     switch (element.type) {
                         //OOT
                         case "jewel":
-                            tracker += "<div style='display:inline-block; text-align: center;vertical-align: bottom;background-repeat: no-repeat;background-size: contain; background-image: url(\"Images//Tracker//"+newVal.layout+"//" + imgName + ".png\"); width:" + medalwidth + ";height :" + medalheight + "' onclick=\"addItem('" + element.name + "','"+layout+"',"+i+")\"><div class='location' style='margin-top:45px' onclick=\"rotateLocation('" + element.name + "','" + element.location + "','"+newVal.layout+"',"+i+")\">" + element.location + "</div></div>";
+                            tracker += "<div style='display:inline-block; text-align: center;vertical-align: bottom;background-repeat: no-repeat;background-size: contain; background-image: url(\"" + urlBase +imgName + ".png\"); width:" + medalwidth + ";height :" + medalheight + "' onclick=\"addItem('" + element.name + "','"+layout+"',"+i+")\"><div class='location' style='margin-top:45px' onclick=\"rotateLocation('" + element.name + "','" + element.location + "','"+newVal.layout+"',"+i+")\">" + element.location + "</div></div>";
                         break;
                         case "medal":
-                            tracker += "<div style='display:inline-block; text-align: center;vertical-align: bottom;background-repeat: no-repeat;background-size: contain; background-image: url(\"Images//Tracker//"+newVal.layout+"//" + imgName + ".png\"); width:" + itemwidth + ";height :" + itemheight + "' onclick=\"addItem('" + element.name + "','"+layout+"',"+i+")\"><div class='location' style='margin-top:35px' onclick=\"rotateLocation('" + element.name + "','" + element.location + "','"+newVal.layout+"',"+i+")\">" + element.location + "</div></div>";
+                            tracker += "<div style='display:inline-block; text-align: center;vertical-align: bottom;background-repeat: no-repeat;background-size: contain; background-image: url(\"" + urlBase + imgName + ".png\"); width:" + itemwidth + ";height :" + itemheight + "' onclick=\"addItem('" + element.name + "','"+layout+"',"+i+")\"><div class='location' style='margin-top:35px' onclick=\"rotateLocation('" + element.name + "','" + element.location + "','"+newVal.layout+"',"+i+")\">" + element.location + "</div></div>";
                         break;
                         case "location":
-                            tracker += "<div style='display:inline-block; text-align: center;vertical-align: bottom;background-repeat: no-repeat;background-size: contain;background-position: center; background-image: url(\"Images//Tracker//"+newVal.layout+"//" + imgName + ".png\"); width:" + itemwidth + ";height :" + itemheight + "' onclick=\"addItem('" + element.name + "','"+layout+"',"+i+")\"><div class='location' onclick=\"rotatePrize('" + element.name + "','" + element.prize + "','"+newVal.layout+"',"+i+")\" style='display:inline-block; text-align: center;vertical-align: bottom;background-repeat: no-repeat;background-size: contain;margin-top:"+prizemarginT+";margin-left:"+prizemargin+"; background-image: url(\"Images//Tracker//"+newVal.layout+"//" + element.prize + ".png\"); width:" + prizewidth + ";height :" + prizeheight + "'></div></div>";
+                            tracker += "<div style='display:inline-block; text-align: center;vertical-align: bottom;background-repeat: no-repeat;background-size: contain;background-position: center; background-image: url(\"" + urlBase + imgName + ".png\"); width:" + itemwidth + ";height :" + itemheight + "' onclick=\"addItem('" + element.name + "','"+layout+"',"+i+")\"><div class='location' onclick=\"rotatePrize('" + element.name + "','" + element.prize + "','"+newVal.layout+"',"+i+")\" style='display:inline-block; text-align: center;vertical-align: bottom;background-repeat: no-repeat;background-size: contain;margin-top:"+prizemarginT+";margin-left:"+prizemargin+"; background-image: url(\"" + urlBase + element.prize + ".png\"); width:" + prizewidth + ";height :" + prizeheight + "'></div></div>";
                         break;
                         case "item":
                         case "music":
                         case "transf_mask":
                         case "boss_mask":
-                            tracker += "<div style='display:inline-block;background-repeat: no-repeat;background-size: contain; background-image: url(\"Images//Tracker//"+newVal.layout+"//" + imgName + ".png\"); width:" + itemwidth + ";height :" + itemheight + "' onclick=\"addItem('" + element.name + "','"+layout+"',"+i+")\"></div>";
+                            tracker += "<div style='display:inline-block;background-repeat: no-repeat;background-size: contain; background-image: url(\"" + urlBase + imgName + ".png\"); width:" + itemwidth + ";height :" + itemheight + "' onclick=\"addItem('" + element.name + "','"+layout+"',"+i+")\"></div>";
                             break;
                         case "space":
                             tracker += "<div style='display:inline-block;background-repeat: no-repeat;background-size: contain; width:" + itemwidth + ";height :" + itemheight + "' ></div>";
@@ -184,11 +228,16 @@ var prior = false;
 function rotateLocation(name, location, type, player) {
     prior = true;
     var list = [];
-    if (type == "OOT") {
-        list = locationListOOT;
-    }
-    if (type == "ALTTP" || type == "SMZ3") {
-        list = magicListALTTP;
+    
+    if(layName){
+        list = laylocations;
+    }else{
+        if (type == "OOT") {
+            list = locationListOOT;
+        }
+        if (type == "ALTTP" || type == "SMZ3") {
+            list = magicListALTTP;
+        }
     }
     
     var nextLoc = "";
