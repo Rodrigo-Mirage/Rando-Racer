@@ -31,7 +31,7 @@ function setup(newVal){
   var html = "";
   if(newVal){
     runners = newVal.runners;
-    syncSwitch.checked = (newVal.type == "sync");
+    syncSwitch.checked = (newVal.type != "async");
     if(runners){
       for(var i =0;i<runners.length;i++){
 
@@ -40,7 +40,7 @@ function setup(newVal){
         <input type='text' id='RunnerName`+i+`' placeholder='Nome' value="`+runners[i].name+`" />
         <input type='text' id='RunnerStream`+i+`' placeholder='Twitch' value="`+runners[i].stream+`" /><br>`;
 
-        if(newVal.type == "sync"){
+        if(newVal.type != "async"){
           html += `<input type='text' id='RunnerAlt`+i+`' placeholder='TwitchAtl' value="`+runners[i].alt+`" /><br>`;
         }else{
           html += `<input type='text' id='RunnerUrl`+i+`' placeholder='Url Video' value="`+runners[i].url+`" />
@@ -58,7 +58,7 @@ function setup(newVal){
       <input type='text' id='addRunnerName' placeholder='Nome' />
       <input type='text' id='addRunnerStream' placeholder='Twitch' /><br>`;
 
-      if(newVal.type == "sync"){
+      if(newVal.type != "async"){
         html += `<input type='text' id='addRunnerAlt' placeholder='TwitchAtl' /><br>`;
       }else{
         html += `<input type='text' id='addRunnerUrl' placeholder='Url Video' />
