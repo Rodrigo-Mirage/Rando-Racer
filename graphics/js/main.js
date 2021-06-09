@@ -11,7 +11,7 @@ var css = document.getElementById('css');
 streamLayout.on("change", (newVal, oldVal) => {
     if(newVal){
         layName = newVal;
-        css.href = "pacotes/"+layName+"/"+layName+".css";
+        css.href = "../pacotes/"+layName+"/"+layName+".css";
     }
 });
 layoutItens.on("change", (newVal, oldVal) => {
