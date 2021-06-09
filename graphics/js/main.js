@@ -139,7 +139,7 @@ function updateTracker() {
                         var urlBase = "Images//Tracker//"+newVal.layout+"//";
 
                         if(layName){
-                            urlBase = "pacotes/"+layName+"/tracker/" ;
+                            urlBase = "../pacotes/"+layName+"/tracker/" ;
                         }
     
                         var tracker = "<div class='trackLine'>";

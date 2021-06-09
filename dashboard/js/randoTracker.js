@@ -32,6 +32,7 @@ var laylocations = [];
 streamLayout.on("change", (newVal, oldVal) => {
     if(newVal){
         layName = newVal;
+        setup();
     }
 });
 layoutItens.on("change", (newVal, oldVal) => {
@@ -1827,7 +1828,7 @@ function updateTracker(newVal) {
                     var urlBase = "Images//Tracker//"+newVal.layout+"//";
 
                     if(layName){
-                        urlBase = "pacotes/"+layName+"/tracker/" ;
+                        urlBase = "../pacotes/"+layName+"/tracker/" ;
                     }
                     
                     if (element.type == "break") {

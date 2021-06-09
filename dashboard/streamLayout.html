@@ -16,12 +16,14 @@
     <div><label>Layouts:</label>
         <select id="change"></select>
         <button onclick="Change()">Trocar</button>
+        <button onclick="downloadPack()">Baixar Pack</button>
+        <button onclick="removeLayout()">Remover</button>
     </div>
     <form id="frmUploader" action="/upload/"  method="post" enctype="multipart/form-data">
         <label>Novo Layout:</label>
         <input id="file" type="file" name="filetoupload">
     </form>
-    <button onclick="New()">Cadastrar</button>
+    <button id="btnCadastrar" onclick="New()">Cadastrar</button>
     <script
   src="https://code.jquery.com/jquery-3.6.0.js"
   integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk="
