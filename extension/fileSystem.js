@@ -18,8 +18,11 @@ class fileSystem {
                     if(trackerData){
                         layoutItens.value = trackerData.itens;
                         layoutLocations.value = trackerData.locations;
+                    }else{
+                        console.log("dados invalidos");
                     }
                 }else{
+                    console.log("Tracker.json nao encontrado");
                     layoutItens.value = null;
                     layoutLocations.value = null;
                 }
