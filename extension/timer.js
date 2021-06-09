@@ -132,55 +132,57 @@ class timerObj {
         });
 
         function verify(){
-          var runners = raceInfo.value.runners;
-          var race = [];
-          var count = 0;
-          var ready = 0;
-          var done = 0;
-
-          var old = RunStatus.value;
-          if(old.general == "waiting" || old.general == "started"){
-              for ( var i = 0; i < runners.length; i++) {
-                if(runners[i].status == "ready"){
-                  ready++;
-                }
-                count++;
-            }
-            if(count == ready){
-              old.runners = "ready";
-              RunStatus.value = old;
-            }else{
-              old.runners = "waiting";
-              RunStatus.value = old;
-            }
-
-          }
-          else{
-            if(old.general == "running"){
-              for ( var i = 0; i < runners.length; i++) {
-                if(runners[i].status == "done" || runners[i].status == "forfeit"){
-                  done++;
-                }
-                count++;
+          if(raceInfo.value){
+            var runners = raceInfo.value.runners;
+            var race = [];
+            var count = 0;
+            var ready = 0;
+            var done = 0;
+  
+            var old = RunStatus.value;
+            if(old.general == "waiting" || old.general == "started"){
+                for ( var i = 0; i < runners.length; i++) {
+                  if(runners[i].status == "ready"){
+                    ready++;
+                  }
+                  count++;
               }
-              if(count == done){
-                old.general = "done";
-                old.runners = "done";
+              if(count == ready){
+                old.runners = "ready";
+                RunStatus.value = old;
+              }else{
+                old.runners = "waiting";
                 RunStatus.value = old;
               }
+  
             }
-          }
-
-          if(old.general == "started" && old.runners == "ready"){
-            old.general = "running";
-            RunStatus.value = old;
-          }
-          if(old.general == "reset"){
-            for ( var i = 0; i < runners.length; i++) {
-              raceInfo.value.runners[i].status = "waiting";
+            else{
+              if(old.general == "running"){
+                for ( var i = 0; i < runners.length; i++) {
+                  if(runners[i].status == "done" || runners[i].status == "forfeit"){
+                    done++;
+                  }
+                  count++;
+                }
+                if(count == done){
+                  old.general = "done";
+                  old.runners = "done";
+                  RunStatus.value = old;
+                }
+              }
             }
-            old.general = "waiting";
-            RunStatus.value = old;
+  
+            if(old.general == "started" && old.runners == "ready"){
+              old.general = "running";
+              RunStatus.value = old;
+            }
+            if(old.general == "reset"){
+              for ( var i = 0; i < runners.length; i++) {
+                raceInfo.value.runners[i].status = "waiting";
+              }
+              old.general = "waiting";
+              RunStatus.value = old;
+            }
           }
         }
     }
