@@ -1,7 +1,11 @@
 var raceInfo = nodecg.Replicant("raceInfoCurrent");
 var videosInfo = nodecg.Replicant("videosInfoCurrent");
 const currentDataDiv = document.getElementById("currentData");
+const videoSelects = document.getElementById("videoSelects")
+var videoPositions = nodecg.Replicant("videoPos");
 
+var slots = 0;
+var selectList=[];
 
 videosInfo.on("change", (newVal, oldVal) => {
     setup(newVal);
@@ -9,6 +13,7 @@ videosInfo.on("change", (newVal, oldVal) => {
 
 
 function setup(data){
+
     var html = "";
     if(data){
         data.forEach(runner => {
@@ -24,7 +29,6 @@ function setup(data){
                 html += `<br>Controle:<br>`;
                 
                 html += `<button onclick="switchStatus('${runner.id}','${runner.status}')" >${runner.status=="play"?"Pause":"Play"}</button>`;
-                console.log(runner)
                 if(runner.volume == 0){
                     html += `<button onclick="focusAudio('${runner.id}')" >Foco</button>`;
                 }
@@ -35,9 +39,50 @@ function setup(data){
     }
     currentDataDiv.innerHTML = html;
 }
+videoPositions.on("change", (newVal, oldVal) => {
+});
+
+raceInfo.on("change", (newVal, oldVal) => { 
+    nodecg.readReplicant("videoPos", "Rando-Racer", (newrace) => {
+        slots = newrace.length;
+        selectList = newrace;
+
+        if(newVal.layout){
+            slots = parseInt(newVal.layout[0]);
+        }
+        var html = "";
+        for(var i = 0 ; i<slots ; i++){
+            var selected = "";  
+            if(selectList[i]){
+                selected = selectList[i];
+            }
+            
+            console.log(videoPositions.value);
+
+            html += `<select id='SelectVideo${i}'>`;
+            html += `<option value=''>Video ${i}</option>`;
+            newVal.runners.forEach(runner=>{
+                html += `<option ${selected!="" && runner.id == selected?"selected":""} value='${runner.id}'>${runner.name}</option>`;
+            });
+            html += "</select>";
+        }
+        html += `<button onclick="reposicionar()" >Reposicionar</button>`;
+
+        videoSelects.innerHTML = html;
+    });
+});
+
+function reposicionar(){
+    var data = [];
+    for(var i = 0 ; i < slots ; i++){
+        const select = document.getElementById(`SelectVideo${i}`);
+        data.push(select.value);
+    }
+    videoPositions.value = data;
+}
+
 
 function switchStatus(id,status){
-    console.log(id,status);
     if(status == "play"){
         nodecg.sendMessage('pausePlayer',{id});
     }else{
@@ -45,6 +90,7 @@ function switchStatus(id,status){
     }
 
 }
+
 function focusAudio(id){
     nodecg.sendMessage('FocusPlayer',{id});
 }

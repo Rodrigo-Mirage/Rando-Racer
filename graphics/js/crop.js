@@ -17,6 +17,7 @@ var player = videojs('vid1');
 raceInfo.on("change", (newVal, oldVal) => {
     if(newVal){
         original.src = "/bundles/Rando-Racer/graphics/"+newVal.type+".html?cropped=false&muted=true&pl=" + id;
+        CurLayout = newVal.layout;
     }
     setup(newVal);
     
@@ -56,16 +57,16 @@ var width = 0;
 var baseheight = 0;
 var basewidth = 0;
 
+var layoutlist = [];
+var CurLayout = "";
+
 
 LayoutConfigs.on("change", (newVal, oldVal) => {
     height = 480;
     width = 854;
     original.height = height;
     original.width = width;
-    crop.style.height = parseInt(newVal.videosConfig.height);
-    crop.style.width = parseInt(newVal.videosConfig.width);
-    baseheight = parseInt(newVal.videosConfig.height);
-    basewidth = parseInt(newVal.videosConfig.width);
+    layoutlist = newVal;
     updatePrevia();
 });
 
@@ -93,6 +94,21 @@ left.onchange =function () { linkVar("l",this.value||0)};
 right.onchange =function () { linkVar("r",this.value||0)};
 
 function updatePrevia(){
+
+    console.log(layoutlist)
+    if(CurLayout){
+        console.log(CurLayout)
+        var layData = layoutlist.filter(a=>a.name == CurLayout)[0];
+        if(layData){
+            console.log(layData)
+            crop.style.height = parseInt(layData.height);
+            crop.style.width = parseInt(layData.width);
+            baseheight = parseInt(layData.height);
+            basewidth = parseInt(layData.width);
+        }
+    }
+    
+
     var width = basewidth;
     var height= baseheight;
 

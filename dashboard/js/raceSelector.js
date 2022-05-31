@@ -10,7 +10,6 @@ var previd = "";
 
 
 raceInfo.on("change", (newVal, oldVal) => {
-    console.log(newVal, oldVal);
     if(!newVal){
         nodecg.readReplicant("raceList", "Rando-Racer", (list) => {
             if(list){
@@ -38,38 +37,40 @@ raceList.on("change", (newVal, oldVal) => {
 
 function setList(list){
     var set = false;
-    list.forEach(race => {
-        if(set){
-            nextid = race.id;
-        }else{
-            if(race.id == currentid){
-                set = true;
-                if(previd == currentid){
-                    previd = "";
-                }
+    if(list){
+        list.forEach(race => {
+            if(set){
+                nextid = race.id;
             }else{
-                previd = race.id;
+                if(race.id == currentid){
+                    set = true;
+                    if(previd == currentid){
+                        previd = "";
+                    }
+                }else{
+                    previd = race.id;
+                }
             }
-        }
-        if(nextid){
-            if(nextid == currentid){
-                nextid = "";
+            if(nextid){
+                if(nextid == currentid){
+                    nextid = "";
+                }
             }
+        });
+        const preBtn = document.getElementById("preBtn");
+        const nexBtn = document.getElementById("nexBtn");
+        if(!nextid){
+            nexBtn.disabled = true;
+        }else{
+            nexBtn.disabled = false;
         }
-    });
-    const preBtn = document.getElementById("preBtn");
-    const nexBtn = document.getElementById("nexBtn");
-    if(!nextid){
-        nexBtn.disabled = true;
-    }else{
-        nexBtn.disabled = false;
-    }
 
-    if(!previd){
-        preBtn.disabled = true;
-    }else{
-        preBtn.disabled = false;
-    }
+        if(!previd){
+            preBtn.disabled = true;
+        }else{
+            preBtn.disabled = false;
+        }
+}
 }
 
 
@@ -98,26 +99,28 @@ function setCurrent(set){
 
 
 function setup(runData){
-    const currentDataDiv = document.getElementById("currentData");
-    var html = `<div>
-    <fieldset>
-    <legend>Runner(s)</legend> 
-    <div id='CurrentRunners'>`;
-    var versus= "";
-    runData.runners.forEach(runner=>{
-        if(versus != ""){
-            versus +=" Vs ";
-        }
-        versus += runner.name;
-    });
-    html+=versus;
-    html+=`</div></fieldset>
-    <fieldset>
-    <legend>Jogo</legend> ${runData.jogo}
-    </fieldset>
-    <fieldset>
-    <legend>Host(s)</legend> ${runData.hosts}
-    </fieldset>
-    </div>`;
-    currentDataDiv.innerHTML = html;
+    if(runData){
+        const currentDataDiv = document.getElementById("currentData");
+        var html = `<div>
+        <fieldset>
+        <legend>Runner(s)</legend> 
+        <div id='CurrentRunners'>`;
+        var versus= "";
+        runData.runners.forEach(runner=>{
+            if(versus != ""){
+                versus +=" Vs ";
+            }
+            versus += runner.name;
+        });
+        html+=versus;
+        html+=`</div></fieldset>
+        <fieldset>
+        <legend>Jogo</legend> ${runData.jogo}
+        </fieldset>
+        <fieldset>
+        <legend>Host(s)</legend> ${runData.hosts}
+        </fieldset>
+        </div>`;
+        currentDataDiv.innerHTML = html;
+    }
 }

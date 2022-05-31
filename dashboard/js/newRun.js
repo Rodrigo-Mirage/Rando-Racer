@@ -37,35 +37,35 @@ var games = [
 var layouts = [
   {
     name:"1 Player 4:3",
-    value:"1pl_4_3"
+    value:"1p_4_3"
   },
   {
     name:"2 Player 4:3",
-    value:"2pl_4_3"
+    value:"2p_4_3"
   },
   {
     name:"3 Player 4:3",
-    value:"3pl_4_3"
+    value:"3p_4_3"
   },
   {
     name:"4 Player 4:3",
-    value:"4pl_4_3"
+    value:"4p_4_3"
   },
   {
     name:"1 Player 16:9",
-    value:"1pl_16_9"
+    value:"1p_16_9"
   },
   {
     name:"2 Player 16:9",
-    value:"2pl_16_9"
+    value:"2p_16_9"
   },
   {
     name:"3 Player 16:9",
-    value:"3pl_16_9"
+    value:"3p_16_9"
   },
   {
     name:"4 Player 16:9",
-    value:"4pl_16_9"
+    value:"4p_16_9"
   },
 ];
 
@@ -237,12 +237,12 @@ function addRunner() {
     status:"waiting"
   };
   runners.push(runnerobj);
-  raceInfo.value = {runners : runners , type: raceInfo.value.type};
+  raceInfo.value = {runners : runners , type: raceInfo.value?raceInfo.value.type:"sync"};
 }
 function remRunner(i) {
   if(confirm("Deseja remover o Runner?")){
     runners.splice(i, 1);
-    raceInfo.value = {runners : runners, type: raceInfo.value.type};
+    raceInfo.value = {runners : runners, type: raceInfo.value.type||"sync"};
   }
 }
 
@@ -274,7 +274,6 @@ function switchRaceInfo(){
     data.layout = layoutGame.value;
 
     raceInfo.value = data;
-    console.log(raceInfo.value);
   }
 }
 

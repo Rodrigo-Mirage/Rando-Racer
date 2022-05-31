@@ -24,10 +24,15 @@ const cropped = urlParams.get('cropped');
 var id = pl;
 
 var quality = "";
+var layoutlist = [];
+var CurLayout = "";
+
 
 LayoutConfigs.on("change", (newVal, oldVal) => {
-    basewidth = parseInt(newVal.videosConfig.width);
-    baseheight = parseInt(newVal.videosConfig.height);
+    layoutlist = newVal;
+});
+raceInfo.on("change", (newVal, oldVal) => {
+    CurLayout = newVal.layout;
 });
 
 
@@ -35,6 +40,13 @@ videosInfo.on("change", (newVal, oldVal) => {
     newVal.forEach(runner=>{
         if(runner.id == id){
             qual = runner.qualities.filter(a=>a.set == true)[0];
+            if(CurLayout){
+                var layData = layoutlist.filter(a=>a.name == CurLayout)[0];
+                if(layData){
+                    baseheight = parseInt(layData.height);
+                    basewidth = parseInt(layData.width);
+                }
+            }
             if(quality != qual.name){
                 quality = qual.name;
                 player.src({

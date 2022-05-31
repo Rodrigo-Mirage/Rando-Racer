@@ -29,7 +29,7 @@ layoutLocations.on("change", (newVal, oldVal) => {
 var hostName = nodecg.Replicant("hostName");
 var raceInfo = nodecg.Replicant("raceInfoCurrent"); 
 var randoTracker = nodecg.Replicant("randoTracker"); 
-var videoPositions = nodecg.Replicant("videoPositions");
+var videoPositions = nodecg.Replicant("videoPos");
 var timerReplicant = nodecg.Replicant('timer');
 
 var videoPos;
@@ -77,25 +77,18 @@ var setuped = false;
 function setData(){
     if(videoPos && runnersData){
         setting = true;
-        for(var runner in runnersData.runners){
-            var data = runnersData.runners[runner];
-            var pPosition = parseInt(runner)+1;
-            var position = videoPos.indexOf(pPosition);
+        runnersData.runners.forEach(data=>{
+            var position = videoPos.findIndex( x => x === data.id );
             if(position > -1){
-
                 var Name = document.getElementById(`Runner${position}Name`);
                 var Social = document.getElementById(`Runner${position}Social`);
                 var Tracker = document.getElementById(`Runner${position}Tracker`);
                 var Player = document.getElementById(`Runner${position}Player`);
-                
                 Player.src = "/bundles/Rando-Racer/graphics/sync.html?cropped=true&pl=" + data.id;
-
                 Name.innerHTML = data.name;
                 Social.innerHTML = " /"+data.stream;
-                console.log(data)
-
             }
-        }
+        });
         setting = false;
     }
     updateTracker();
