@@ -50,7 +50,7 @@ class Videos {
         }
         
         function getstreams(data) {
-            if(data.runners){
+            if(data){
                 data.runners.forEach(runner => {
                     var channel = runner.alt||runner.stream;
                     var crop = {
