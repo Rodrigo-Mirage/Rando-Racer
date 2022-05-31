@@ -51,23 +51,18 @@ videosInfo.on("change", (newVal, oldVal) => {
                     var l = parseInt(runner.crops.left);
                     var r = parseInt(runner.crops.right);
 
-                    const container = document.getElementById("vid1Container");
+                    const container = document.getElementById("vid1Container");    
 
-                    var posL = (width * (l/1000));
-                    var posR = (width * (r/1000));
-        
+                    var finalW = (l)+(r)+width;
+                    var finalL = (r)-(l)<0?(r)-(l):0;
+                    var finalH = (u)+(d)+height;
+                    var finalT = (d)-(u)<0?(d)-(u):0;
 
-                    //container.style.marginTop = (d+u)+"px";
-                    container.style.marginLeft = "-"+(posL*1.4)+"px";
-                    
-                    console.log((posL*2) + width,"-"+(posL*2)+"px")
-                    console.log((posL*1.3) + width,"-"+(posL*1.3)+"px")
-                    console.log((posL*1.4) + width,"-"+(posL*1.4)+"px")
-                    
-                    console.log(1110,"-310px")
+                    container.style.marginTop = (finalT)+"px";
+                    container.style.marginLeft = (finalL)+"px";
 
-                    player.width((posL*1.4) + width)
-                    player.height(u+d+height)
+                    player.width(finalW);
+                    player.height(finalH);
                 }
             }
         }if(runner.status == "play"){

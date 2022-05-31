@@ -1,55 +1,18 @@
 <html>
     <head>
         <link rel="stylesheet" type="text/css" href="css/omnibar.css">
+        <link href="https://vjs.zencdn.net/7.19.2/video-js.css" rel="stylesheet" />
     </head>
     <body>
         <div id="canvas">
-            <iframe id="original"></iframe>
-            <div id="dragTop" class="drag up" ></div>
-            <div id="dragBottom" class="drag down" ></div>
-            <div id="dragLeft" class="drag left" ></div>
-            <div id="dragRight" class="drag right" ></div>
-
-            <style>
-                .drag{
-                    position:absolute
-                }
-                .up{
-                    top: 0;
-                    left: 2;
-                    width: 800px;
-                    height: 2px;
-                    background: greenyellow ;
-                }
-
-
-                .down{
-                    top: 602px;
-                    left: 2;
-                    width: 800px;
-                    height: 2px;
-                    background: greenyellow ;
-                }
-                
-                .left{
-                    top: 2;
-                    left: 0;
-                    width: 2px;
-                    height: 600px;
-                    background: greenyellow ;
-                }
-                
-                .right{
-                    top: 2PX;
-                    left: 802PX;
-                    width: 2px;
-                    height: 600px;
-                    background: greenyellow ;
-                }
-
-
-            </style>
-        </div>
+            
+            <div id= "crop" style="overflow: hidden;">
+                <div id=vid1Container style="overflow: hidden;">
+                    <video-js id=vid1 width=854 height=480 muted  style="object-fit: fill;">
+                    </video-js>
+                </div>
+            </div>
+            
         <section>
             Up Crop: <input type="number" id="up">
             Down Crop: <input type="number" id="down">
@@ -57,8 +20,52 @@
             Right Crop: <input type="number" id="right">
             <button onclick="Save()">Save</button>
         </section>
-        <iframe id="crop"></iframe>
+        Original:<br>
+        <iframe id="original" style="border: 0px;"></iframe>
+
+        <style>
+            .drag{
+                position:absolute
+            }
+            .up{
+                top: 0;
+                left: 2;
+                width: 800px;
+                height: 2px;
+                background: greenyellow ;
+            }
+
+
+            .down{
+                top: 602px;
+                left: 2;
+                width: 800px;
+                height: 2px;
+                background: greenyellow ;
+            }
+            
+            .left{
+                top: 2;
+                left: 0;
+                width: 2px;
+                height: 600px;
+                background: greenyellow ;
+            }
+            
+            .right{
+                top: 2PX;
+                left: 802PX;
+                width: 2px;
+                height: 600px;
+                background: greenyellow ;
+            }
+
+
+        </style>
+        <script src="https://vjs.zencdn.net/7.19.2/video.min.js"></script>
+        <script src="js/vhs.js"></script>
         <script src="js/crop.js"></script>
+    </div>
 
     </body>
 </html>
