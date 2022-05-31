@@ -22,14 +22,6 @@
     "compatibleRange": "^1.1.1",
     "dashboardPanels": [
       {
-        "name": "obs",
-        "title": "OBS",
-        "width": 3,
-        "file": "obs.html",
-        "headerColor": "#0000FF",
-        "workspace": "Scene Editing"
-      },
-      {
         "name": "races",
         "title": "Races",
         "width": 3,
@@ -57,14 +49,6 @@
         "width": 2,
         "file": "videos.html",
         "headerColor": "#0000FF"
-      },
-      {
-        "name": "obscontrol",
-        "title": "Controle de Cena",
-        "width": 3,
-        "file": "obscontrol.html",
-        "headerColor": "#0000FF",
-        "workspace": "Scene Editing"
       },
       {
         "name": "host",
