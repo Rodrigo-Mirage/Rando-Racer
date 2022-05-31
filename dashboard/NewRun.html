@@ -18,9 +18,6 @@
 <body style="margin:0">
     <script src="https://code.jquery.com/jquery-3.4.1.min.js"
         integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
-    Nome(s) do(s) Caster(s): <input type="text" id="hostName" onchange="switchRaceInfo()" name="hostName"  /></br>
-    Nome do Jogo: <input type="text" id="gameName" onchange="switchRaceInfo()" name="gameName" /></br>
-    Estimate: <input type="text" id="gameEstimate" onchange="switchRaceInfo()" name="gameEstimate" /></br>
 
     Runners:
     <div id="runnersDiv"></div>
@@ -31,10 +28,14 @@
             <span class="slider round"></span>
         </label>
         <div class="title"> Race Sync </div>
-        <button id="RunBtn" onclick="saveRace()">Salvar</button>
-        <button id="RunBtn" onclick="cancelar()">Cancelar</button>
 
     </div>
+    Nome(s) do(s) Caster(s): <input type="text" id="hostName" onchange="switchRaceInfo()" name="hostName"  /></br>
+    Nome do Jogo: <input type="text" id="gameName" onchange="switchRaceInfo()" name="gameName" /></br>
+    Estimate: <input type="text" id="gameEstimate" onchange="switchRaceInfo()" name="gameEstimate" /></br>
+    Layout: <span id="layoutDiv"></span>
+    <button id="RunBtn" onclick="saveRace()">Salvar</button>
+    <button id="RunBtn" onclick="cancelar()">Cancelar</button>
 
     <script src="js/newRun.js"></script>
 </body>

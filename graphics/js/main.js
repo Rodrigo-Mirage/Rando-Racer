@@ -27,7 +27,7 @@ layoutLocations.on("change", (newVal, oldVal) => {
 
 
 var hostName = nodecg.Replicant("hostName");
-var raceInfo = nodecg.Replicant("raceInfo"); 
+var raceInfo = nodecg.Replicant("raceInfoCurrent"); 
 var randoTracker = nodecg.Replicant("randoTracker"); 
 var videoPositions = nodecg.Replicant("videoPositions");
 var timerReplicant = nodecg.Replicant('timer');
@@ -63,7 +63,7 @@ raceInfo.on("change", (newVal, oldVal) => {
     runnersData = newVal;
     if(pNumber != newVal.runners.length ){
         pNumber = newVal.runners.length;
-        setDivs(pNumber);
+        setDivs(pNumber,newVal.layout);
     }
     if(newVal != oldVal ){
 
@@ -86,9 +86,13 @@ function setData(){
                 var Name = document.getElementById(`Runner${position}Name`);
                 var Social = document.getElementById(`Runner${position}Social`);
                 var Tracker = document.getElementById(`Runner${position}Tracker`);
+                var Player = document.getElementById(`Runner${position}Player`);
+                
+                Player.src = "/bundles/Rando-Racer/graphics/sync.html?cropped=true&pl=" + data.id;
 
                 Name.innerHTML = data.name;
                 Social.innerHTML = " /"+data.stream;
+                console.log(data)
 
             }
         }
@@ -97,12 +101,12 @@ function setData(){
     updateTracker();
 }
 
-function setDivs(pNumber){
+function setDivs(pNumber,layout){
     var html = "";
     for(var i = 0 ; i < pNumber ; i++){
         html += `<div id ="Runner${i}Name"></div>
         <div id ="Runner${i}Social"></div>
-        <div id ="Runner${i}Player"></div>
+        <iframe id ="Runner${i}Player"></iframe>
         <div id ="Runner${i}Tracker"></div>`;
     }
     html +="<div id='prizes'><div  id='prizes0'></div><div  id='prizes1'></div></div>";
@@ -110,6 +114,7 @@ function setDivs(pNumber){
     html +="<div id='timer'></div>";
     var div = document.getElementById("canvas");
     div.innerHTML = html;
+    div.className = layout;
     setuped = true;
 }
 
@@ -136,10 +141,10 @@ function updateTracker() {
     
                         var newcontent = document.createElement('div');
 
-                        var urlBase = "Images//Tracker//"+newVal.layout+"//";
+                        var urlBase = "Images//Tracker//"+newVal.layout+"//"+newVal.runnerInfo[i].game+"//";
 
                         if(layName){
-                            urlBase = "../pacotes/"+layName+"/tracker/" ;
+                            urlBase = "../pacotes/"+layName+"/tracker/"+newVal.runnerInfo[i].game+"/" ;
                         }
     
                         var tracker = "<div class='trackLine'>";

@@ -46,10 +46,10 @@ videosInfo.on("change", (newVal, oldVal) => {
                     var height= baseheight;
 
                     
-                    var u = parseInt(runner.crops.top);
-                    var d = parseInt(runner.crops.bottom);
-                    var l = parseInt(runner.crops.left);
-                    var r = parseInt(runner.crops.right);
+                    var u = parseInt(runner.crops.top)||0;
+                    var d = parseInt(runner.crops.bottom)||0;
+                    var l = parseInt(runner.crops.left)||0;
+                    var r = parseInt(runner.crops.right)||0;
 
                     const container = document.getElementById("vid1Container");    
 

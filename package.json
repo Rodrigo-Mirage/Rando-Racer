@@ -63,7 +63,8 @@
         "title": "Controle de Cena",
         "width": 3,
         "file": "obscontrol.html",
-        "headerColor": "#0000FF"
+        "headerColor": "#0000FF",
+        "workspace": "Scene Editing"
       },
       {
         "name": "host",
