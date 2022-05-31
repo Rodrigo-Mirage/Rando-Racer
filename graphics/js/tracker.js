@@ -25,17 +25,13 @@ layoutLocations.on("change", (newVal, oldVal) => {
     }
 });
 
-
-
-
-
 var LayoutConfigs = nodecg.Replicant('layoutConfigs');
 var videoCrops = nodecg.Replicant('videocrops');
 
 var randomLayout = null;
 var randoTracker = nodecg.Replicant("randoTracker");
 var randoBase = nodecg.Replicant("randoBase");
-var raceInfo = nodecg.Replicant("raceInfo");
+var raceInfo = nodecg.Replicant("raceInfoCurrent");
 var raceData = nodecg.Replicant("raceData");
 var RunStatus = nodecg.Replicant('RunStatus');
 
@@ -183,7 +179,7 @@ function updateTracker(newVal) {
                 var urlBase = "Images//Tracker//"+newVal.layout+"//";
 
                 if(layName){
-                    urlBase = "pacotes/"+layName+"/tracker/" ;
+                    urlBase = "../pacotes/"+layName+"/tracker/"+ newVal.runnerInfo[i].game+"/" ;
                 }
                 
                 

@@ -101,6 +101,18 @@ class timerObj {
           }
         });
 
+        
+        nodecg.listenFor('timerForceStart', function (data, ack) {
+          var runners = raceInfo.value.runners;
+          for ( var i = 0; i < runners.length; i++) {
+                raceInfo.value.runners[i].status = "ready";
+          }
+          var old = RunStatus.value;
+          old.general = "running";
+          old.runners = "ready"
+          RunStatus.value = old;
+        });
+
         nodecg.listenFor('unreadyRacer', function (data, ack) {
           var id = data.id;
           var runners = raceInfo.value.runners;
@@ -141,11 +153,11 @@ class timerObj {
   
             var old = RunStatus.value;
             if(old.general == "waiting" || old.general == "started"){
-                for ( var i = 0; i < runners.length; i++) {
-                  if(runners[i].status == "ready"){
-                    ready++;
-                  }
-                  count++;
+              for ( var i = 0; i < runners.length; i++) {
+                if(runners[i].status == "ready"){
+                  ready++;
+                }
+                count++;
               }
               if(count == ready){
                 old.runners = "ready";

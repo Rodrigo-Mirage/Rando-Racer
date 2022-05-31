@@ -1,5 +1,5 @@
 
-var raceInfo = nodecg.Replicant("raceInfo"); 
+var raceInfo = nodecg.Replicant("raceInfoCurrent"); 
 const queryString = window.location.search;
 const urlParams = new URLSearchParams(queryString);
 const pl = urlParams.get('pl');
@@ -8,12 +8,15 @@ var index = 0;
 
 
 const crop = document.getElementById("crop");
-
-crop.src = "/bundles/Rando-Racer/graphics/player.html?pl=" + id;
-
+const original = document.getElementById("original");
 
 raceInfo.on("change", (newVal, oldVal) => {
+    if(newVal){
+        original.src = "/bundles/Rando-Racer/graphics/"+newVal.type+".html?cropped=false&muted=true&pl=" + id;
+        crop.src = "/bundles/Rando-Racer/graphics/"+newVal.type+".html?cropped=true&muted=true&pl=" + id;
+    }
     setup(newVal);
+    
 });
 
 var u = 0;
@@ -38,31 +41,42 @@ var width = 0;
 
 
 LayoutConfigs.on("change", (newVal, oldVal) => {
-    height = parseInt(newVal.videosConfig.height);
-    width = parseInt(newVal.videosConfig.width);
-    crop.height = height;
-    crop.width = width;
+    height = 480;
+    width = 854;
+    Dright.style.height = height;
+    Dleft.style.height = height;
+    Ddown.style.width = width;
+    Dup.style.width = width;
+    original.height = height;
+    original.width = width;
+    crop.height = parseInt(newVal.videosConfig.height);
+    crop.width = parseInt(newVal.videosConfig.width);
+
 });
 
 var linkVar = (varName,value) => {
-switch(varName){
-    case "u":
-        u = value;
-        Dup.style.top = value +"px";
-    break;
-    case "d":
-        d = value;
-        Ddown.style.top = (height - value) +"px";
-    break;
-    case "l":
-        l = value;
-        Dleft.style.left = (value) +"px";
-    break;
-    case "r":
-        r = value;
-        Dright.style.left = (width - value) +"px";
-    break;
-}
+    switch(varName){
+        case "u":
+            u = value;
+            var posU = height * (u/1000);
+            Dup.style.top = posU +"px";
+        break;
+        case "d":
+            d = value;
+            var posD = height * (d/1000);
+            Ddown.style.top = (height - posD) +"px";
+        break;
+        case "l":
+            l = value;
+            var posL = width * (l/1000);
+            Dleft.style.left = (posL) +"px";
+        break;
+        case "r":
+            r = value;
+            var posR = width * (r/1000);
+            Dright.style.left = (width - posR) +"px";
+        break;
+    }
 };
 
 up.onchange = function () { linkVar("u",this.value)};
@@ -88,10 +102,19 @@ function setup(newVal){
             left.value = l;
             right.value = r;
 
-            Dup.style.top = u +"px";
-            Ddown.style.top = (height - d) +"px";
-            Dleft.style.left = (l) +"px";
-            Dright.style.left = (width - r) +"px";
+            width = 854;
+            height = 480;
+
+            var posU = height * (u/1000);
+            var posD = height * (d/1000);
+            var posL = width * (l/1000);
+            var posR = width * (r/1000);
+
+
+            Dup.style.top = posU +"px";
+            Ddown.style.top = (height - posD) +"px";
+            Dleft.style.left = posL +"px";
+            Dright.style.left = (width - posR) +"px";            
 
         }
         count++;
@@ -101,10 +124,10 @@ function setup(newVal){
 function Save(){
 
     var crop = {
-        top:parseInt(up.value),
-        bottom:parseInt(down.value),
-        left:parseInt(left.value),
-        right:parseInt(right.value)
+        top:parseInt(up.value)||0,
+        bottom:parseInt(down.value)||0,
+        left:parseInt(left.value)||0,
+        right:parseInt(right.value)||0
 
     }
     raceInfo.value.runners[index].crop = crop;

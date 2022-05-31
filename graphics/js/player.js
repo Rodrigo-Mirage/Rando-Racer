@@ -47,8 +47,6 @@ function Aff(){
     },2000);
 }
 
-
-
 function createPlayer(playerInfo) {
     return new YT.Player(playerInfo.id, {
         height: playerInfo.height,
@@ -81,91 +79,96 @@ timerVal.on("change", (newVal, oldVal) => {
 
 
 function setup(newVal){
-    console.log(newVal)
-    if(newVal.type == "async"){
-        console.log(ready)
-        if(ready){
-            var count = 0;
-            newVal.runners.forEach(runner => {
-                if(runner.id == id){
-                    var newUrl = "";
-                    var start = 0;
-                    if(runner.url.indexOf("v=")>-1){
-                        newUrl = runner.url.substring((runner.url.lastIndexOf("v=")+2));
-                    }
-                    else{
-                        if(runner.url.indexOf("/")){
-                            newUrl = runner.url.substring(runner.url.lastIndexOf("/"));
-                        }
-                    }
-                    if(runner.start){
-                        start = parseInt(runner.start);
-                    }
-                    if(runner.url){
-                        console.log(height)
-                        var info =
-                        {
-                            id: 'player',
-                            height: height,
-                            width: width,
-                            videoId: newUrl,
-                            start : start
-                        }
-                        if(playersInfo){
-                            if(editplayer(playersInfo,info)){
-                                playersInfo = info;
-                            }
-                            starting = start;
+    if(newVal){
+        if(newVal.type == "async"){
+            console.log(ready)
+            if(ready){
+                var count = 0;
+                newVal.runners.forEach(runner => {
+                    if(runner.id == id){
+                        var newUrl = "";
+                        var start = 0;
+                        if(runner.url.indexOf("v=")>-1){
+                            newUrl = runner.url.substring((runner.url.lastIndexOf("v=")+2));
                         }
                         else{
+                            if(runner.url.indexOf("/")){
+                                newUrl = runner.url.substring(runner.url.lastIndexOf("/"));
+                            }
+                        }
+                        if(runner.start){
+                            start = parseInt(runner.start);
+                        }
+                        if(runner.url){
+                            console.log(height)
+                            var info =
+                            {
+                                id: 'player',
+                                height: height,
+                                width: width,
+                                videoId: newUrl,
+                                start : start
+                            }
+                            if(playersInfo){
+                                if(editplayer(playersInfo,info)){
+                                    playersInfo = info;
+                                }
+                                starting = start;
+                            }
+                            else{
+                                starting = start ;
+                                playersInfo = info;
+                            }
+                        }
+                    }
+        
+                    count++;
+                });
+                ready = true;
+            }
+            else{
+                var count = 0;
+                newVal.runners.forEach(runner => {
+                    if(runner.id == id){
+                        var newUrl = "";
+                        var start = 0;
+            
+                        if(runner.url.indexOf("v=")>-1){
+                            newUrl = runner.url.substring((runner.url.lastIndexOf("v=")+2));
+                        }
+                        else{
+                            if(runner.url.indexOf("/")){
+                                newUrl = runner.url.substring(runner.url.lastIndexOf("/"));
+                            }
+                        }
+                        //ytp-show-cards-title
+                        //ytp-watermark
+                        if(runner.start){
+                            start = parseInt(runner.start);
+                        }
+            
+                        if(runner.url){
                             starting = start ;
+                            console.log(height)
+                            var info =
+                            {
+                                id: 'player',
+                                height: height,
+                                width: width,
+                                videoId: newUrl,
+                                start : start
+                            }
                             playersInfo = info;
                         }
                     }
-                }
-    
-                count++;
-            });
-            ready = true;
+                    count++;
+                });
+                ready = true;
+            }
         }
-        else{
-            var count = 0;
-            newVal.runners.forEach(runner => {
-                if(runner.id == id){
-                    var newUrl = "";
-                    var start = 0;
-        
-                    if(runner.url.indexOf("v=")>-1){
-                        newUrl = runner.url.substring((runner.url.lastIndexOf("v=")+2));
-                    }
-                    else{
-                        if(runner.url.indexOf("/")){
-                            newUrl = runner.url.substring(runner.url.lastIndexOf("/"));
-                        }
-                    }
-                    //ytp-show-cards-title
-                    //ytp-watermark
-                    if(runner.start){
-                        start = parseInt(runner.start);
-                    }
-        
-                    if(runner.url){
-                        starting = start ;
-                        console.log(height)
-                        var info =
-                        {
-                            id: 'player',
-                            height: height,
-                            width: width,
-                            videoId: newUrl,
-                            start : start
-                        }
-                        playersInfo = info;
-                    }
-                }
-                count++;
-            });
-            ready = true;
+
+        if(newVal.type == "sync"){
+            console.log("sync");
         }
     }
 }

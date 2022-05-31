@@ -30,6 +30,35 @@
         "workspace": "Scene Editing"
       },
       {
+        "name": "races",
+        "title": "Races",
+        "width": 3,
+        "file": "racesList.html",
+        "headerColor": "#0000FF",
+        "workspace": "Races"
+      },
+      {
+        "name": "raceSelector",
+        "title": "Race Selector",
+        "width": 3,
+        "file": "raceSelector.html",
+        "headerColor": "#0000FF"
+      },
+      {
+        "name": "Telas",
+        "title": "Telas",
+        "width": 2,
+        "file": "telas.html",
+        "headerColor": "#0000FF"
+      },
+      {
+        "name": "Videos",
+        "title": "Videos",
+        "width": 2,
+        "file": "videos.html",
+        "headerColor": "#0000FF"
+      },
+      {
         "name": "obscontrol",
         "title": "Controle de Cena",
         "width": 3,
@@ -38,10 +67,11 @@
       },
       {
         "name": "host",
-        "title": "Infos",
+        "title": "Nova Run",
         "width": 3,
-        "file": "HostControl.html",
-        "headerColor": "#0000FF"
+        "file": "newRun.html",
+        "headerColor": "#0000FF",
+        "workspace": "Races"
       },
       {
         "name": "Tracker",
@@ -62,7 +92,7 @@
       {
         "name": "Timer",
         "title": "Timer",
-        "width": 5,
+        "width": 3,
         "file": "timer.html",
         "headerColor": "#0000FF"
       },
@@ -123,7 +153,12 @@
         "height": 1080
       },
       {
-        "file": "player.html",
+        "file": "sync.html",
+        "width": 1920,
+        "height": 1080
+      },
+      {
+        "file": "async.html",
         "width": 1920,
         "height": 1080
       },

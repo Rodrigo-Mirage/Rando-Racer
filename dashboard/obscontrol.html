@@ -9,13 +9,25 @@
 	</style><link rel="stylesheet" href="css/dashboard.css" />
 </head>
 <body>
-    <button nodecg-dialog="setLayout">Configurar Layout</button>
-    <button onclick="SetVideos()">Criar Fontes de Video</button>
+	<fieldset>
+		<legend>Setup</legend>
+		<button onclick="inicialSetup()">Setup Inicial</button>
+		<button nodecg-dialog="setLayout">Configurar Layout</button>
+		<button onclick="SetVideos()">Criar Fontes de Video</button>
+	</fieldset>
 
 	<fieldset>
+		<legend>Video</legend>
 		<div id="playersSelect"> </div>
 		<button onclick="setPositions()">Posicionar Video</button>
 	</fieldset>
+
+	<fieldset>
+		<legend>Cenas</legend>
+		<div id="Scenecontrol"> </div>
+		<button onclick="loadScenes()">Recarregar Cenas</button>
+	</fieldset>
+
     <script src="js/obsControl.js"></script>
 
 </body>

@@ -1,6 +1,6 @@
 
 var timerReplicant = nodecg.Replicant('timer');
-var raceInfo = nodecg.Replicant("raceInfo");
+var raceInfo = nodecg.Replicant("raceInfoCurrent");
 
 var timerDiv = document.getElementById('fullTimer');	
 var RunBtn = document.getElementById('RunBtn');	
@@ -22,7 +22,6 @@ var ready = false;
 var block = false;
 
 RunStatus.on("change",(newval,oldval)=>{
-    console.log(newval);
     if(newval.general == "waiting" && newval.runners == "ready"){
         running = false;
         RunBtn.innerHTML = "Start";
@@ -35,6 +34,18 @@ RunStatus.on("change",(newval,oldval)=>{
         running = false;
         RunBtn.innerHTML = "Start When Ready";
     }
+    if(newval.general == "paused" && newval.runners == "waiting"){
+        running = false;
+        RunBtn.innerHTML = "Start When Ready";
+    }
+    if(newval.general == "reset" && newval.runners == "waiting"){
+        running = false;
+        RunBtn.innerHTML = "Start When Ready";
+    }
+    if(newval.general == "paused" && newval.runners == "ready"){
+        running = false;
+        RunBtn.innerHTML = "Start";
+    }
     if(newval.general == "started" && newval.runners == "waiting"){
         running = true;
         RunBtn.innerHTML = "Undo";
@@ -42,7 +53,7 @@ RunStatus.on("change",(newval,oldval)=>{
     if(newval.general == "running"){
         running = true;
         block = true;
-        RunBtn.innerHTML = "STOP";
+        RunBtn.innerHTML = "Pause";
     }
 });
 
@@ -52,14 +63,15 @@ function toggleTimer(){
     running = !running;
     if(running){
         startTimer();
-        RunBtn.innerHTML = "Pause";
     }else{
         pauseTimer();
-        RunBtn.innerHTML = "Start";
     }
 }
 function startTimer(){
     nodecg.sendMessage('timerStart');
+}
+function forceStartTimer(){
+    nodecg.sendMessage('timerForceStart');
 }
 
 function pauseTimer(){
@@ -81,6 +93,7 @@ raceInfo.on("change", (newVal, oldVal) => {
         var html = "";
 
         for (i = 0; i < newVal.runners.length; i++) {
+            console.log(newVal.runners[i]);
             html += `<div>`+newVal.runners[i].name+` : `+newVal.runners[i].status+`</div>`;
         }
     

@@ -74,3 +74,28 @@ input:checked + .slider:before {
 .switchDiv .title{
 margin-left: 10px;
 }
+
+
+#CurrentRunners{
+  font-size: 35px ;
+}
+fieldset{
+  margin: 10px;
+}
+
+.set{
+  background-color: green;
+}
+.unset{
+  background-color: gray;
+
+}
+
+.bubble_off{
+  background-color: gray;
+  border-radius: 5px;
+  color: #000;
+  margin: 5px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
