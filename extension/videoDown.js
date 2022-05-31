@@ -50,46 +50,48 @@ class Videos {
         }
         
         function getstreams(data) {
-            data.runners.forEach(runner => {
-                var channel = runner.alt||runner.stream;
-                var crop = {
-                    top: runner.crop.top,
-                    bottom: runner.crop.bottom,
-                    left: runner.crop.left,
-                    right: runner.crop.right,
-                  }
-                var obj = {
-                    id:runner.id,
-                    name:runner.name,
-                    game:runner.game,
-                    channel:channel,
-                    status:"play",
-                    volume:0,
-                    crops:crop,
-                    qualities:[]
-                };
-                var first = true;
-                twitch.getStream(channel)
-                    .then(urls => {
-                        var qualities  =[];
-                        urls.forEach(url => {
-                            if(url.quality.indexOf("p")!= -1){
-                                qualities.push({
-                                    name:url.quality.replace("(source)","(S)"),
-                                    url:url.url,
-                                    set:first
-                                });
-                                first = false;
-                            }
-                        });
-                        obj.qualities=qualities;
-                    })
-                    .catch(err =>{
-                        nodecg.log.info(channel + ": Offline")
-                    }).finally(()=>{
-                        verify(obj)
-                    })
-            });
+            if(data.runners){
+                data.runners.forEach(runner => {
+                    var channel = runner.alt||runner.stream;
+                    var crop = {
+                        top: runner.crop.top,
+                        bottom: runner.crop.bottom,
+                        left: runner.crop.left,
+                        right: runner.crop.right,
+                    }
+                    var obj = {
+                        id:runner.id,
+                        name:runner.name,
+                        game:runner.game,
+                        channel:channel,
+                        status:"play",
+                        volume:0,
+                        crops:crop,
+                        qualities:[]
+                    };
+                    var first = true;
+                    twitch.getStream(channel)
+                        .then(urls => {
+                            var qualities  =[];
+                            urls.forEach(url => {
+                                if(url.quality.indexOf("p")!= -1){
+                                    qualities.push({
+                                        name:url.quality.replace("(source)","(S)"),
+                                        url:url.url,
+                                        set:first
+                                    });
+                                    first = false;
+                                }
+                            });
+                            obj.qualities=qualities;
+                        })
+                        .catch(err =>{
+                            nodecg.log.info(channel + ": Offline")
+                        }).finally(()=>{
+                            verify(obj)
+                        })
+                });
+            }
         }
         
         function verify(data){
