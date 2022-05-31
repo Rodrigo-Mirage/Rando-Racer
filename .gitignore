@@ -76,6 +76,4 @@ typings/
 .fusebox/
 
 
-pacotes/
-dashboard/pacotes
-graphics/pacotes
+pacotes/*
