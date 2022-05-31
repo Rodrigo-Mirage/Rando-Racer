@@ -176,6 +176,7 @@
     "bower-npm-resolver": "^0.10.0",
     "fs": "0.0.1-security",
     "livesplit-core": "^0.10.2",
-    "nodecg-utility-obs": "github:rodrigo-mirage/nodecg-utility-obs"
+    "nodecg-utility-obs": "github:rodrigo-mirage/nodecg-utility-obs",
+    "twitch-m3u8": "^1.1.5"
   }
 }
