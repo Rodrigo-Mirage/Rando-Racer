@@ -44,8 +44,13 @@ videoPositions.on("change", (newVal, oldVal) => {
 
 raceInfo.on("change", (newVal, oldVal) => { 
     nodecg.readReplicant("videoPos", "Rando-Racer", (newrace) => {
-        slots = newrace.length;
-        selectList = newrace;
+        if(!newrace){
+            videoPositions.value = [];        
+            slots = 0;
+        }else{
+            slots = newrace.length;
+            selectList = newrace;
+        }
 
         if(newVal.layout){
             slots = parseInt(newVal.layout[0]);
@@ -57,8 +62,6 @@ raceInfo.on("change", (newVal, oldVal) => {
                 selected = selectList[i];
             }
             
-            console.log(videoPositions.value);
-
             html += `<select id='SelectVideo${i}'>`;
             html += `<option value=''>Video ${i}</option>`;
             newVal.runners.forEach(runner=>{
