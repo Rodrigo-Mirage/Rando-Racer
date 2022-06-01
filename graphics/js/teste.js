@@ -10,7 +10,7 @@ var player = videojs('vid1',window.location.host.indexOf('localhost')>-1?null:
 });
 
 var options ={
-    src: "/m3u8/"+runner.channel,
+    src: "/m3u8/egodev",
     type: 'application/x-mpegURL'
 };
 player.src(options);
