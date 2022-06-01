@@ -151,6 +151,11 @@
         "file": "crop.html",
         "width": 1920,
         "height": 1080
+      },
+      {
+        "file": "teste.html",
+        "width": 1920,
+        "height": 1080
       }
     ]
   },
