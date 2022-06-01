@@ -51,7 +51,8 @@ videosInfo.on("change", (newVal, oldVal) => {
                 quality = qual.name;
                 player.src({
                     src: qual.url,
-                    type: 'application/x-mpegURL'
+                    type: 'application/x-mpegURL',
+                    withCredentials: true
                 });
                 if(cropped == "true"){
                     var width = basewidth;

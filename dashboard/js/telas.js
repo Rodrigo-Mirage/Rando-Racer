@@ -9,7 +9,7 @@ raceInfo.on("change", (newVal, oldVal) => {
 
 function setup(data){
     var html = "";
-    if(data.runners){
+    if(data){
         data.runners.forEach(runner => {
             html += `
                 ${runner.name}|${runner.game}|
