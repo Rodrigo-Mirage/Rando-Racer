@@ -123,26 +123,24 @@ function updateTracker() {
         var newVal = trackerData;
         if(videoPos){
             if(newVal.runnerInfo){
-                for (i = 0; i < newVal.runnerInfo.length; i++) {
-    
-                    var position = videoPos.indexOf(i+1);
+                newVal.runnerInfo.forEach(runner=>{
+                    var position = videoPos.findIndex( x => x === runner.id );
                     if(position > -1){
-    
                         var randoTrackerDiv = document.getElementById(`Runner${position}Tracker`);
                         randoTrackerDiv.style.height = "auto";
                         randoTrackerDiv.innerHTML = "";
     
                         var newcontent = document.createElement('div');
 
-                        var urlBase = "Images//Tracker//"+newVal.layout+"//"+newVal.runnerInfo[i].game+"//";
+                        var urlBase = "Images//Tracker//"+newVal.layout+"//"+runner.game+"//";
 
                         if(layName){
-                            urlBase = "../pacotes/"+layName+"/tracker/"+newVal.runnerInfo[i].game+"/" ;
+                            urlBase = "../pacotes/"+layName+"/tracker/"+runner.game+"/" ;
                         }
     
                         var tracker = "<div class='trackLine'>";
-                        if(newVal.runnerInfo[i].itens){
-                            newVal.runnerInfo[i].itens.forEach(element => {
+                        if(runner.itens){
+                            runner.itens.forEach(element => {
                                 var imgName = element.name;
                                 if (element.have == 0) {
                                     imgName += "_fade";
@@ -182,8 +180,8 @@ function updateTracker() {
                         }
 
                         var prizes = "";
-                        if(newVal.runnerInfo[i].itens){
-                            newVal.runnerInfo[i].itens.forEach(element => {
+                        if(runner.itens){
+                            runner.itens.forEach(element => {
                                 var imgName = element.name;
                                 if (element.have == 0) {
                                     imgName += "_fade";
@@ -228,7 +226,7 @@ function updateTracker() {
                         randoTrackerDiv.appendChild(newcontent);
     
                     }
-                }
+                });
             }
         }
     }
