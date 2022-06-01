@@ -12,7 +12,15 @@ const container = document.getElementById("vid1Container");
 
 const crop = document.getElementById("crop");
 const original = document.getElementById("original");
-var player = videojs('vid1');
+
+var player = videojs('vid1',window.location.host.indexOf('localhost')>-1?null:
+{
+    html5: {
+      vhs: {
+        withCredentials: true
+      }
+    }
+});
 
 raceInfo.on("change", (newVal, oldVal) => {
     if(newVal){

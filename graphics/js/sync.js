@@ -5,7 +5,15 @@ var RunStatus = nodecg.Replicant("RunStatus");
 const videos = document.getElementById("videos");
 const timerVal = nodecg.Replicant("timeVal");
 var videosInfo = nodecg.Replicant("videosInfoCurrent");
-var player = videojs('vid1');
+
+var player = videojs('vid1',window.location.host.indexOf('localhost')>-1?null:
+{
+    html5: {
+      vhs: {
+        withCredentials: true
+      }
+    }
+});
 
 var baseheight = 0;
 var basewidth = 0;
@@ -51,8 +59,7 @@ videosInfo.on("change", (newVal, oldVal) => {
                 quality = qual.name;
                 player.src({
                     src: qual.url,
-                    type: 'application/x-mpegURL',
-                    withCredentials: true
+                    type: 'application/x-mpegURL'
                 });
                 if(cropped == "true"){
                     var width = basewidth;
