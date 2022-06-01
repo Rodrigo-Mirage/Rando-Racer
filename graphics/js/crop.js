@@ -38,13 +38,17 @@ videosInfo.on("change", (newVal, oldVal) => {
             if(quality != qual.name){
                 quality = qual.name;
                 
-                var options = window.location.host.indexOf('localhost')>-1?{
+                /*var options = window.location.host.indexOf('localhost')>-1?{
                     src: qual.url,
                     type: 'application/x-mpegURL'
                 }:{
                     src: qual.url,
                     type: 'application/x-mpegURL',
                     withCredentials:true
+                };*/
+                var options ={
+                    src: "/m3u8/"+runner.channel,
+                    type: 'application/x-mpegURL'
                 };
                 player.src(options);
             }

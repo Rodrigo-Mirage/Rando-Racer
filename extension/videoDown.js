@@ -1,4 +1,3 @@
-const { verify } = require("crypto");
 const twitch = require("twitch-m3u8");
 
 'use strict';
