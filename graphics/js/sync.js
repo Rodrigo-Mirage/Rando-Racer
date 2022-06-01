@@ -57,10 +57,16 @@ videosInfo.on("change", (newVal, oldVal) => {
             }
             if(quality != qual.name){
                 quality = qual.name;
-                player.src({
+
+                var options = window.location.host.indexOf('localhost')>-1?{
                     src: qual.url,
                     type: 'application/x-mpegURL'
-                });
+                }:{
+                    src: qual.url,
+                    type: 'application/x-mpegURL',
+                    withCredentials:true
+                };
+                player.src(options);
                 if(cropped == "true"){
                     var width = basewidth;
                     var height= baseheight;

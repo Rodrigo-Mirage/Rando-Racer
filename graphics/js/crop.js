@@ -37,10 +37,16 @@ videosInfo.on("change", (newVal, oldVal) => {
             qual = runner.qualities.filter(a=>a.set == true)[0];
             if(quality != qual.name){
                 quality = qual.name;
-                player.src({
+                
+                var options = window.location.host.indexOf('localhost')>-1?{
                     src: qual.url,
                     type: 'application/x-mpegURL'
-                });
+                }:{
+                    src: qual.url,
+                    type: 'application/x-mpegURL',
+                    withCredentials:true
+                };
+                player.src(options);
             }
         }if(runner.status == "play"){
             player.play();

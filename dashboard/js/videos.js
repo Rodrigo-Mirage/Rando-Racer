@@ -52,7 +52,7 @@ raceInfo.on("change", (newVal, oldVal) => {
             selectList = newrace;
         }
 
-        if(newVal.layout){
+        if(newVal && newVal.layout){
             slots = parseInt(newVal.layout[0]);
         }
         var html = "";
